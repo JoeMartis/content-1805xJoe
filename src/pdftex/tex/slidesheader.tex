@@ -1,0 +1,40 @@
+\documentclass[xcolor=svgnames]{beamer}
+%\usecolortheme[named=Green]{structure}
+\usetheme{Boadilla}
+\setbeamertemplate{navigation symbols}{}
+
+\def\mycomment#1{{\color{red} #1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Packages
+%\def\usetikz#1{}
+\def\usetikz#1{#1}
+\usepackage{amssymb,amsmath}
+\usepackage{graphicx}  %needed for the includegraphics command
+%\usepackage{verbatim} % needed for comment environment
+%\usepackage{ifthen} % needed for ifthenelse
+%\usepackage{hyperref} %for comments
+\usepackage{xcolor} %for comments
+%\usepackage{enumerate}% for lettering equations
+\usetikz{\usepackage{tikz}
+\usepgflibrary{arrows}
+\usetikzlibrary{calc,through,backgrounds} %****no spaces after commas***
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{positioning} %for below=of xxx syntax in nodes
+\usetikzlibrary{backgrounds,fit} %for background layers example
+}
+%\usepackage[all,arc]{xy} %load this one last
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Directories
+\def\jpgdir{../img}
+\def\imgdir{../img}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{macros-settings-5.tex}
+\input{1805.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

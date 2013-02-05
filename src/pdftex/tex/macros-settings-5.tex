@@ -1,0 +1,169 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Version 5
+%    Jan 3, 2013
+%       Added \subhead, \problem, \numexamp
+%    Feb 27, 2012
+%       Added \xbar, \Var, \Cov  macros
+%    Feb 11, 2012
+%       Reorganized to use with header.tex and new mkpdf.sh
+%       added some macros
+%    Feb 5, 2012
+%       Copied from 18.03
+%       Added myhide code.
+%       Removed topics codes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%  Macros
+\def\partHeading#1#2{\mcent{\textrm{\large \bf Part #1 \hspace{2.3ex}#2}}}
+
+
+%%  Simple macros
+\def\mycomment#1{{\color{red}#1}}
+\def\mcent#1{\hspace*{\stretch{1}}#1\hspace*{\stretch{1}}{ }}
+\def\hs#1{\hspace*{#1 ex}}
+\def\nl#1{\\[.#1ex]}
+\def\ds{\displaystyle}
+\def\cont{\vspace*{\stretch{1}}\emph{(continued)} \newpage}
+\def\reading{\textbf{Reading. }}
+\def\examples{\textbf{Examples. }}
+\def\example{\textbf{Example. }}
+\def\examp#1{\textbf{Example #1. }}
+\def\problem{\textbf{Problem. }}
+\def\problems{\textbf{Problems. }}
+\def\subhead#1{\textbf{#1.}}
+\def\indetop#1#2#3{\stackrel{\; \scriptstyle{{#1}{#3}{#2}}}{=} \;}
+\def\indet#1#2{\stackrel{\scriptstyle{\; \frac{#1}{#2}}}{=} \;}
+\def\indetzero{\indet{0}{0}}
+\def\indetinf{\indetop{\infty}{\infty}{/}}
+\def\qedbox{\rule{1ex}{1ex}}
+
+\def\mybull{$\bullet$}
+\def\W{\Omega}
+\def\w{\omega}
+\def\mycap{\,\cap\,}
+\def\mycup{\,\cup\,}
+\def\Norm{\text{N}}
+
+\def\myref#1{(\ref*{#1})}
+
+\def\mypart#1#2{\frac{\partial #1}{\partial #2}}
+%      fully specified partial
+\def\fp#1#2#3{(\partial #1/\partial #2)_{#3}}                %without \frac
+\def\ffp#1#2#3{\left.\frac{\partial #1}{\partial #2}\right|_{#3}}  %with \frac
+\def\mpp#1#2#3{\left(\mypart{#1}{#2}\right)_{#3}} 
+\def\myderiv#1#2{\frac{d#1}{d#2}}
+\def\mynderiv#1#2#3{\frac{d^{#3}#1}{d#2^{#3}}}
+\def\mygrad{\boldsymbol{\nabla}}         %gradient
+\def\gf#1#2{\left.\mygrad #1\right|_{#2}}
+\def\endandindent{\\ \hspace*{20pt}}
+\def\e#1{\mathrm{e}^{#1}}
+\def\myIm{\textup{Im}}
+\def\myRe{\textup{Re}}
+\def\conj#1{\overline{#1}}
+\def\tran{^\mathrm{T}}
+\def\ans{{\bf \underline{answer:}}{ }}
+\def\th{$^{\mathrm{th}}$}
+\def\myhead#1{\noindent \textbf{#1}}
+\def\tbf#1{\textbf{#1}}
+\def\mysep{: }
+\def\lap{{\mathcal{L}}}
+\def\ilap{\lap^{-1}}
+\def\myimply{\; \Rightarrow \;}
+\def\myequiv{\; \Leftrightarrow \;}
+\def\ft{\hat}
+\def\xbar{\overline{X}}
+\def\Var{\textup{Var}}
+\def\Cov{\textup{Cov}}
+\def\bypartshelp#1#2#3#4#5#6#7{\framebox{$\begin{array}[#7]{lll} 
+#5=#1 & d#6=#2\\
+d#5=#3 & #6=#4 \end{array}$}}
+\def\byparts#1#2#3#4{\bypartshelp{#1}{#2}{#3}{#4}{u}{v}{l}}
+\def\bypartst#1#2#3#4{\bypartshelp{#1}{#2}{#3}{#4}{u}{v}{t}}
+
+%matlab 
+\newcommand{\mlcmd}[2]{\textgreater{} \texttt{#1}\\ \texttt{#2}\\}
+\newcommand{\mlcmdna}[1]{\textgreater{} \texttt{#1}\\}
+\newcommand{\mlans}[2]{#1 =\\[.5ex]\hs3\parbox{5in}{#2}}
+\def\mlcomm#1{{\color{blue}\% #1}\\}
+\def\mlinstr#1{\mlcomm{#1}}
+\def\mlcar{\^{ }}
+
+%counters
+\newcounter{examplectr}
+\setcounter{examplectr}{1}
+\renewcommand{\theexamplectr}{\arabic{examplectr}}
+\newcommand{\numexamp}{\textbf{Example \arabic{examplectr}.{ }}\addtocounter{examplectr}{1}}
+
+%matrices
+\def\defleftbrace{(}
+\def\defrightbrace{)}
+\def\twobytwohelp#1#2#3#4#5#6#7{\left#6 \begin{array}{#1} #2 & #3 \\ #4 & #5 \end{array} \right#7}
+\def\twobytwo#1#2#3#4{\twobytwohelp{rr}{#1}{#2}{#3}{#4}{\defleftbrace}{\defrightbrace}}
+\def\twobytwoc#1#2#3#4{\twobytwohelp{cc}{#1}{#2}{#3}{#4}{\defleftbrace}{\defrightbrace}}
+\def\twobytwodet#1#2#3#4{\twobytwohelp{rr}{#1}{#2}{#3}{#4}{|}{|}}
+\def\twobytwodetc#1#2#3#4{\twobytwohelp{cc}{#1}{#2}{#3}{#4}{|}{|}}
+\def\twobyonehelp#1#2#3{\left\defleftbrace \begin{array}{#1} #2\\ #3  \end{array} \right\defrightbrace}
+\def\twobyone#1#2{\twobyonehelp{r}{#1}{#2}}
+\def\twobyonec#1#2{\twobyonehelp{c}{#1}{#2}}
+\def\threebythree#1#2#3#4#5#6#7#8#9{\left\defleftbrace \begin{array}{rrr} #1&#2&#3\\ #4&#5&#6\\ #7&#8&#9 \end{array} \right\defrightbrace}
+\def\threebythreec#1#2#3#4#5#6#7#8#9{\left\defleftbrace \begin{array}{ccc} #1&#2&#3\\ #4&#5&#6\\ #7&#8&#9 \end{array} \right\defrightbrace}
+\def\threebythreedet#1#2#3#4#5#6#7#8#9{\left| \begin{array}{rrr} #1&#2&#3\\ #4&#5&#6\\ #7&#8&#9 \end{array} \right|}
+\def\threebythreedetc#1#2#3#4#5#6#7#8#9{\left| \begin{array}{ccc} #1&#2&#3\\ #4&#5&#6\\ #7&#8&#9 \end{array} \right|}
+\def\threebyone#1#2#3{\left\defleftbrace \begin{array}{r} #1\\ #2\\ #3 \end{array} \right\defrightbrace}
+\def\threebyonec#1#2#3{\left\defleftbrace \begin{array}{c} #1\\ #2\\ #3 \end{array} \right\defrightbrace}
+\def\threebytwo#1#2#3#4#5#6{\left\defleftbrace \begin{array}{rr} #1&#2\\ #3&#4\\ #5&#6 \end{array} \right\defrightbrace}
+\def\threebytwoc#1#2#3#4#5#6{\left\defleftbrace \begin{array}{cc} #1&#2\\ #3&#4\\ #5&#6 \end{array} \right\defrightbrace}
+
+%Vectors and line segments
+\def\vb#1{\mathbf{#1}}  %bold
+\def\va#1{\overrightarrow{#1}}  %arraow
+\def\vba#1{\overrightarrow{\mathbf{#1}}}  %bold/arraow
+\def\vl#1{\overline{#1}} %overline
+\def\vbl#1{\overline{\mathbf{#1}}} %bold/overline
+\def\vu#1{\widehat{#1}} %unit vector
+\def\vbu#1{\widehat{\mathbf{#1}}} %bold/unit vector
+\def\un#1{\frac{#1}{\left|#1\right|}}  %normalize vector
+\def\vbi{\vbu{i}}
+\def\vbj{\vbu{j}}
+\def\vbk{\vbu{k}}
+\def\vc#1{\langle #1 \rangle}
+\def\vcb#1{\left\langle #1 \right\rangle}
+
+\newcommand{\st}[1]{\ensuremath{^{\scriptstyle \textrm{#1}}}}
+\newcommand{\undertext}[1]{\ensuremath{\underline{\textrm{#1}}}}
+\newcommand{\fracc}{\displaystyle\frac}
+\newcommand{\summ}{\displaystyle\sum}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% tikz
+\usetikz{\tikzset{
+addarrow/.style={postaction={decorate},
+        decoration={markings,mark=at position #1 with {\arrow{>}}}}
+}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Sample Complex formatting macros
+%\makeatletter
+%\renewcommand\section{\goodbreak\@startsection {section}{1}{\z@}%
+%%%                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+%                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+%                                   {2.3ex \@plus.2ex}%
+%                                   {\normalfont\large\bfseries%
+%                                     \centering\sectionname\ }}
+
+%\renewcommand\subsection{\goodbreak\@startsection{subsection}{2}{\z@}%
+%%                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+ %                                    {-2ex\@plus -1ex \@minus -.2ex}%
+%%                                     {1.5ex \@plus .2ex}%
+%                                     {1.25ex \@plus .2ex}%
+%                                     {\normalfont\large\bfseries}}
+%\makeatother
+
+%\renewcommand{\thesection}{\Roman{section}}
+%\newcommand\sectionname{Part}
+%\newcommand{\alphalist}{% changes enumerate 1st level to (a)...(z)
+%  \renewcommand{\theenumi}{\alph{enumi}}%
+%  \renewcommand{\labelenumi}{\theenumi)}%
+%}
+%\alphalist
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

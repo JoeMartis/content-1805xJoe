@@ -1,0 +1,11 @@
+<videosequence display_name="Midterm 1" format="Lesson Sequence">
+<vertical><video display_name="Lecture 1 -- 18.06 Strang" youtube= '1.0:ZK3O402wf1c' /></vertical>
+
+<problem url_name="Problem_1"/>
+<problem url_name="Problem_2"/>
+<problem url_name="Problem_3"/>
+<problem url_name="example0"/>
+
+<vertical><video display_name="Lecture 2 -- 18.06 Strang" youtube= '1.0:QVKj3LADCnA'/></vertical>
+
+</videosequence>

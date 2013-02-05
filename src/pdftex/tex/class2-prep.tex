@@ -1,0 +1,322 @@
+\def\ptsz{11pt}
+\input{header.tex}
+
+\def\mybull{$\bullet$}
+\def\W{\Omega}
+\def\w{\omega}
+\def\mycap{\,\cap\,}
+\def\mycup{\,\cup\,}
+\def\endtopic{\vspace*{\stretch{1}} \emph{End of class \classnum{} notes}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\classnum{2}
+\def\topic{Probability: Terminology and Examples}
+
+\def\parttitle{Class \classnum{}\\ \topic\\18.05, \whichterm }
+\def\mypagehead{18.05 class \classnum, \topic, \whichterm }
+\def\mytitle{\parttitle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{headings}
+\markboth{\mypagehead}{\mypagehead}
+
+\begin{document}
+\thispagestyle{plain}
+
+\begin{center}
+  \Large\bfseries \mytitle
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Learning Goals}
+\begin{enumerate}[1.]
+\item Know the definitions of sample space, event and probability function.
+\item Be able to organize a scenario with randomness into an experiment and sample space.
+\item  Be able to make basic computations using a probability function.
+\end{enumerate}
+
+\section{Terminology}
+
+\subsection{Probability cast list}
+\begin{enumerate}[\mybull]
+\item Experiment: a repeatable procedure with defined outcomes.
+\item Sample space: the set of all possible outcomes. We usually denote
+the sample space by $\W$, sometimes by $S$.
+\item Event: a subset of the sample space.
+\item Probability function: a function giving the probability for each outcome.
+\item Probability density: (We'll get to this later in the course.)
+\item Random variable: a random numerical outcome (We'll get to this later in the course.)
+\end{enumerate}
+
+\subsection{Simple examples}
+\numexamp Toss a fair  coin.\\
+Experiment: toss the coin, report if it lands heads or tails.\\
+Sample space: $\W = \{H,\, T\}$.\\
+Probability function: $P(H) = .5$, \, $P(T) = .5$.
+
+\medskip
+
+\numexamp Toss a fair  coin 3 times.\\
+Experiment: toss the coin 3 times, list the results.\\
+Sample space: $\W = \{HHH, \, HHT, \, HTH, \, HTT, \, THH, \, THT, \, TTH, \, TTT\}$.\\
+Probability function: Each outcome is equally likely with probability 1/8.
+
+For small sample spaces we can put the set of outcomes and probabilities into
+a table.
+
+\begin{tabular}{l|cccccccc}
+Outcomes    & HHH & HHT & HTH & HTT & THH & THT & TTH & TTT\\
+\hline
+Probability & 1/8 & 1/8 & 1/8 & 1/8 & 1/8 & 1/8 & 1/8 & 1/8
+\end{tabular}
+\medskip
+
+\numexamp Measure the mass of a proton\\
+Experiment: follow some procedure to measure the mass and report the result.\\
+Sample space: $\W = [0,\infty)$, i.e. in principle we can get any positive value.\\
+Probability function: sinces there is a continuum of possible outcomes there
+is no probability function. Instead we need to use a 
+\emph{probability density}, which we will learn about
+later in the course.
+
+\medskip
+
+\numexamp (An infinite sample space)\\
+Experiment: count the number of taxis that pass 77 Mass. Ave
+during this class.\\
+Sample space: $\W = $ \{0, 1, 2, 3, 4, \ldots\}.\\
+This is often modeled with the following probability function (known as the
+Poisson distribution):\\
+\[\ds{P(k) = \e{-\lambda}\frac{\lambda^k}{k!}},\]
+where $\lambda$ is the average number of taxis. 
+We can put this in a table:
+
+\begin{tabular}{l|cccccccc}
+Outcome    & 0 & 1 & 2 & 3 & \ldots & k & \ldots\\[.6ex]
+\hline\\[-.9ex]
+Probability & $\e{-\lambda}$ & $\e{-\lambda}\,\lambda$ 
+& $\e{-\lambda}\,\lambda^2/2$ & $\e{-\lambda}\,\lambda^3/3!$
+& \ldots & $\e{-\lambda}\,\lambda^k/k!$ & \ldots
+\end{tabular}
+
+Question: Accepting that this is a valid probability function, what 
+is $\ds{\sum_{k=0}^\infty \e{-\lambda}\frac{\lambda^k}{k!}}$ \,?\\
+\ans This is the total probability of all possible outcomes, so the sum equals 1. (Note, this follows from the Taylor series \,
+$\ds{\e{\lambda} = \sum_{n=0}^\infty \frac{\lambda^n}{n!}}$.)
+
+
+\medskip
+
+In a given setup there can be more than one possible sample space.
+
+\numexamp (Choice of sample space)\\
+Suppose you roll one die. Then the sample space and probability function are
+
+\mcent{\begin{tabular}{l|cccccc}
+Outcome & 1 & 2 & 3 & 4 &5 & 6\\
+\hline
+Probability: & 1/6 & 1/6 & 1/6 & 1/6 & 1/6 & 1/6
+\end{tabular}}
+
+Now, suppose you roll two dice. What should be the sample space? Here are two
+options.\\
+1. Record the pair of numbers showing on the dice (first die, second die). \\
+2. Record the sum of the numbers on two dice. In this case there are
+11 outcomes $\{2,3,4,5,6,7,8,9,10,11,12\}$. These outcomes are not equally
+likely.
+
+As above, we can put this information in tables. For the first case, the 
+sample space is the product of the sample spaces for each die
+\[ \{(1,1),\, (2,1),\, (3,1), \ldots (6,6)\}\]
+Each of the 36 (why 36?) outcomes are equally likely. 
+For the probability function we will
+make a two dimensional table with the rows representing the number on the
+first die, the columns the number on the second die and the entries the
+probability.
+
+\mcent{
+\begin{tabular}{l|c|c|c|c|c|c|c|}
+\multicolumn{7}{c}{\hs{14} Die 2}\\
+\cline{2-8}
+&  &  1  &  2  &  3  &  4  &  5  & 6\\
+\cline{2-8}
+&1 & 1/36 & 1/36 & 1/36 & 1/36 & 1/36 & 1/36\\
+\cline{2-8}
+&2 & 1/36 & 1/36 & 1/36 & 1/36 & 1/36 & 1/36\\
+\cline{2-8}
+Die 1&3 & 1/36 & 1/36 & 1/36 & 1/36 & 1/36 & 1/36\\
+\cline{2-8}
+&4 & 1/36 & 1/36 & 1/36 & 1/36 & 1/36 & 1/36\\
+\cline{2-8}
+&5 & 1/36 & 1/36 & 1/36 & 1/36 & 1/36 & 1/36\\
+\cline{2-8}
+&6 & 1/36 & 1/36 & 1/36 & 1/36 & 1/36 & 1/36\\
+\cline{2-8}
+\end{tabular}}
+
+{\mcent{\hs5Two dice in a two dimensional table}}\\
+
+For the second case we can present outcomes and probabilities in our usual table.\\
+
+\mcent{
+\begin{tabular}{l|ccccccccccc}
+outcomes  &  2  &  3  &  4  &  5  &  6  & 7 & 8 & 9 & 10 & 11 & 12\\
+\hline
+probability & 1/36 & 2/36 & 3/36 & 4/36 & 5/36 & 6/36 & 5/36 & 4/36 
+& 3/36 & 2/36 & 1/36
+\end{tabular}
+}\nl5
+\mcent{The sum of two dice}\\
+
+We will see that the best choice of sample space depends on the context. For now, simply
+note that given the outcome as a pair of numbers it is easy to
+find the sum.
+
+
+\subhead{Note} Listing the experiment, sample space and probability function
+is a good way to start working systematically with probability. It can help 
+you avoid some of the common pitfalls in the subject.
+
+\medskip
+
+\subhead{Events}
+
+We defined an  \emph{event} as a collection of outcomes. In other words
+an event is a subset of the sample space $\W$. This sounds
+odd, but it actually corresponds to the common meaning of the word.
+
+\numexamp Using the setup in example 2 we would describe an
+event in words by saying something like, $E$ = `the event
+you get exactly 2 heads'. Written as a subset this becomes
+\[E = \{HHT, \, HTH, \, THH\}.\]
+You should get comfortable moving between describing events
+in words and as subsets of the sample space.
+
+In this example the probability of $E$ is computed by
+adding up the probabilities of all of the outcomes in
+$E$. Since each outcome has probability 1/8, we have $P(E) = 3/8$.
+
+\subsection{Definition of a discrete sample space}
+\subhead{Definition} \, A \textbf{discrete sample space} is one that is 
+listable, it can be either finite or infinite.
+
+\examples \{H, T\}, \, \{1, 2, 3\}, \, \{1, 2, 3, 4, \ldots\}, \,
+\{2, 3, 5, 7, 11, 13, 17, \ldots\} are all discrete sets. The first two
+are finite and the second two are infinite.
+
+\example The interval $0 \le x \le 1$ 
+is \emph{not} discrete, rather it is \emph{continuous.} We will deal with 
+continuous sample spaces in a few days.
+
+\subsection{The probability function}
+
+So far we've been using a casual definition of the probability function.
+
+\subhead{Careful definition of the probability function}\\
+For a discrete sample space a \emph{probability function} assigns to each
+outcome $\w$ a number $P(\w)$ called the probability. It must satisfy:\\
+1. $0 \le P(\w) \le 1$ \, (the probability is between 0 and 1).\\
+2. The sum of the probabilities of all possible outcomes is 1 (something must
+
+In symbols rule 2 says: if $\W = \{\w_1, \w_2, \ldots, \w_n\}$ then
+$P(\w_1) + P(\w_2) + \ldots + P(\w_n) = 1.$  Using summation notation:
+$\ds{\sum_{j=1}^n P(\w_j) = 1}$.
+
+The probability of an event $E$ is the sum of the probabilities of 
+all the outcomes in $E$.
+
+\problem Check rules 1 and 2 on examples 1 and 2 above.
+
+\medskip
+
+
+\numexamp (A classic example)\\
+Suppose we have a coin with probability $p$ of heads.\\
+Experiment: Toss the coin until the first heads. Report the number of tosses.\\
+Sample space: $\W = $ \{1, 2, 3, \ldots\}.\\
+Probability function: $P(n) = (1-p)^{n-1}p$.
+
+Challenge 1: show the sum of all the probabilities equals 1 (hint: geometric series).\\
+Challenge 2: justify the formula for $P(n)$ (we will do this soon).
+
+\subhead{Stopping problems}
+As usual with our
+toy examples, the previous example is an uncluttered version of a general
+class of problems called \textbf{stopping rule problems}. A
+stopping rule is a rule that tells you when to end a certain
+process.  In the example the process was flipping a coin and 
+we stopped after the first heads.  A
+possibly more practical sounding example might be a rule for
+ending a series of medical treatments.  One could ask about
+the probability of stopping within a certain number of
+treatments or the average number of treatments you should
+expect.
+
+
+\section{Some rules of probability}
+For events $A$, $L$, $R$
+\begin{enumerate}[Rule 1.]
+\item $P(A^c)  = 1 - P(A)$.
+\item If $L$ and $R$ are disjoint then $P(L \cup R)  = P(L) + P(R)$.
+\item If $L$ and $R$ are not disjoint, we have the \textbf{inclusion-exclusion principle}: $$P(L\mycup R)  =  P(L) + P(R) - P(L\mycap R)$$
+\end{enumerate}
+
+We visualize these rules using Venn diagrams.
+
+\mcent{
+\includegraphics{\imgdir/figc2-1.pdf}
+\includegraphics{\imgdir/figc2-2.pdf}
+\includegraphics{\imgdir/figc2-3.pdf}
+}
+
+We can also justify them logically.
+
+Rule 1: 
+$A$ and $A^c$ split $\W$ into
+two non-overlapping regions. Since the total probability  $P(\W) = 1$ 
+this rule says that the probabiity of $A$ and the probability of 'not $A$'
+are complementary, i.e. sum to 1.
+
+Rule 2: 
+$L$ and $R$ split $L\cup R$ into
+two non-overlapping regions. So the probability of $L\cup R$ is
+is split between $P(L)$ and $P(R)$
+
+Rule 3: 
+In the sum $P(L) + P(R)$ the overlap $P(L\cap R)$ gets counted twice.
+So $P(L) + P(R) - P(L\cap R)$ counts everything in the union exactly once.
+
+In the following example problems we have an experiment that produces
+a random integer between 1 and 20. The probabilities are not 
+necessarily uniform, i.e., the same for each outcome.
+
+\numexamp  If the probability of an even number is .6 what is the probability of an odd number.
+
+\ans Since being odd is complementary to being even, the probability of being odd is 1-.6 = .4.
+
+Let's redo this example a bit more formally, so you see how it's done.
+First, so we can refer to it, let's name the random integer $X$. 
+Let's also name the event `$X$ is even' as $A$. Then the event
+`$X$ is odd' is $A^c$.
+We are given that  $P(A) = .6$. Therefore $P(A^c) = 1-.6 = \boxed{.4}$.
+
+\numexamp Consider the 2 events, $A$: `$X$ is a multiple of 2'; $B$: `$X$ is odd and less than 10'. Suppose $P(A)=.6$ and $P(B)=.25$.\\
+(i) What is $A\mycap B$?\\
+(ii) What is the probability of $A\mycup B$? 
+
+\ans (i) Since all numbers in $A$ are even and all numbers in $B$ are odd, these events are disjoint. That is, $\boxed{A\mycap B = \emptyset.}$
+
+(ii) Since $A$ and $B$ are disjoint $\boxed{P(A\mycup B) = P(A) + P(B) = .85.}$
+
+\medskip
+
+\numexamp Let $A$, $B$ and $C$ be the events $X$ is a multiple of 2, 3 and 6
+respectively. If $P(A)=.6$, $P(B)=.3$ and $P(C)=.2$ what is $P(A \text{ or } B)$?
+
+\ans Note two things. First we used the word `or' which means union:
+ `$A$ or $B$' = $A\mycup B$. 
+Second, an integer is divisible by 6 if and only if it is divisible by both 2 and 3.  This translates into $C = A\mycap B$. So the inclusion-exclusion principle says 
+\[ P(A\mycup B) = P(A) +P(B) - P(A\mycap B) = .6 + .3 - .2 = \boxed{.7}.\]
+\endtopic
+\end{document}

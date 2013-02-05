@@ -1,0 +1,28 @@
+\def\mycap{\, \cap \,}
+\def\mycup{\, \cup \,}
+\def\sc{2cm}
+\begin{tikzpicture} [x=\sc, y=\sc]
+\draw (-2,-1.5) rectangle (2,1.5);
+\draw [fill=blue, opacity=.5] (.5,0) circle (1);
+\draw [fill=red, opacity=.5] (-.5,0) circle (1);
+%labels
+\node at (-1.8,1.2) {\large $S$};
+\node at (1.2,0) {\large $A$};
+\node at (-1.2,0) {\large $B$};
+\node at (0,0) {$A\mycap B$};
+%dots
+\foreach \x in {-1.2,-.8,-.4,0,.4,.8,1.2}
+{
+  \foreach \y in {1.2, .8, .4, -.4, -.8, -1.2}
+  {
+    \draw [fill] (\x,\y) circle (1.5pt);
+  }
+}
+\foreach \x in {-1.6,1.6}
+{
+  \foreach \y in {.8, .4, -.4, -.8}
+  {
+    \draw [fill] (\x,\y) circle (1.5pt);
+  }
+}
+\end{tikzpicture}

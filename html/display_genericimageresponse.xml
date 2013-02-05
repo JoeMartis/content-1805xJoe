@@ -1,0 +1,25 @@
+<html>
+<pre>
+&lt;problem>
+
+&lt;startouttext/>
+&lt;p>An image response problem presents an image for the student.  Input is given by the location of mouse clicks on the image. Correctness of input can be evaluated based on expected dimensions of a rectangle. &lt;/p>
+
+&lt;p>Which object in this image is required by the fire code?&lt;/p>
+&lt;endouttext/>
+
+&lt;imageresponse>
+&lt;imageinput src="/static/images/images_firecode.jpeg" width="640" height="480" rectangle="(365,42)-(423,66)"/>
+&lt;/imageresponse>
+
+&lt;solution>
+&lt;div class="detailed-solution">
+&lt;p>Explanation&lt;/p>
+
+&lt;p>The fire code requires that all exits be clearly marked, so the red exit sign is the correct answer.&lt;/p>
+&lt;/div>
+&lt;/solution>
+
+&lt;/problem>
+</pre>
+</html>

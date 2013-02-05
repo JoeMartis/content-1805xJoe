@@ -1,0 +1,28 @@
+<html>
+<pre>
+&lt;problem>
+
+&lt;startouttext/>
+
+&lt;endouttext/>
+
+&lt;multiplechoiceresponse>
+&lt;choicegroup type="MultipleChoice">
+&lt;choice correct="false" name="1">&lt;text> &lt;/text>&lt;/choice>
+&lt;choice correct="false" name="2">&lt;text> &lt;/text>&lt;/choice>
+&lt;choice correct="false" name="3">&lt;text> &lt;/text>&lt;/choice>
+&lt;choice correct="false" name="4">&lt;text> &lt;/text>&lt;/choice>
+&lt;choice correct="false" name="5">&lt;text> &lt;/text>&lt;/choice>
+&lt;/choicegroup>
+&lt;/multiplechoiceresponse>
+
+&lt;solution>
+&lt;div class="detailed-solution">
+
+&lt;/div>
+&lt;/solution>
+
+&lt;/problem>
+
+</pre>
+</html>

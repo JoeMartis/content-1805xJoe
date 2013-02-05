@@ -1,0 +1,10 @@
+<problem display_name="Test Problem 1">
+	<startouttext/>
+	<p>Hello, world. Give me a high five!</p>
+	<endouttext/>
+<numericalresponse answer="5">
+<responseparam type="tolerance" default="5%" name="tol" description="Numerical Tolerance"/>
+<textline math="1"/>
+</numericalresponse>
+
+</problem>

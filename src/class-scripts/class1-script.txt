@@ -1,0 +1,168 @@
+Class 1
+
+Introduce staff           ****slide 
+   name, email, office hours
+
+Introduce 18.05            ***slide  DON'T READ
+    Should have gotten email
+    Mention: we're pioneering this, exciting, but we'll be technical problems
+write to me if you encounter them.
+ 
+Course structure           ***slide 
+   Briefly --see the website
+
+Class time                 *** slide 
+
+Psets                      ***slide 
+
+clickers and matlab        ***slide 
+
+Go to 18.05x on MITx       ***slide 
+
+For next time               ***slide 
+
+-------------------------------------------------   
+On boards --    ***Ask them to give feedback on use of boards
+
+Intro                       ***slide
+Quickly through intro  **don't mention Bayesian and frequentist  **USE BOARD
+   Prob and statistics are two different subjects 
+   with deep connections
+      Both are about random processes
+
+   Prob
+      logically self contained: 
+      Start with known probabilities and compute other probabilities
+      Follow a few rules and though computation can be tricky
+       the answers follow logically.
+     Example: For a coin known to be fair (prob of heads = prob of tails = 1/2)
+     what is the probability of getting 60 or more heads in 100 tosses.
+     This has one correct answer.
+
+    Statistics 
+       messier and more of an art. 
+       Get experimental data try to draw probabilistic conclusions
+    E.g. Start with a coin of unknown origin
+    Flip it 100 times, say you get 60 heads. (This is DATA)
+    What can you conclude about fairness of the coin
+    More generally about its prob. of getting heads
+    There is no one correct answer to this question.
+    How you approach the problem and the conclusions you draw depend
+    your needs and the choices you make.
+
+List applications: medicine, genetics, biology, psychology, physical sciences,
+epidemiology, climate modeling, gambling, etc.
+Any subject that deals with data.
+
+Mention toy models
+  Get at essence of messier real examples
+  E.g. success or failure of airplane, medical treatment, student in a class
+  can be abstracted to heads or tails on tossing an unfair coin. 
+
+  We will look at both real and toy models in this class. 
+  The beauty is how well simplified models often capture the important
+  features of messy system
+
+-------------
+COUNTING
+Start with motivating questions to see why counting is important
+
+Example 1    **as TQ:  5 minutes                   ***SLIDE
+1 head in 3 flips
+**TAspush stuck groups to list and count
+
+Point out counting and difficulty with, say 10 flips
+
+Example 2    **as immediate CQ          ***slide
+Probability of pair in poker
+POINT: need to count
+
+-------------
+Sets  in words                   **slide of all 12 months 
+On Board
+S = everything
+Intersection: AND  L cap R = everything in both L and R       
+Union: OR          L cup R = everything in L or in R (or both)
+Complement: NOT    L^c = everything not in L (also S-L)
+                   L-R = everything in L not in R  
+
+Venn visualization               **slide of venn
+If this is unfamiliar see us in office hours
+
+DeMorgan                         **SHORT SLIDE
+DeMorgans shows relation between union intersection and complement
+Example:  L = left-handed, R=red-haired
+You're in L cap R means your a left-handed red-head
+Left side says not a left-h red-head, right side -not left-h or not red (or both)
+
+-----------------
+Product of sets              
+
+Define S x T = {(s,t)}   **SLIDE   do examples on board
+
+{1,2,3} x {1,2,3,4}, as table
+[1,4] x [2,3],       as rectangle
+
+-------------------
+COUNTING
+Inclusion-exclusion principle   **SLIDE venn diagram
+
+example 5                   **SLIDE Table question
+Band of singers and guitar players (7 sing, 4 play guitar, 2 do both)
+Give the answer 9: skip solution.  
+Point out it's explained in the reading
+
+-------------------
+RULE OF PRODUCT              **Slide
+State 
+If n ways to do action 1 followed by m ways to do action 2
+then there are nxm ways to do 1 followed by 2
+
+3 shirts, 4 pants = 3x4=12 outfits
+
+example 7                    **TQ  SLIDE
+5 Competitors in 100m final. 
+How many ways can gold silver and bronze be awarded
+Give solution 
+
+NOTE the choice of the gold medalist affects who can get the silver.
+but not number of possibilities
+
+-------------------
+Permuatations                 **SLIDE
+Definition on board
+A permutation of a set is a particular order of the set
+{a, b, c} has six perm. Give list
+
+Could count list using rule of product
+
+
+Example 8: give problem        **SLIDE
+List all permutations of 3 elements out of 4 things 
+Think about how you'd do this
+answer                          **slide
+POINT these lists get long. 
+We need to organize our thinking to count them
+
+-------------
+Combinations                  **SLIDE
+In contrast to perm. for combinations order doesn't matter  
+
+example                       **SLIDE
+List all comb. of 3 things out of the set {a,b,c,d}
+DO ON BOARD
+
+Formulas and notations       **NO SLIDE
+nPk, nCk = (nk) 
+nPk =  n(n-1) ... (n-k+1) = n!/(n-k)!
+
+ex. 5P3 = 5x4x3 = 5x4x3x2x1/2x1 = 5!/2!
+
+Relate Perm and Comb          **SLIDE
+nCk = nPk/k! reasoning each comb occurs k! times in set of perm.
+
+example 11          **BQ
+Count the number of ways to get exactly 3 heads in 10 flips of a coin
+Answer posted w/notes
+
+Announce NEXT TIME WE START WITH POKER HANDS QUESTION

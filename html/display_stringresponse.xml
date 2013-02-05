@@ -1,0 +1,20 @@
+<html>
+<pre>
+&lt;problem>
+
+&lt;startouttext/>
+
+&lt;endouttext/>
+
+&lt;stringresponse answer="Michigan" type="ci">
+&lt;textline size="20"/>
+&lt;/stringresponse>
+
+&lt;solution>
+
+&lt;/solution>
+
+&lt;/problem>
+
+</pre>
+</html>

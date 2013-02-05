@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="content-type" />
+</head>
+<document>
+
+
+<div class="navigation">
+
+
+
+</div>
+
+<div><p>
+<problem url_name="Latex Example Problem 4" attrib_string="10"><text><p>
+<h2>Example of external response (coding problem)</h2> </p><p>
+This problem demonstrates a python coding problem. </p><script type="text/python" system_path="python_lib">
+initial_display = ""
+answer = """
+print "hello world"
+"""
+preamble = """ 
+code = '''
+"""
+test_program = """
+'''
+code = code.replace('print ','print &gt;&gt; LOG_OUTPUT, ')
+exec(code)
+"""
+</script><p>
+Write python code which prints out “hello world" </p><p>
+<externalresponse tests="1">
+  <textbox rows="5"/>
+</externalresponse> </p><p>
+Here is the [mathjaxinline]\LaTeX[/mathjaxinline] code for the problem: </p><pre>
+\documentclass[12pt]{article}
+
+\usepackage{edXpsl}	% edX
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\begin{edXproblem}{Latex Example Problem 4}{10}
+
+\section{Example of external response (coding problem)}  
+
+This problem demonstrates a python coding problem.
+
+\begin{edXscript}
+initial_display = ""
+answer = """
+print "hello world"
+"""
+preamble = """ 
+code = '''
+"""
+test_program = """
+'''
+code = code.replace('print ','print &gt;&gt; LOG_OUTPUT, ')
+exec(code)
+"""
+\end{edXscript}
+
+Write python code which prints out ``hello world''
+
+\edXabox{type="external" rows=5 tests="1"}
+
+\end{edXproblem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+</pre></text></problem> </p></div>
+
+
+
+
+
+<div class="navigation">
+
+
+
+</div>
+
+</document></html>

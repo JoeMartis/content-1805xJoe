@@ -1,0 +1,13 @@
+<problem>
+<startouttext/>
+<p></p>
+<endouttext/>
+
+ <imageresponse>
+      <imageinput src="xasset:images_firecode.jpg" width="640" height="480" rectangle="(365,42)-(423,66)" />
+    </imageresponse>
+
+    <solution>
+    </solution>
+
+</problem>

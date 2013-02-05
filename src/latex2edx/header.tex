@@ -1,0 +1,80 @@
+\documentclass[12pt]{article}
+
+\usepackage{edXpsl}	% edX
+
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{calc}
+%\usepackage{enumerate}	% edX
+%\usepackage{paralist}	% edX
+\usepackage{cancel}
+\usepackage{amsmath, amsthm, amsfonts, amssymb, color, mathrsfs,comment} % edX
+%\usepackage{paralist, enumerate, amsmath, amsthm, amsfonts, amssymb, color, mathrsfs,comment}
+
+\usepackage{lastpage}
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+%\fancyhf{} % clear all header and footer fields
+%\fancyfoot[R]{\footnotesize Page \thepage\ of \pageref{LastPage}} %OBS: Fill in exam length manually!
+%\renewcommand{\headrulewidth}{0pt}
+%\renewcommand{\footrulewidth}{0pt}
+
+
+\setlength{\textheight}{9in-\footskip}
+\setlength{\textwidth}{6.5in}
+\setlength{\evensidemargin}{0.5in}
+\setlength{\oddsidemargin}{0.5in}
+\setlength{\topmargin}{0pt}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{0pt}
+\renewcommand{\baselinestretch}{1.5}
+\setlength{\parindent}{0pt}
+
+\newcounter{probctr}
+\setcounter{probctr}{1}
+\renewcommand{\theprobctr}{\arabic{probctr}}
+%\newcommand{\problem}{\noindent\textbf{\arabic{probctr}.{ } }\addtocounter{probctr}{1}}
+% latex2edx.py doesn't handle this command. We'll have to number problems by hand.
+\newcommand{\problem}[1]{\textbf{#1.}}
+
+\newcommand{\problemOLD}[2]{%		% edX
+  \addtocounter{probctr}{1}
+   \begin{list}{}{%
+          \labelsep=1.1ex
+          \settowidth{\labelwidth}{\textbf{99~(99 pts.)}}
+          \addtolength{\labelwidth}{1em} 
+          \leftmargin=\labelwidth 
+          \addtolength{\leftmargin}{\labelsep} 
+          \renewcommand{\makelabel}[1]{ ##1 }}
+          \item[\textbf{\theprobctr ~ (#1 pts.)} \hfill]
+       #2 
+%       \newpage
+   \end{list}
+}
+
+
+% \newenvironment{sol}{\begin{proof}[Solution]}{\end{proof}}	% edX
+\newenvironment{sol}{\begin{edXsolution}}{\end{edXsolution}}	% edX
+
+%---------------------------------------------------%
+% Simple macros
+
+% For matlab
+\def\gt{\textgreater}
+\def\lt{\textless}
+\def\textcaret{\textasciicircum}
+\def\textbl{\textbackslash}
+\def\bracel{\textbraceleft}
+\def\bracer{\textbrageright}
+\def\textunder{\textunderscore}
+%\def\textstar{\textasteriskcentered} don't use: latex2edx doesn't parse it just use plain *
+
+\newcommand{\mlprompt}{\textgreater{}}
+\newcommand{\mlcaret}{\textasciicircum{}}
+\newcommand{\mlcmd}[2]{\textgreater{} \texttt{#1}\\ \texttt{#2}\\}
+\newcommand{\mlcmdna}[1]{\textgreater{} \texttt{#1}\\}
+\newcommand{\mlans}[2]{#1 =\\[.5ex]\hs3\parbox{5in}{#2}}
+\def\mlcomm#1{\mycomment{\% #1}\\}
+

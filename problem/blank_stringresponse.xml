@@ -1,0 +1,13 @@
+<problem showanswer="always">
+
+<startouttext/>
+<endouttext/>
+
+ <stringresponse answer="Michigan" type="ci">
+  <textline size="20"/>
+ </stringresponse>
+    
+    <solution>
+   
+    </solution>
+</problem>

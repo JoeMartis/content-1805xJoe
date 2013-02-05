@@ -1,0 +1,51 @@
+<html>
+<pre>
+&lt;problem>
+
+&lt;startouttext/>
+&lt;p>A custom response problem accepts one or more lines of text input from the student, and evaluates the inputs for correctness based on evaluation using a python script embedded within the problem. &lt;/p>
+
+&lt;script type="loncapa/python">
+def test_add_to_ten(expect,ans):
+a1=float(ans[0])
+a2=float(ans[1])
+return (a1+a2)==10
+
+def test_add(expect,ans):
+a1=float(ans[0])
+a2=float(ans[1])
+return (a1+a2)== float(expect)
+&lt;/script>
+
+&lt;p>Enter two integers which sum to 10: &lt;/p>
+&lt;endouttext/>
+
+&lt;customresponse cfn="test_add_to_ten">
+&lt;textline size="40" correct_answer="3"/>
+&lt;br/>
+&lt;textline size="40" correct_answer="7"/>
+&lt;/customresponse>
+
+&lt;startouttext/>
+&lt;p>Enter two integers which sum to 20: &lt;/p>
+&lt;endouttext/>
+
+&lt;customresponse cfn="test_add" expect="20">
+&lt;textline size="40" correct_answer="11"/>
+&lt;br/>
+&lt;textline size="40" correct_answer="9"/>
+&lt;/customresponse>
+
+&lt;solution>
+&lt;div class="detailed-solution">
+&lt;p>Explanation&lt;/p>
+
+&lt;p>Any set of values on the line \(y = 10 - x\) and \(y = 20 - x\) satisfy these constraints.&lt;/p>
+
+&lt;img src="xasset:images_simple_graph.png"/>
+&lt;/div>
+&lt;/solution>
+
+&lt;/problem>
+</pre>
+</html>

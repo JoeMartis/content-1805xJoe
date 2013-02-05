@@ -1,0 +1,19 @@
+<html>
+<pre>
+&lt;problem>
+
+&lt;startouttext/>
+
+&lt;endouttext/>
+
+&lt;imageresponse>
+&lt;imageinput src="xasset:images_firecode.jpg" width="640" height="480" rectangle="(365,42)-(423,66)"/>
+&lt;/imageresponse>
+
+&lt;solution>
+
+&lt;/solution>
+
+&lt;/problem>
+</pre>
+</html>

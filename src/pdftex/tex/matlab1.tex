@@ -1,0 +1,383 @@
+\def\endmatlab{\emph{End of Matlab \matlabnum}}
+\def\mybull{$\bullet$}
+\def\W{\Omega}
+\def\w{\omega}
+\def\lb{\lambda}
+\def\R{\textbf{R}}
+\def\mycap{\,\cap\,}
+\def\mycup{\,\cup\,}
+\def\mycont{\newpage} %to leave out the  '(continued)' from \cont
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\matlabnum{1}
+\def\topic{Basics and Simple Simulation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\parttitle{Matlab \matlabnum, \topic
+\\18.05, \whichterm }
+\def\mypagehead{18.05 Matlab Tutorial \matlabnum, \topic, \whichterm }
+\def\mytitle{\parttitle}
+\pagestyle{headings}
+\markboth{\mypagehead}{\mypagehead}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\thispagestyle{plain}
+
+\begin{center}
+  \Large\bfseries \mytitle
+\end{center}
+
+\mycomment{ADD REFERENCES}
+
+\mycomment{ADD x = [1:100],  [3:7:100]}
+
+\mycomment{NOTE common mistake is 2x}
+
+\mlcomm{This is an edited transcript of a real Matlab session.
+Instructions and comments are in blue on lines beginning with a \%.}
+
+\mlcomm{To take this tutorial simply read down the page following the
+instructions and looking to the comments for explanation.}
+
+\mlcomm{Don't be afraid to play with Matlab.
+If you wonder what happens if you do something then try it and see.
+Also, don't force yourself to remember every detail. Try to get a 
+feel for Matlab. The more you use it the more you'll remember.}
+
+\medskip
+
+\mlinstr{Start Matlab.}
+\mlcomm{After it loads you should have a window with the Matlab prompt: \textgreater}
+
+
+\medskip
+\mlcomm{\textbf{Using Matlab as a calculator}}
+\mlcomm{To issue a command you type it at the command prompt and press return.}
+\mlcomm{Usually Matlab will print a response on the next line.}
+
+\mlcomm{Whenever you see a command in the tutorial give it to Matlab and
+verify that Matlab gives the response shown.}
+
+\mlcmd{2 + 3}{ans = 5}
+\mlcmd{2 * 3}{ans = 6}
+\mlcmd{2 - 3}{ans = -1}
+\mlcmd{2/3}{ans = 0.66667}
+\mlcomm{Exponentiation is indicated with a caret: \mlcar}
+\mlcmd{2\mlcar 3}{ans = 8}
+\mlcmd{2\mlcar 0.5}{ans = 1.4142}
+
+
+\mlcomm{\textbf{Storing values in variables}}
+\mlcmd{x = 2}{x = 2}
+\mlcmd{y = 3}{y = 3}
+\mlcmd{myVariableWithALongName = 2\mlcar 3}{myVariableWithALongName = 8}
+
+\mlcomm{These variables can be used just like numbers.}
+\mlcmd{x + y}{ans = 5}
+\mlcmd{x*y}{ans = 6}
+\mlcmd{myvar = x/y}{myvar = 0.6667}
+
+\mlcomm{\textbf{Using arrays of numbers}}
+\mlcomm{First we learn to create arrays and store them in variables.}
+\mlcomm{Here are two vectors, i.e. arrays with 1 row.}
+\mlcmd{x = [1 2 3 4]}{\mlans{x}{1   2   3   4}}
+\mlcmd{y = [3 5 7 9]}{\mlans{y}{3   5   7   9}}
+\mlcomm{To make a 2-dimensional array, separate the rows by semicolon.}
+\mlcmd{z = [1 2 3; 4 5 6]}{\mlans{z}{1  2  3\\4   5   6}}
+\mlcomm{You can convert a row to a column using a single quote}
+\mlcmd{xAsCol = x'}{\mlans{xAsCol}{1\\2\\3\\4\\}}
+\mlinstr{See what happens when you give the command \texttt{z'}}
+
+\mlcomm{Next we do some arithmetic with arrays}
+\mlcomm{You can scale an array or add a number to every element}
+\mlcmd{5*x}{\mlans{ans}{5   10   15   20}}
+\mlcmd{x + 7}{\mlans{ans}{8   9   10   11}}
+\mlcomm{To raise every element of an array to a power you need to put a dot in front of the caret.}
+\mlcmd{x.\mlcar 2}{\mlans{ans}{1   4   9   16}}
+
+\mlcomm{You can add two arrays of the same size.}
+\mlcmd{x + y}{\mlans{ans}{4   7   10   13}}
+\mlcomm{Try adding two different size arrays.}
+\mlcmd{x + z}{Error using + \\Matrix dimensions must agree.}
+\mlcomm{To multiply two arrays of the same size you need a dot in front of
+the *. Matlab will multiply corresponding elements and return an array of 
+the same size.}
+\mlcmd{x .* y}{\mlans{ans}{3   10   21   36}}
+\mlcomm{The same is true for division and exponentiation.}
+\mlcmd{x ./ y}{\mlans{ans}{0.3333   0.4000   0.4286   0.4444}}
+\mlcmd{x.\mlcar y}{\mlans{ans}{1  32  2187  262144}}
+\mlinstr{See what happens without the dot.}
+\mlcmd{x * y}{Error using *\\Inner matrix dimensions must agree.}
+\mlcomm{The dot is needed because \texttt{x * y} means matrix
+multiplication instead of \emph{elementwise} multiplication. We will look at this in another tutorial.}
+
+\mlcomm{We can always find out the size of an array. The answer is given as rows then columns.}
+\mlcmd{size(x)}{\mlans{ans}{1   4}}
+\mlcmd{size(z)}{\mlans{ans}{2   3}}
+
+\mlcomm{Let's recall \texttt{y}}
+\mlcmd{y}{y = 3   5   7   9}
+\mlcomm{If your \texttt{y} is not the same as what's shown, reset it to this.}
+\mlcomm{You can access individual elements of an array. Here's the second
+and then the fourth elements.}
+\mlcmd{y(2)}{ans = 5}
+\mlcmd{y(4)}{ans = 9}
+\mlcomm{Since \texttt{z} is a two dimensional array we need to
+give both row and column indices to access an individual element.}
+\mlcmd{z(1,3)}{ans = 3}
+
+\mlcomm{\textbf{Using functions}}
+\mlcomm{Matlab has many built in functions.}
+\mlcmd{sin(3)}{ans =  0.1411}
+\mlcmd{sin(pi/2)}{ans =  1}
+\mlcomm{Many functions can be applied to arrays and return arrays.}
+\mlcomm{\texttt{sin(x)} will return the sin of each element in \texttt{x}.}
+\mlcmd{sin(x)}{\mlans{ans}{0.8415   0.9093   0.1411  -0.7568}}
+
+\mlcomm{There are lots of functions of vectors. For instance,
+you can find the
+sum of the elements, the maximum element, the minimum element,
+and the mean (average) of the elements.}
+\mlcmd{x}{x = 1 2 3 4}
+\mlcmd{sum(x)}{ans = 10}
+\mlcmd{min(x)}{ans = 1}
+\mlcmd{max(x)}{ans = 4}
+\mlcmd{mean(x)}{ans = 2.5000}
+
+\mlcomm{The mode function returns the vector element with the greatest
+frequency.}
+\mlcmd{w = [1 1 3 2 3 2 2 2]}{\mlans{w}{1 1 3 2 3  2 2 2}}
+\mlcomm{The most common element of \texttt{w} is 2, which appears 4 times.}
+\mlcmd{m = mode(w)}{m = 2}
+
+\mlcomm{But wait! There's more!}
+\mlcomm{If you apply sum or mode to a two dimensional array it returns
+the sum or mode of each of the columns.}
+\mlcmd{z = [1 2 3 3; 1 2 4 5; 6 6 4 5]}{\mlans{z}{1 2 3 3\\1 2 4 5\\6 6 4 5\\}}
+\mlcmd{sum(z)}{\mlans{ans}{8 10 11 13}}
+\mlcomm{Verify that the answer above consists the sum of each of the columns of 
+\texttt{z}}
+\mlcmd{mode(z)}{\mlans{ans}{1 2 4 5}}
+\mlcomm{Verify that the answer above consists the mode of each of the columns of \texttt{z}}
+
+\mlcomm{\texttt{z'} \emph{transposes} \texttt{z}, switching rows and columns.}
+\mlcmd{z'}{\mlans{ans}{1 1 6\\2 2 6\\ 3 4 4\\ 3 5 5\\}}
+\mlcomm{Try \texttt{sum(z')} and \texttt{mode(z')} and check they give the 
+answer you expect.}
+
+\mlcomm{\textbf{Testing arrays}}
+
+\mlcomm{First create the following array}
+\mlcmd{x = [1 2 1 3 3 1]}{\mlans{x}{1 2 1 3 3 1}}
+\mlcomm{We can test for those elements greater than 2 using:}
+\mlcmd{y = (x > 2)}{\mlans{y}{0 0 0 1 1 0}}
+\mlcomm{The returned array consists of 0's and 1's. A 1 means the
+corresponding element of \texttt{x} 'passed' the test and is greater 
+than 2. A 0 means it failed the test.}
+\mlcomm{To count the number of elements that passed the test we simply sum
+\texttt{y}.}
+\mlcmd{cnt = sum(y)}{cnt = 2}
+
+\mlcomm{We can do this in one  line of code.}
+\mlcmd{cnt = sum(x > 2)}{cnt = 2}
+
+\mlcomm{To find the number of elements in \texttt{x} that equal 3
+we use the double equal sign.}
+\mlcmd{y = (x == 3)}{\mlans{y}{0 0 0 1 1 0}}
+\mlcomm{We count the 3's by summing \texttt{y}}
+\mlcmd{cnt = sum(y)}{cnt = 2}
+
+\mlcomm{To count 3's in one  line of code.}
+\mlcmd{cnt = sum(x == 3)}{cnt = 2}
+
+
+
+
+\mlcomm{\textbf{Random Numbers}}
+
+\mlcomm{For simulation we'll need the \texttt{randi} function.}
+\mlcomm{The function randi(N) generates a pseudo-random integer between 1 and N. Note, repeated calls return different values. You won't get the same answers
+we have hear. But they all should be between 1 and 6.} 
+\mlcmd{randi(6)}{ans =  4}
+\mlcmd{randi(6)}{ans =  1}
+\mlcmd{randi(6)}{ans =  3}
+\mlcmd{randi(6)}{ans =  4}
+\mlcmd{randi(6)}{ans =  6}
+\mlcmd{randi(6)}{ans =  6}
+\mlcmd{randi(6)}{ans =  5}
+
+\mlcomm{To generate an $m\times n$ array of random values we can use
+randi(N, m, n).}
+\mlcmd{randi(6,1,10)}{\mlans{ans}{4   3   4   1   3   3   1   3   2   1}}
+\mlcmd{randi(6,2,5)}{\mlans{ans}{4   2   6   1   2\\1   3   5   5   1}}
+
+\mlcomm{Now try \texttt{randi(6,1,100)}} 
+\mlcomm{The output
+to the screen had 100 numbers. Seeing this output is
+usually just a nuisance. To suppress the screen output
+you put a semicolon at the end of the command.}
+\mlcmdna{randi(6,1,100);}
+
+\mlcomm{We can capture the output by assigning it to a variable.}
+\mlcmdna{x = randi(6,1,100);}
+
+\mlcomm{If you forget to assign a variable, the variable ans is available.
+For example:}
+\mlcmd{2+3}{ans = 5}
+\mlcmd{ans}{ans = 5}
+\mlcmdna{randi(6,1,2000);}
+\mlcmdna{x = ans;}
+\mlcmd{size(x)}{\mlans{ans}{1  2000}}
+
+\mlcomm{If we want the average of these 2000 random numbers we have
+to sum them and divide by 2000}
+\mlcmd{ave = sum(x)/2000}{ave = 3.5308}
+
+\mlcomm{Typical of Matlab, there is a simpler way}
+\mlcmd{ave = mean(x)}{ave = 3.5308}
+
+\mlcomm{\textbf{Simulating Dice}}
+
+\mlcomm{Here we'll simulate an experiment to find the probability
+that in one roll of 3 dice, 2 or more of the die will match.}
+
+\mlcomm{To run one experiment we need 3 rolls of the dice. We
+get this with:}
+\mlcmd{x = randi(6,3,1)}{\mlans{x}{5\\3\\3\\}}
+\mlcomm{To check for a match we use the mode function.}
+\mlcomm{If you ask \texttt{mode} to return 3 values \textbf{[m,f,c]}
+then \texttt{m} is the mode and \texttt{f} is the frequency of the
+mode. We'll ignore \texttt{c}, but you must have it there for 
+\texttt{mode} to work right.}
+\mlcomm{There is nothing special about the names \texttt{m, f, c}.
+They could be anything.}
+\mlcmdna{[m,f,c] = mode(x);}
+\mlcomm{We used a semicolon to suppress printing the output to the screen.}
+\mlcomm{We check the values of \texttt{m} and \texttt{f}}
+\mlcmd{m}{m = 3}
+\mlcmd{f}{f = 2}
+\mlcomm{This tells us the mode 3 occurs 2 times in \texttt{x}.}
+\mlcomm{Since the mode has frequency \texttt{f $\ge$ 2} there is a match.
+If the mode (most frequent entry) has frequency 1 then there is no match.}
+
+
+\mlcomm{We're almost there. To estimate the probability that there is
+a match in 3 rolls we need to run the experiment many times and observe the
+frequency that this happens. Matlab makes this easy.}
+\mlcomm{As an example we will run the experiment 10 times.}
+\mlcomm{First we generate a $3\times 10$ array of random numbers.}
+\mlcmd{x = randi(6,3,10)}{\mlans{x}{
+     3     4     6     5     4     2     6     5     5     4\\
+     5     3     3     4     6     6     5     1     5     1\\
+     1     5     5     3     5     1     4     1     5     4\\
+}}
+\mlcomm{We view each column as one experiment consisting of 3 rolls.}
+\mlcomm{Next we find the modes of in each experiment.}
+\mlcmdna{[m,f,c] = mode(x);}
+\mlcomm{We look at the modes and their frequencies.}
+\mlcmd{m}{\mlans{m}{1 3 3 3 4 1 4 1 5 4}}
+\mlcmd{f}{\mlans{f}{1 1 1 1 1 1 1 2 3 2}}
+\mlcomm{The experiments with matches are those with \texttt{f $\ge$ 2}. So,
+we test \texttt{f}.}
+\mlcmd{y = (f >= 2)}{\mlans{y}{0 0 0 0  0   0   0   1     1     1}}
+
+\mlcomm{You should check that the 1's match the experiments (columns) 
+with matches.}
+\mlcomm{Finally we average this array}
+\mlcmd{ave = sum(y)/10}{ave = 0.3000}
+\mlcomm{This is our best estimate of the probability.}
+
+\mlcomm{If we're comfortable with hard to read code, 
+we can find this average in one line.}
+\mlcmd{ave = mean(f>=2)}{ave = 0.3000}
+
+\mlcomm{Now there is nothing to stop us from running 2000 trials of
+the experiment and getting an average we have more confidence in.}
+\mlcomm{We use the semicolon to suppress printing our large arrays
+to the screen.}
+\mlcmdna{x = randi(6,3,2000);}
+\mlcmdna{[m,f,c] = mode(x);}
+\mlcmd{ave = mean(f>=2)}{ave = 0.4380 }
+
+\mlcomm{This case is simple enough the we can compute the answer
+exactly as 0.4444. So our simulation average is pretty close.
+In the real world and often in this class the exact
+probability is hard or impossible to compute, so the simulation average
+is our best technique for estimating the probablity.}
+
+\vspace*{\stretch{1}}
+\endmatlab
+
+\end{document}
+
+\mlcomm{{\color{red} Below is an alternative simulation. Possibly a homework
+question.}}
+
+
+\mlcomm{Here we'll simulate an experiment to find the probability
+that in 5 rolls of a die exactly 3 will have a value greater than 4.}
+
+\mlcomm{To run one experiment we need 5 rolls of the dice. We
+get this with:}
+\mlcmd{x = randi(6,5,1)}{\mlans{x}{5\\3\\3\\6\\1\\}}
+\mlcomm{To count the number of rolls greater than 4, we use the \emph{array test}: \texttt{x > 4}}
+\mlcmd{y = (x>4)}{\mlans{y}{1\\0\\0\\1\\0\\}}
+\mlcomm{This returns a column of 1's and 0's. A 1 means the corresponding
+entry of \texttt{x} is greater than 4 and 0 means it isn't.}
+\mlcomm{Then we can count the number of rolls above 4, by summing the 0's and 1's}
+\mlcmd{cnt = sum(y)}{cnt = 2}
+
+\mlcomm{Instead we could have combined the test and sum in one line:}
+\mlcmd{cnt = sum(x>4)}{cnt = 2}
+
+\mlcomm{We're almost there. To estimate the probability that 3 of 5 rolls are
+above 4 we need to run the experiment many times and observe the
+frequency that this happens. Matlab makes this easy.}
+\mlcomm{As an example we will run the experiment 10 times.}
+\mlcomm{First we generate a $5\times 10$ array of random numbers.}
+\mlcmd{x = randi(6,5,10)}{\mlans{x}{
+     3     4     6     5     4     2     6     5     5     4\\
+     5     3     3     4     6     6     5     1     5     1\\
+     1     5     5     3     5     1     4     1     5     4\\
+     5     5     2     6     4     3     3     4     1     5\\
+     1     6     1     4     2     2     1     1     4     3\\
+}}
+\mlcomm{We view each column as one experiment consisting of 5 rolls.}
+\mlcomm{Next we test for rolls above 4}
+\mlcmd{y = (x > 4)}{\mlans{y}{
+     0     0     1     1     0     0     1     1     1     0\\
+     1     0     0     0     1     1     1     0     1     0\\
+     0     1     1     0     1     0     0     0     1     0\\
+     1     1     0     1     0     0     0     0     0     1\\
+     0     1     0     0     0     0     0     0     0     0\\
+}}
+\mlcomm{You should check that the 1's match the rolls above 4.}
+\mlcomm{To count the number above 4 in each experiment we sum the columns}
+\mlcmd{cnt = sum(y)}{\mlans{cnt}{2 3 2 2 2 1 2 1 3 1}}
+\mlcomm{Next we need to test which of the counts is exactly 3. This
+test uses the double equal sign.}
+\mlcmd{exact3 = (cnt == 3)}{\mlans{exact3}{0 1 0 0 0 0 0 0 1 0}}
+\mlcomm{Finally we average this array}
+\mlcmd{ave = sum(exact3)/10}{ave = 0.2000}
+\mlcomm{This is our best estimate of the probability.}
+
+\mlcomm{If we're comfortable with hard to read code, 
+we can find this average in one line.}
+\mlcmd{ave = mean(sum(x>4) == 3)}{ave = 0.2000}
+
+\mlcomm{Now there is nothing to stop us from running 2000 trials of
+the experiment and getting an average we have more confidence in.}
+\mlcomm{We use the semicolon to suppress printing our large arrays
+to the screen.}
+\mlcmdna{x = randi(6,5,2000);}
+\mlcmd{ave = mean(sum(x>4) == 3)}{ave = 0.1570 }
+
+\mlcomm{This case is simple enough that we could compute the answer
+exactly as 0.1646. This is pretty close to the simulation average.
+In the real world and often in this class the exact
+probability is hard or impossible to compute, so the simulation average
+is our best technique for estimating the probability.}
+
+

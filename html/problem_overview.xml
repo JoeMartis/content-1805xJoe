@@ -1,0 +1,30 @@
+<html>
+<h1>Problems on edX</h1><p> One of the most exciting elements of the edX platform is the programmatically graded problems integrated into course material. There are a wide variety of problem types, described in the subsequent sections. Each of those problem types are implemented using children of the problem tag, described in this section.</p><style type="text/css">
+table.gridtable {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+table.gridtable th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+table.gridtable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
+</style><pre>
+	&lt;problem&gt;
+</pre><table class="gridtable"><tr><th>Attribute (metadata)</th><th>Description</th><th>Notes</th></tr><tr><td/><td>These fields are no longer coded in the problem tag itself, but rather in the metadata field in Studio. This reference is provided as only specific values for each piece of metadata will effect the behavior of the problem.</td><td/></tr><tr><td> rerandomize </td><td><ul><li>'always' - (default) provides a new set of random values each time a student attempts to answer </li><li>'per_student' - provides a different set of random values for each student, but each student's view does not change</li><li>'never' - uses the same set of random values for every single student</li></ul></td><td><ul><li>Randomization occurs when randomized variables defined in an included script are referenced in student response prompts. See the script tag for more details. </li><li>Even if no randomization is built into a problem, this setting determines the sequence of randomization controls presented to students</li></ul></td></tr><tr><td> showanswer </td><td><ul><li>'closed' - (default) shows the answer to the student once the due date for the assignment has passed</li><li>'always' - always gives students the option to see the answer</li><li>'never' - never gives students the option to see the answer</li><li>'attempted', 'answered' - gives students the option to see the answer if they have made at least one attempt at answering the problem</li></ul></td><td> </td></tr><tr><td> graceperiod </td><td> accepts an amount of time in the form 'x days y hours z minutes' corresponding to how long after the due date the problem will remain open. Defaults to zero minutes. </td><td> </td></tr><tr><td> attempts </td><td> accepts a number indicating the number of times a student can submit a response for grading and still get feedback and credit from the automatic grader. Defaults to infinite.</td><td> </td></tr><tr><th>Children</th><th>Description</th><th>Notes</th></tr><tr><td> Arbitrary HTML tags</td><td>Any html that edXML accepts in its html tag, including edXML customizations</td><td> see full documentation</td></tr><tr><td>solution</td><td> a container for html tags that will display when the 'Show Answer' button is clicked. </td><td>The class "detailed-solution" on a div provides page styling for the enclosed explaination that conforms to the edX standard for solutions. </td></tr><tr><td>script</td><td> see description below</td><td> </td></tr><tr><th>Response Children</th><th>Description</th><th>Notes</th></tr><tr><td> optionresponse</td><td>offers a dropdown box to students </td><td><a href="./2">see full documentation</a></td></tr><tr><td> multiplechoiceresponse</td><td> offers a set of choices with buttons</td><td><a href="./3">see full documentation</a></td></tr><tr><td> stringresponse</td><td> offers a textbox to students, expects alphanumeric characters</td><td><a href="./4">see full documentation</a></td></tr><tr><td> numericalresponse</td><td> offers a textbox to students, expects a number</td><td><a href="./5">see full documentation</a></td></tr><tr><td> formularesponse</td><td> offers a textbox and math preview to students, expects pre-defined variables</td><td><a href="./6">see full documentation</a></td></tr><tr><td> imageresponse</td><td> offers a clickable image to students</td><td><a href="./7">see full documentation</a></td></tr><tr><td> customresponse</td><td> offers a textbox to students and accept an arbitrary grader</td><td><a href="./8">see full documentation</a></td></tr><tr><td> schematicresponse</td><td> offers an editable circuit simulator to students</td><td><a href="./9">see full documentation</a></td></tr></table><pre>
+	&lt;script&gt;
+</pre><ul><li>A problem will behave the same way if all of the code in all of the script tags were in a single script tag. Specifically, any variables that are used in multiple script tags share a namespace and can be overridden.</li><li>Any errors produced by the code in the script tag will be propogated to students.</li><li>Any variables defined within a script can be referenced from anywhere within a problem - including problem attributes and answers - by prefacing a variable name with a dollar sign. </li></ul><table class="gridtable"><tr><th>Attribute</th><th>Description</th><th>Notes</th></tr><tr><td> type</td><td> "loncapa/python" - a script written in python that determines the environment in which the autograders are run</td><td> Like all python, indentation matters, even though it is embedded in XML.</td></tr><tr><th>Children</th><th>Description</th><th>Notes</th></tr><tr><td> </td><td> </td><td/></tr></table>
+</html>

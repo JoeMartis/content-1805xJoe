@@ -1,0 +1,445 @@
+\def\endtopic{\emph{End of topic \topicnum}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\topicnum{2}
+\def\topic{Conditional Probability and Independence}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\parttitle{Topic \topicnum, \topic
+\\18.05, \whichterm }
+\def\mypagehead{18.05 topic \topicnum, \topic, \whichterm }
+\def\mytitle{\parttitle}
+\pagestyle{headings}
+\markboth{\mypagehead}{\mypagehead}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\thispagestyle{plain}
+
+\begin{center}
+  \Large\bfseries \mytitle
+\end{center}
+
+\textbf{Conditional Probability}
+
+\examp1 Toss a fair coin 3 times. \nl5
+1. What is the probability of 3 heads?\nl5
+\ans Sample space $\W = $ \{HHH, HHT, HTH, HTT, THH, THT, TTH, TTT\}.\nl5
+All outcomes are equally likely, so $P$(3 heads) = 1/8.
+
+2. Suppose we are told that the first toss is heads. Given this information
+how should we compute the probability of 3 heads?\nl5
+\ans We have a new (reduced) sample space: $\W' = $ \{HHH, HHT, HTH, HTT\}.\nl5
+All outcomes are equally likely, so\nl5
+\mcent{$P$(3 heads given the first toss is heads) = 1/4.}
+
+This is an important idea, it is called \emph{conditional probability},
+since the probability is conditional, i.e. depends, on knowing $B$ happened.
+Conditional probability allows us to incorporate partial knowledge into
+our computation of probability.
+
+\textbf{Question:} For 3 tosses of a fair coin, let $C$ be the event
+the first toss is tails and $A$ the event all 3 tosses are heads.
+What is $P(A \text{ given }C)$?\nl5
+\ans 0.
+
+\textbf{Notation and Formal Definition}\nl5
+Let $A$ and $B$ be events then we define \textbf{the conditional probability} as
+\begin{equation}\label{condprob} 
+P(A|B) = \frac{P(A\mycap B)}{P(B)}, \text{ provided } P(B)\ne 0.
+\end{equation}
+We read this as 'the conditional probability of $A$ given $B$ or sometimes,
+more simply, 'the probability of $A$ given $B$.
+
+\examp2 Let's redo the coin tossing example using 
+the formula \myref{condprob}\nl5
+\parbox{4.5in}{
+Let  $A$ be the event all 3 tosses are heads, $P(A) = 1/8.$\nl5
+Let $B$ the event the first toss is heads, $P(B) = 1/2.$\nl5
+Since $A\mycap B = A$, we have  $P(A\mycap B) = 1/8.$\nl5
+According to \myref{condprob} \,
+ $P(A|B) = \frac{1/8\cdot 1/2}{1/2} = 1/8$, which is the same answer
+we got in example 1.\\[2ex]
+%
+We can visualize conditional probability as follows.\nl5
+$P(A)$ is the proportion of the whole sample space taken
+up by $A$. For $P(A|B)$ we restrict our attention to $B$
+and look for the proportion of $B$ taken up by $A\mycap B$.
+That is, $P(A\mycap B)/P(B)$.
+}
+\hs2
+\parbox{2in}{
+\def\sc{3cm}
+\begin{tikzpicture} [x=\sc, y=\sc]
+\draw [clip] (0,0) rectangle (2,2);
+\begin{scope}
+\draw [fill=blue, opacity=.5] (0,.7) circle (1.3);
+\end{scope}
+\draw [fill=red, opacity=.5] (1.2,1) circle (.5);
+%labels
+\node at (2ex,1.7) [right] {\Large $B$};
+\node at (1.2,1.3) [right] {\Large $A$};
+\node at (.75,1) [right] {$A\mycap B$};
+\end{tikzpicture}
+}
+
+\cont
+
+\textbf{Multiplication Rule}\nl5
+\begin{equation}\label{multrule}
+P(A\mycap B) \, = \, P(A|B)\cdot P(B).
+\end{equation}
+This is easily seen to be equivalent to  definition \myref{condprob} for conditional probability.
+In this case, there is no problem if $P(B) = 0$.
+
+We start with a simple example where we can compute all the probabilities
+directly by counting.\nl5
+\examp3 Draw two cards from a deck.\nl5
+Let $S_1$  be the event the first card is a spade.\nl5
+Let $S_2$  be the event the second card is a spade.\nl5
+We have \,
+$P(S_1) = 1/4$, \, $P(S_2) = 1/4$, \,
+$P(S_2|S_1) = 12/51$, \,
+$P(S_2\mycap S_1) = \frac{13\cdot 12}{52\cdot 51}.$
+
+We can check this with the multiplication rule,  
+$P(S_1\mycap S_2) = \frac{12}{51}\cdot\frac{1}{4}
+= \frac{12}{51}\cdot\frac{13}{52}.$
+
+\medskip
+
+\textbf{Question:} What is $P(S_2|S_1^c) = 13/51$? \quad
+\ans 13/51.
+
+\medskip
+
+The law of total probability will allow us to apply the multiplication
+rule to more serious examples.
+
+\textbf{Law of Total Probability}\nl5
+Suppose the sample space $\W$ is divided into 3 disjoint events
+$B_1$, $B_2$, $B_3$. Then for any event $A$
+\begin{align}
+P(A) &= P(A\mycap B_1) + P(A\mycap B_2) + P(A\mycap B_3) \nonumber\\
+&= P(A|B_1)\,P(B_1) + P(A|B_2)\,P(B_2) + P(A|B_3)\,P(B_3)\label{totprob}
+\end{align}
+Equation \myref{totprob} is called \textbf{the law of total probability.}
+
+\bigskip
+
+\parbox{5in}{
+\textbf{Proof}:  
+The top equation is simply the result of splitting $A$ into 3 non-overlapping
+pieces. Equation \myref{totprob} follows by using
+the multiplication rule for each intersection.\nl9
+There is nothing special about dividing $\W$ into 3 disjoint events,
+the law holds if we divide $\W$ into any number of disoint events.
+But, note well, the events must be disjoint, i.e. not overlap, and 
+they must cover all of $\W$.
+}
+\hs2
+\raisebox{-11ex}[0pt][0ex]{
+\def\sc{2.2cm}
+\begin{tikzpicture} [x=\sc, y=\sc]
+\draw [clip] (-1,-1) rectangle ++(2,2);
+\draw [fill=lightgray] (0,0) circle (.72);
+\draw (0,0) to (1,1);
+\draw (0,0) to (-1,1);
+\draw (0,0) to (0,-1);
+\node at (.8,-.8) {\Large $B_3$};
+\node at (-.8,-.8) {\Large $B_2$};
+\node at (.5,.8) {\Large $B_1$};
+\node at (0,.4) {$\mathbf{A\mycap B_1}$};
+\node at (200: .4) {$\mathbf{A\mycap B_2}$};
+\node at (-22: .4) {$\mathbf{A\mycap B_3}$};
+\end{tikzpicture}
+}
+
+\bigskip
+
+\examp4 An urn contains 5 red balls and 2 green balls. Two balls are drawn.
+What is the probability the second ball is red?
+
+\ans The sample space is $\W = $ \{RR, RG, GR, GG\}.\nl5
+Let $R_1$ be the event the first ball is red, $G_1$ the first ball is 
+green, $R_2$ the second is red etc. We are asked to find $P(R_2)$.
+
+\cont
+
+Since 5 out of 7 balls are red we can compute directly $P(R_2) = 5/7$.\nl5
+Since $R_1$ and $G_1$ are disjoint we can also apply \myref{totprob}
+to get 
+\[P(R_2) = P(R_2|R_1)P(R_1) + P(R_2|G_1)P(G_1) = 
+\frac46\cdot\frac57 + \frac56\cdot\frac27 = \frac{30}{42} = \frac57.
+\]
+We've verified that 
+the law of total probability gave us the same answer as the direct computation.
+
+\medskip
+
+It doesn't take much to make an example where \myref{totprob} is really the
+best way to compute the probability.\nl5
+\examp5 An urn contains 5 red balls and 2 green ball. A
+ball is drawn. If it's green a red ball is added to the urn and if it's
+red a green ball is added to the urn. (The original ball is not returned
+to the urn.) Then a second ball is drawn,
+what is the probability it is red?
+
+\ans The law of total probability is the same as in the example above,
+but some of the probabilities change.
+$\ds{P(R_2) = P(R_2|R_1)P(R_1) + P(R_2|G_1)P(G_1) = 
+\frac47\cdot\frac57 + \frac67\cdot\frac27 = \frac{32}{49}.}$
+
+\bigskip
+
+\textbf{Using Trees to Organize the Computation}\nl5
+Let's redo example 5, by organizing the game into a tree.
+
+\mcent{
+\def\sc{1cm}
+\begin{tikzpicture} [x=\sc,y=\sc]
+%nodes
+\draw [fill] (0,0) coordinate (n0) circle (1.5pt);
+\draw [fill] (2,-1) coordinate (g1) circle (1.5pt) node [right] {$G_1$};
+\draw [fill] (-2,-1) coordinate (r1) circle (1.5pt) node [left] {$R_1$};
+\draw [fill] (-3,-2) coordinate (r1r2) circle (1.5pt) node [below] {$R_2$};
+\draw [fill] (-1,-2) coordinate (r1g2) circle (1.5pt) node [below] {$G_2$};
+\draw [fill] (1,-2) coordinate (g1r2) circle (1.5pt) node [below] {$R_2$};
+\draw [fill] (3,-2) coordinate (g1g2) circle (1.5pt) node [below] {$G_2$};
+%branches
+\draw (n0) -- (r1) node [pos=.5,left] {5/7};
+\draw (n0) -- (g1) node [pos=.5,right] {2/7};
+\draw (r1) -- (r1r2) node [pos=.5,left] {4/7};
+\draw (r1) -- (r1g2) node [pos=.5,right] {3/7};
+\draw (g1) -- (g1r2) node [pos=.5,left] {6/7};
+\draw (g1) -- (g1g2) node [pos=.5,right] {1/7};
+\end{tikzpicture}
+}\nl5
+The game starts at the top node.\nl5 
+On the first round the tree branches
+from the top node to either $R_1$ or $G_1$. The probabilities 
+$P(R_1) = 5/7$ and $P(G_1) = 2/7$ are written along the branches.\nl5
+For the next round each of the round one nodes branches to $R_2$ or $G_2$.
+The \emph{conditional} probabilities are written along the branches.
+For example, starting at $R_1$ the probability of getting $R_2$ is
+$P(R_2|R_1) = 4/7.$\nl5
+The muliplication rule says that the probability of getting to any node
+is just the product of the probabilities along the path to get there.
+For example, the $R_2$ node at the far left represents the event
+$R_1\mycap R_2$ and $P(R_1\mycap R_2) = P(R_1)\cdot P(R_2|R_1) = 
+\frac57\cdot\frac47$.\nl5
+The law of total probability is just the statement that 
+$P(R_2)$ is the sum of the probabilities of all paths leading to $R_2$.
+In this case, $\frac57\cdot\frac47 + \frac27\cdot\frac67 = \frac{32}{49}.$
+
+\medskip
+
+\textbf{Challenge:} Organize the Monty Hall example into a tree.
+
+\cont
+
+\textbf{Bayes' Rule}\nl5
+For two events $A$ and $C$ Bayes' rule says
+\begin{equation}\label{bayes}
+  P(C|A) = \frac{P(A|C)\cdot P(C)}{P(A)}.
+\end{equation}
+\textbf{Comments}: 1. Bayes' rule tells how to 'invert' conditional probabilities.\nl5
+2. In practice, $P(A)$ is often computed using the law of total probability.
+
+\textbf{Proof of Bayes' Rule}\nl5 
+The multiplication rule says
+$P(A\mycap C) = P(C|A)\cdot P(A) = P(A|C)\cdot P(C)$. Bayes' rule follows
+by moving the $P(A)$ term from the left side to the right side.
+
+\medskip
+
+A common mistake is to confuse $P(A|C)$ and $P(C|A)$.
+They can be very different.\nl5
+\examp6 Toss a coin 5 times. Let $H_1$ be a heads on the first toss
+and $H_A$ be heads on all the tosses. Then,
+$P(H_1|H_A) = 1$, but $P(H_A|H_1) = 1/16.$
+
+\medskip
+
+\examp7 Base Rate Fallacy\nl5
+Suppose a person is given a screening test for a certain disease.
+(By a screening test we mean it is just a routine test and there are
+no indicators that the person might have the disease.)
+Suppose the frequency of the disease in the population (base rate)
+ is 0.5\%. The test is highly accurate
+with the probability of a false positive at 5\% and that of a false negative
+at 10\%.
+
+You take the test and it comes back positive. What is the probability you
+have the disease?
+\myhide{}{\nl5 1. 0-12.5\%, \, 2. 12-25\%, \, 3. 25-50\%, \, 4. 50-75\%,
+\, 5. 75-87\%, \, 6. 87-100\%. (hidden)}
+
+\mbox{\ans Notation: $D$ = have disease, $H$ = healthy, $p$ = positive test,
+$n$ = negative test.}\nl5
+\mbox{We are given: $P(D) = .005$, $P(p|H) = .05$ (false positive), 
+$P(n|D) = .1$ (false neg.).}\nl5
+Note: \,  $P(p|D) = 1 - P(n|D) = .9$ \, and \, $P(H) = 1 - P(D) = .995$.\nl5
+We are asked to find $P(D|p)$. Using Bayes' Rule we have
+$\ds{ P(D|p) = \frac{P(p|D)\cdot P(D)}{P(p)}}.$\nl5
+We know \,  $P(p|D)\cdot P(D) = .9\cdot.005 = .0045$. \nl5
+We can find $P(p)$ using the law of total prob.\nl5
+$P(p) = P(p|D)\,P(D) + P(p|H)\,P(H) = .9\cdot.005 + .05\cdot .995 = .05425$.\nl5
+Thus $\ds{P(D|p) = \frac{.004975}{.05425} = .0829 = 8.3\%.}$
+
+\textbf{Remarks}: This is called the base rate fallacy because 
+the base rate of the disease in the population is so low that the vast
+majority of the people taking the test are healthy, so even with an
+accurate test most of the positives will be healthy.
+
+Ask your doctor for his/her guess at the odds.
+
+\cont
+
+Another trick that is sometimes useful for computing probabilities is
+to make a table. Let's redo the previous example using a table.
+
+\parbox[t]{5in}{
+We put $D$ and $H$ on the columns and $p$ and $n$
+on the rows. So the first entry, 45 represents the number of 
+sick people who test positive. And
+the 543 entry represents all the people who test positive.
+}
+\hs1
+\parbox[t]{1.5in}{
+\, 
+$\begin{array}{|c|c|c|c|}
+\hline
+&           \textrm{D} & \textrm{H} & \textrm{total}\\
+\hline
+\textrm{p} &     45    &      498   &       543\\
+\hline
+\textrm{n} &      5    &    9,452   &     9,457\\
+\hline
+\textrm{total} & 50    &    9,950   &    10,000\\
+\hline
+\end{array}$
+}
+
+\parbox[t]{5in}{
+We construct the table as follows. Pick a number, say 10000 people and
+put that as the grand total in the lower right. Using $P(D) = .005$
+we can fill in the number out of the 10000 who are $D$, likewise $H$.
+}
+\hs1
+\parbox[t]{1.5in}{
+\,
+$\begin{array}{|c|c|c|c|}
+\hline
+&           \textrm{D} & \textrm{H} & \textrm{total}\\
+\hline
+\textrm{p} &         &         &       \\
+\hline
+\textrm{n} &          &       &     \\
+\hline
+\textrm{total} & 50    &    9,950   &    10,000\\
+\hline
+\end{array}$
+}
+
+\parbox[t]{5in}{
+Knowing $P(p|D)=.9$ we can compute $.9\cdot 50 = 45$ = number who are $D$ and 
+tested positive. Likewise for the other entries.
+}
+\hs1
+\parbox[t]{1.5in}{
+\,
+$\begin{array}{|c|c|c|c|}
+\hline
+&           \textrm{D} & \textrm{H} & \textrm{total}\\
+\hline
+\textrm{p} &     45    &      498   &       \\
+\hline
+\textrm{n} &      5    &    9,452   &     \\
+\hline
+\textrm{total} & 50    &    9,950   &    10,000\\
+\hline
+\end{array}$
+}
+
+Now we can add up the rows to get the number testing positive or negative. 
+This gives the full table at the top of the page.
+
+\mbox{Using the complete table we can compute 
+$P(D|p) $ =  \#(D and p)/\#p = 45/543 = 8.3\%.}
+
+\medskip
+
+\textbf{Independence}\nl5
+Two events are independent if they don't influence each other. That is,
+if the occurrence of one does not effect the probability of the other
+occurring.
+
+\example Toss a coin twice, then we expect the outcome on the first toss 
+is independent of the outcome on the second toss.
+
+In real experiments this always has to be checked. If my coin lands in some
+honey and I don't bother to clean it, then the second toss will be effected
+by which side got the honey on it.
+
+More seriously, the failure to clean or recalibrate equipment between 
+experiments, failure
+to isolate supposedly independent observers from each other or common influence,
+and many other factors can ruin the independence of experiments.
+\myhide{}{\\Talk about rumors --seemingly $n$ independent sources}
+
+So, the event $A$ is independent of $B$ if 
+\[P(A|B) = P(A).\]
+That is, if knowing $B$ occurred  gives us no information on whether $A$
+occurred.
+
+Since the conditional probability requires $P(B) \ne 0$, we use the 
+multiplication rule to rewrite this as
+
+\cont 
+
+\textbf{Definition}: Two events $A$ and $B$ are \textbf{independent} if
+\begin{equation}\label{ind}
+P(A\mycap B) \, = \, P(A)\cdot P(B)
+\end{equation}
+This is a nice symmetric definition and it allows the probabilities to be 0.
+
+\examples\nl5
+1. If $P(B)\ne 0$ then $A$ and $B$ are independent implies $P(A|B) = P(A)$.
+
+2. If $P(A)\ne 0$ then $A$ and $B$ are independent implies $P(B|A) = P(B)$.
+
+3. Toss a fair coin twice.\nl5 
+Let $H_1$ = heads on the first toss, $H_2$ heads on
+the second. Since $P(H_1\mycap H_2) = \frac12\cdot\frac12 = \frac14$ the
+events are independent.
+
+4. Toss a fair coin 3 times.\nl5 
+Let $H_1$ = heads on first toss, $A$ = two heads total.\nl5
+So, $H_1 = $ \{HHH, HHT, HTH, HTT\} and $P(A) = 3/8$, \, $P(A|H_1) = 2/4$.\nl5 
+Since $P(A|H_1) \ne P(A)$ the events are not independent.
+
+5. Draw a card from a deck: \, $R$ = red, $A$ = ace, $H$ = hearts.\nl5
+We know \, $P(A) = 4/52 = 1/13$, \, $P(A|R) = 2/26 = 1/13$, \, 
+$P(A|H) = 1/13$.\nl5
+So, $A$ is independent of $R$ and $H$.\nl5
+$P(H) = 1/4$, $P(H|R) = 1/2$, so $H$ and  $R$ are not independent.\nl5
+We can also see this the other way around:
+$P(R) = 1/2$, $P(R|H) = 1$, so $H$ is not independent of $R$.
+
+\bigskip
+
+\textbf{Math Paradoxes}\nl5
+An event $A$ with probability 0 is always independent of any other event.
+This is because both sides of equation \myref{ind} are 0. This can lead to
+some paradoxical statements. 
+For example, if $P(A)=0$ then $A$ is independent of itself.
+Even worse, we should have $P(A|A) = 1$, but independence should
+mean $P(A|A) = P(A) = 0$. Of course, since $P(A) = 0$, $P(A|A)$ is not
+defined and the paradox is not really a problem.
+
+
+\vspace*{\stretch{1}}
+\endtopic
+
+\end{document}

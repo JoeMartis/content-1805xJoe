@@ -1,0 +1,429 @@
+\input{slidesheader.tex}
+
+\def\myat{\makeatletter@\makeatother}
+\def\myheart{{\color{red} \heartsuit}}
+\def\mydiamond{{\color{red} \diamondsuit}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\date{February 5, 2013}
+\author{18.05 Class 1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Reminder
+% you can define \title, \subtitle, \institute etc in the preamble
+% and then get a title \begin{frame}\titlepage \end{frame}
+
+
+\begin{document}
+
+%--- the titlepage frame -------------------------%
+\begin{frame}[plain]
+\begin{center} 
+\Large \color{blue} Welcome to 18.05\\
+Introduction to Probability and Statistics\\
+Spring 2013
+\end{center}
+
+\mcent{\includegraphics[height=2.5in]{\imgdir/sportsxkcd.png}}
+
+\end{frame}
+
+\begin{frame}{Staff}
+\begin{itemize}
+
+\item {\Large Jeremy (Jerry) Orloff}\\jorloff\myat mit.edu, office hours M 1-3 in 24-606\\
+\item {\Large Jonathan (Jon) Bloom}\\jbloom\myat math.mit.edu, office hours \emph{TBA}\\
+\item {\Large Sameer Deshpande}\\sameerd\myat mit.edu, office hours \emph{TBA}\\
+\item {\Large Shelby Heinecke}\\shelbyh\myat mit.edu, office hours \emph{TBA}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{MITx/18.05x}
+
+{\large You should have received this information in an email.\\
+If you did not see us after class.}
+
+\bigskip
+
+\begin{itemize}
+\item We'll use the MITx platform:  {\bf \color{blue} https://lms.mitx.mit.edu}
+\item The 18.05 Stellar site has a link to MITx
+\item Sign up using your MIT email address.
+\item \textbf{Do not} log in, just click find courses; then choose 18.05x.
+\end{itemize}
+
+Our Stellar site has a link to MITx\\
+
+\begin{itemize}
+\item Site will have all reading materials and problem sets
+\item Solutions to all problems discussed in class will be posted\\ 
+here after class
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Active Learning}
+
+{\large
+Read the 'Information Policy and Goals' on our MITx site.
+
+\bigskip
+
+Before class
+\begin{itemize}
+\item Reading and reading questions.
+\item Reading questions count toward grade.
+\item Lecture will assume you've done the reading.
+\end{itemize}
+
+In class:
+\begin{itemize}
+\item Combination of lecture and problem solving
+\item We won't assume you've completely mastered the reading. 
+  \begin{itemize}
+  \item Will assume a level of familiarity. 
+  \item Use the discussion boards on the MITx/18.05x site.
+  \item Bring questions to class.
+    \end{itemize}
+\end{itemize}
+}
+\end{frame}
+
+\begin{frame}{Class}
+Read the 'Information Policy and Goals' on our MITx/18.05x site.\\[2ex]
+
+\textbf{Class Time}
+\begin{itemize}
+\item TR: Lecture/clicker questions/table questions\\
+Participation on clicker questions counts towards your grade
+\item F: Studio -- bring your laptop
+\end{itemize}
+
+\bigskip
+
+\textbf{In-class Groups}
+\begin{itemize}
+\item At the end of week 2 we will form permanent groups of 3 and make seating assignments.
+\item You will be able to choose your own group.
+\item If you need to find a group or your group needs a third person let us know and we'll help.
+\end{itemize}
+
+\bigskip
+\textbf{Matlab}: for computation, simulation and visualization
+\begin{itemize}
+\item will teach you everything you need 
+\item no hardcore programming.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Problem Sets}
+
+{\Large
+\begin{itemize}
+\item Usually due on Mondays
+\item Turn in to 2-285 by 4:30 PM\\ 
+\item You'll be able to check your numerical answers to \\
+problems on the MITx/18.05x site before the due date.
+\item Problem sets will be graded on your explanation of 
+your answer.
+\end{itemize}
+}
+\end{frame}
+
+\begin{frame}{Clickers and Matlab}
+
+{\LARGE Clickers}
+
+{\Large
+Buy a TurningTechnology clicker at MIT coop.
+
+Follow the instructions for registering it to this class in
+the Information, Policies and Goals section of MITx/18.05x\\
+
+\bigskip
+\bigskip
+     
+{\LARGE Matlab}
+
+Free for MIT students. 
+
+Instructions and a link for this are on MITx/18.05x.
+}
+
+\end{frame}
+
+\begin{frame}{Information, Policies and Goals}
+
+{\Large Everything we just went over and more is in the 
+
+\bigskip
+
+Information, Policies and Goals section of MITx/18.05x
+}
+\end{frame}
+
+\begin{frame}{For Next Time}
+
+{\Large
+\begin{itemize}
+\item Familiarize yourself with the MITx/18.05x site
+\item Get and register clicker
+\item Install Matlab\\\phantom{xxx}
+\item Read class 1 notes (summary of what we'll do today)
+\item Go through the class 2 sequence and answer the\\ 
+  reading questions
+\end{itemize}
+}
+\end{frame}
+
+\begin{frame}{Probability vs. Statistics}
+
+{\Large
+Different subjects: both about random processes
+
+\bigskip
+
+Probability
+\begin{itemize}
+\item Logically self-contained
+\item A few rules for computing probabilities
+\item One correct answer
+\end{itemize}
+
+Statistics
+\begin{itemize}
+\item Messier and more of an art
+\item Get experimental data and try to draw probabilistic conclusions
+\item No single correct answer
+\end{itemize}
+}
+\end{frame}
+
+\begin{frame}{Counting: Motivating Examples}
+
+{\Large
+What is the probability of getting exactly 1 heads in 3 tosses of
+a fair coin?
+
+}
+
+\end{frame}
+
+\begin{frame}{Poker Hands}
+Deck of 52 cards
+\begin{itemize}
+\item 13 \emph{ranks}: 2, 3, $\dots$, 9, 10, J, Q, K, A
+\item  4 \emph{suits}: $\myheart,  \spadesuit, \mydiamond, \clubsuit,$
+\end{itemize}
+
+Poker hands
+\begin{itemize}
+\item Consists of 5 cards
+\item A {\em one-pair} hand consists of two cards having one rank and the remaining three cards having three other rank
+\item Example: $\{2 \myheart, 2 \spadesuit, 5 \myheart, 8 \clubsuit, \text{K} \mydiamond\}$ 
+
+\end{itemize}
+
+
+The probability of a one-pair hand is: \\
+1) less than 5\%\\
+2) between 5\% and 10\% \\
+3) between 10\% and 20\%\\
+4) between 20\% and 40\% \\
+5) greater than 40\% \\
+\end{frame}
+
+\begin{frame}{Sets in Words}
+$S$ = \{Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec\}\nl5
+\bigskip
+
+$L$ = the month has 31 days = \{Jan, Mar, May, Jul, Aug, Oct, Dec\}\nl5
+\bigskip
+
+$R$ = the month's name 'r' = \{Jan, Feb, Mar, Apr, Sep, Oct, Nov, Dec\}
+\bigskip
+
+$L\mycap R$ = \{Jan, Mar, Oct, Dec\} = months with 31 days and an `r'
+\end{frame}
+
+\begin{frame}{Visualize Set Operations with Venn Diagrams}
+
+
+\includegraphics{\imgdir/figc1-1.pdf}
+\end{frame}
+
+\begin{frame}{DeMorgan's Laws}
+
+{\LARGE
+\mcent{$(L \mycap R)^c = L^c \mycup R^c$}
+
+\bigskip
+
+\mcent{$(L \mycup R)^c = L^c \mycap R^c$}
+}
+\end{frame}
+
+\begin{frame}{Product of Sets}
+
+{\LARGE
+\mcent{ $S\times T = \{(s,t)\}$}
+}
+
+\end{frame}
+
+\begin{frame}{Inclusion-Exclusion Principle}
+\mcent{\includegraphics{\imgdir/figc1-3.pdf}}
+\end{frame}
+
+\begin{frame}{Table Question}
+
+{\Large
+A band consists of singers and guitar players.
+
+\begin{itemize}
+\item 7 people sing
+\item 4 play guitar
+\item 2 do both
+\end{itemize}
+
+How many people are in the band?
+}
+\end{frame}
+
+\begin{frame}{Rule of Product}
+
+{\Large
+
+\bigskip
+\bigskip
+
+\mcent{3 shirts, 4 pants = 12 outfits}
+
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+\bigskip
+(More powerful than it seems.)
+}
+\end{frame}
+
+\begin{frame}{Table Question}
+
+{\Large
+There are 5 Competitors in 100m final. 
+
+\medskip
+
+How many ways can gold silver and bronze be awarded?
+}
+
+\bigskip
+\mcent{\includegraphics[width=3in]{\imgdir/Usain-Bolt-wins-011.jpg}}
+
+\end{frame}
+
+\begin{frame}{Permutations}
+
+{\Large Lining things up. How many ways can you do it? 
+
+\bigskip
+\bigskip
+
+`abc' \,  and \, `cab' \, are different permutations of \{a, b, c\}
+
+}
+
+
+\end{frame}
+
+\begin{frame}{Permutations of $k$ from a set of $n$}
+
+{\Large
+Give all permutations of 3 things out of $\{a,b,c,d\}$
+
+}
+
+\end{frame}
+
+\begin{frame}{Permutations of $k$ from a set of $n$}
+
+{\Large
+Give all permutations of 3 things out of $\{a,b,c,d\}$
+\bigskip
+
+\[ \begin{array}{llllllllllllllll}
+abc & abd & acb & acd & adb & adc \\
+bac & bad & bca & bcd & bda & bdc \\
+cab & cad & cba & cbd & cda & cdb \\
+dab & dac & dba & dbc & dca & dcb
+\end{array}
+\]
+
+\bigskip
+ Would you want to do this for 7 from a set of 10?
+
+}
+\end{frame}
+
+\begin{frame}{Combinations}
+
+{\Large
+Choosing subsets -- order doesn't matter. 
+
+\bigskip
+
+How many ways can you do it?
+}
+\end{frame}
+
+\begin{frame}{Combinations of $k$ from a set of $n$}
+
+{\Large
+Give all combinations of 3 things out of $\{a,b,c,d\}$
+
+\bigskip
+\bigskip
+\bigskip
+
+\textbf{Answer:} \, \{a,b,c\}, \{a,b,d\}, \{a,c,d\}, \{b,c,d\}
+}
+
+\end{frame}
+
+\begin{frame}{Permutations and Combinations}
+
+{\Large
+\[ \begin{array}{llllllllllllllll}
+abc & acb & bac & bca & cab & cba & \quad & \{a,b,c\}\\
+abd & adb & bad & bda & dab & dba & \quad & \{a,b,d\}\\
+acd & adc & cad & cda & dac & dca & \quad & \{a,c,d\}\\
+bcd & bdc & cbd & cdb & dbc & dcb & \quad & \{b,c,d\}\\[.8ex]
+\multicolumn{6}{c}{\text{Permutations: }_4P_3} && 
+\text{Combinations: }_4C_3
+\end{array}
+\]
+
+\bigskip
+
+\[_4C_3 = \frac{_4P_3}{3!}\]
+
+}
+\end{frame}
+
+\begin{frame}{Table Question}
+
+{\Large
+a) Count the number of ways to get exactly 3 heads in 10 flips of a coin.
+
+\bigskip
+
+b) For a fair coin, what is the probability of exactly 3 heads in 10 flips?
+
+}
+
+\end{frame}
+\end{document}
+

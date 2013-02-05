@@ -1,0 +1,103 @@
+\input{header.tex}
+%%%%%%%%%%%%%%%%%%%%%
+%Class 2 reading questions
+%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\RR}{{\mathbb R}}
+\newcommand{\bs}[1]{\hbox{\boldmath$#1$}}
+\DeclareRobustCommand{\transp}{^{\rm T}}
+\newcommand{\lsub}[1]{{\hbox{\footnotesize$#1$}}}
+\newcommand{\lexp}[1]{{\hbox{\footnotesize$#1$}}}
+\newcommand{\blankpagemark}{\centerline{\sl This page intentionally blank.}}
+\DeclareRobustCommand{\prm}{^{\hbox{\footnotesize$\,\prime$}}}
+\DeclareRobustCommand{\pprm}{^{\hbox{\footnotesize$\,\prime\prime$}}}
+\newenvironment{m}[1]{\left[\begin{array}{@{\,}#1@{\,}}}{\end{array}\right]}
+%\newcommand{\text}{\mbox}
+\newcommand{\mat}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+
+%Hacks so pdflatex and latex2edx will run
+\def\bs{\textbackslash{}}
+
+%------------------------------------------------------------------------<
+
+\begin{document}
+\thispagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXproblem}{c2-rq1}{weight=5  showanswer='attempted' display_name="Class 2 Reading Questions" }
+
+\problem1
+Which of the following represents a valid probability table 
+
+\begin{tabular}{ll|lllllll}
+i) & outcomes & 1 &2 &3 &4 &5 \\
+\cline{2-7}
+&probability &1/5 &1/5 &1/5 &1/5 &1/5
+\end{tabular}
+
+\bigskip
+
+\begin{tabular}{ll|lllllll}
+ii) & outcomes & 1 &2 &3 &4 &5 \\
+\cline{2-7}
+&probability &1/2 &1/5 &1/10 &1/10 &1/10
+\end{tabular}
+
+\edXabox{type="multichoice" expect="i and ii" options="i","ii","i and ii","not enough information" }
+
+\problem2
+A sample space has exactly two outcomes. The first has probability $p$
+and the second has probability $3p$. What is the value of $p$?
+
+\edXabox{expect=".25" type="numerical" tolerance='0.0001'}
+
+\problem3
+Let $A$ and $B$ be two events with $P(A) = 0.4$, $P(B) = 0.5$ and 
+$P(A\cap B) = 0.3$. What is $P(A \cup B)$?
+(Hint: visualize with Venn diagrams.)
+
+\edXabox{type="multichoice" expect="0.6" options="0.5","0.6","0.7","0.8","0.9" }
+
+\problem4
+Our experiment consists of tossing a coin 3 times. Take the sample space
+to be all sequences of 3 heads or tails.
+\[ \Omega = \{HHH,\,HHT,\,HTH,\,HTT,\,THH,\,THT,\,TTH,\,TTT\}
+\]
+For each of the following give the size of the event.
+
+i) The event 'there are more heads than tails'.
+
+\edXabox{type="multichoice" expect="4" options="0","1","2","3","4","5","6","7","8"}
+
+ii) The event 'the first heads occurs after the first tails.'
+
+\edXabox{type="multichoice" expect="3" options="0","1","2","3","4","5","6","7","8"}
+
+
+\end{edXproblem}
+
+%\problem4 Now we'll do our first random simulation. Don't worry if you
+%don't fully understand the commands. We will explain them in 
+%the first tutorial. 
+%
+%In order to simulate counting the number of heads in 1000 tosses of  a fair coin give the following sequence of commands (hit return after each one).
+%
+%(In the first command the semicolon at the end 
+%will keep a long list of numbers from being
+%written to the screen. If you leave it off, you'll need to use the space bar to
+%page through all the numbers.)\\
+%\mlcmdna{x = binornd(1,.5, 1000,1);}
+%\mlcmdna{total = sum(x)}
+%
+%You can use the up arrow to go back and run the commands again. You should get
+%a different total.
+%
+%Give the value of the total number of heads for one of your simulations.
+%\edXabox{expect="500" type="numerical" tolerance='60'}
+
+\end{document}
+
+
+
+

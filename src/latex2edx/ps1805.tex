@@ -1,0 +1,435 @@
+\input{header.tex}
+
+\newcommand{\RR}{{\mathbb R}}
+\newcommand{\bs}[1]{\hbox{\boldmath$#1$}}
+\DeclareRobustCommand{\transp}{^{\rm T}}
+\newcommand{\lsub}[1]{{\hbox{\footnotesize$#1$}}}
+\newcommand{\lexp}[1]{{\hbox{\footnotesize$#1$}}}
+\newcommand{\blankpagemark}{\centerline{\sl This page intentionally blank.}}
+\DeclareRobustCommand{\prm}{^{\hbox{\footnotesize$\,\prime$}}}
+\DeclareRobustCommand{\pprm}{^{\hbox{\footnotesize$\,\prime\prime$}}}
+\newenvironment{m}[1]{\left[\begin{array}{@{\,}#1@{\,}}}{\end{array}\right]}
+%\newcommand{\text}{\mbox}
+\newcommand{\mat}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+
+%------------------------------------------------------------------------<
+
+\begin{document}
+
+\thispagestyle{empty}
+
+%\hbox to \textwidth{\Large 18.06\hfill Professor
+%  Strang \hfill Quiz 2\hfill April 11th, 2012\hfill}
+%\vspace{3.5ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{edXcourse}{18.05x}{18.05x Probability and Statistics}
+
+\begin{edXchapter}{Unit 1}
+
+\begin{edXsection}{Week 1}
+
+
+\begin{edXsequential}
+
+\newpage
+
+\begin{edXproblem}{Problem 1}{40}
+
+\begin{enumerate}
+
+\item Find the projection $p$ of the vector $b$ onto the plane of $a_{1}$ and
+$a_{2},$ when
+
+%\begin{center}
+
+\hspace{4em} $$  
+b =
+  \left [ \begin{array}{c}
+1\\
+0\\
+0\\
+1
+\end{array} \right ],
+\, \, \, \, \, \, \, \,
+a_{1} = 
+  \left [ \begin{array}{c}
+1\\
+7\\
+1\\
+7
+\end{array} \right ], 
+\, \, \, \, \, \, \, \,
+a_{2} =  
+  \left [ \begin{array}{r}
+-1\\
+7\\
+1\\
+-7
+\end{array} \right ] .
+$$
+
+Please enter your answer as a row matrix, eg {\tt [1,2,3,4]}:	% edX
+
+\edXabox{type='symbolic' size='90' expect='[4/25, 0, 0, 28/25]'}	% edX
+
+
+\begin{sol}
+Observe that $a_1^T a_2 = 0$. Thus
+\begin{eqnarray*}
+p = \frac{a_1^T b}{a_1^T a_1} a_1 +  \frac{a_2^T b}{a_2^T a_2} a_2 = \frac{8}{100}a_1 - \frac{8}{100} a_2 = \begin{bmatrix} 4/25 \\ 0 \\ 0 \\ 28/25 \end{bmatrix}.
+\end{eqnarray*}
+\end{sol}
+
+\item What projection matrix $P$ will produce the projection 
+$p=Pb$ for every vector $b$ in $\mathbb{R}^{4}\, ?$
+
+\edXabox{type='symbolic' size='90' expect='[[2/100,0,0,14/100],[0,98/100,14/100,0],[0,14/100,2/100,0],[14/100,0,0,98/100]]' options='matrix'}	% edX
+
+\begin{sol}
+Let $A$ be the $4 \times 2$ matrix with columns $a_1$, $a_2$. $P$ is given by $P =
+A(A^TA)^{-1}A^T$. Notice that
+$$
+A^T A = 
+\begin{bmatrix}
+100 & 0 \\
+0 & 100
+\end{bmatrix}.
+$$
+($a_1$ and $a_2$ are orthogonal and of same length.)
+
+Thus 
+$$
+P = \frac{1}{100} AA^T = \frac{1}{100} 
+\begin{bmatrix}
+2 & 0 & 0 & 14 \\
+0 & 98 & 14 & 0 \\
+0 & 14 & 2 & 0 \\
+14 & 0 & 0 & 98
+\end{bmatrix}.
+$$
+\end{sol}
+
+\newpage
+\item What is the determinant of $I - P \, ?$ Explain your answer. 
+
+\edXabox{type='string' expect='None'} % edX - this kind of problem has to be rewritten
+
+\begin{sol}
+
+$I-P$ is the matrix of the projection to the orthgonal complement of $C(A)$, i.e.~$N(A^T)$. In particular, $I-P$ has rank the dimension of $N(A^T)$, which is 3. Thus $I-P$ is singular, and $\det(I-P) = 0$. 
+\end{sol}
+
+\item \underline{What are all nonzero eigenvectors of $P$ with 
+eigenvalue} $\lambda = 1 \, ?$
+
+How is the number of independent eigenvectors
+with $\lambda = 0$ of a square matrix $A$ connected to the rank of $A \, ?$ 
+\hspace{2em}
+
+\edXabox{type='string' expect='None'} % edX - this kind of problem has to be rewritten
+ 
+(You could answer (c) and (d) even if you don't answer (b).)
+
+
+\begin{sol}
+The non-zero eigenvectors with eigenvalue $\lambda = 1$ are all the non-zero linear combinations of $a_1$ and $a_2$, i.e.~all the non-zero vectors in the plane spanned by $a_1$ and $a_2$.
+
+Suppose $A$ is a $n \times n$ matrix, with rank $r$.
+\begin{center}
+\# independent zero-eigenvectors of $A$  =  \# independent vectors in $N(A)$
+
+= dimension of $N(A)$  =  $n-r$
+\end{center}
+\end{sol}
+
+\end{enumerate}
+
+\end{edXproblem}
+\newpage
+
+\begin{edXproblem}{Problem 2}{30}
+
+\begin{enumerate}
+\item Suppose the matrix $A$ factors into $A=PLU$ with a permutation
+matrix $P,$ and 1's on the diagonal of $L$ (lower triangular) and
+pivots $d_{1} , \ldots , d_{n}$ on the diagonal of $U$ (upper triangular).
+
+
+What is the determinant of $A \, ?$ \hspace{2em} EXPLAIN WHAT RULES YOU ARE USING.
+
+\edXabox{type='string' expect='None'} % edX - this kind of problem has to be rewritten
+
+
+\begin{sol} Use
+$$
+\det(A) = \det(P)\cdot \det(L)\cdot \det(U)
+$$
+where we make two uses of the rule $\det(MN) = \det(M) \det(N)$, for any two $n \times n$ matrices $M$ and $N$. We will compute each of the determinants on the right-hand side.
+
+The determinant of a triangular matrix is the product of its diagonal entries; this is true whether the matrix is upper or lower triangular. Thus
+$$ \det (L) = 1 \qquad \text{and} \qquad \det(U) = d_1 \cdot d_2 \cdot \ldots \cdot d_n.
+$$
+The determinant changes sign whenever two rows are swapped. Thus 
+\begin{edXmath}
+\det(P) = 
+\begin{cases}
++1 & \text{if $P$ is even (even \# of row exchanges)} \\
+-1 & \text{if $P$ is odd (odd \# of row exchanges)}
+\end{cases}
+\end{edXmath}
+and so
+$$ \det(A) = \pm d_1 \cdot d_2 \cdot \ldots \cdot d_n$$
+where the sign depends on the parity of $P$.
+
+\end{sol}
+
+\item Suppose the first row of a new matrix $A$ consists of the numbers
+$1,2,3,4$. Suppose the cofactors $C_{ij}$ of that first row are the
+numbers $2,2,2,2$.
+
+(Cofactors already include 
+the $\pm$ signs.) 
+
+
+\vspace{2ex}
+Which entries of $A^{-1}$ does this tell you and what are those entries?
+
+\edXabox{type='string' expect='None'} % edX - this kind of problem has to be rewritten
+
+\begin{sol}
+Using the cofactor expansion in the first row gives
+\begin{eqnarray*}
+\det(A) & = & a_{11} C_{11} + a_{12}C_{12} + a_{13}C_{13} + a_{14}C_{14} \\
+& = & 1 \times 2 + 2 \times 2 + 3 \times 2 + 4 \times 2 \\
+& = & 20
+\end{eqnarray*}
+As $A^{-1} = C^T /\det(A)$, where $C$ is the cofactor matrix, this data gives us the entries of the first column of $A^{-1}$; they are all $2 / 20 = 1/10$. 
+\end{sol}
+
+\newpage
+\item What is the determinant of the matrix $M(x) \, ?$ For which values
+of $x$ is the determinant equal to zero?
+
+\begin{center}
+
+
+\[
+M(x) = 
+  \left [ \begin{array}{crcl}
+1 & 1 & 1 & 1\\
+1 & -1 & 2 & x\\
+1 & 1 & 4 & x^{2}\\
+1 & -1 & 8 & x^{3}
+
+\end{array} \right ]
+\]
+
+
+\end{center}
+
+${\rm det}(M) = $ \edXabox{type='symbolic' size='90' expect=' -6 * x**3 +12*x**2 + 6*x - 12' } % edX
+
+${\rm det}(M) = 0$ when $x=$ \edXabox{type='symbolic' options='matrix' expect='[1,-1,2]'} % edX
+
+(enter your answer as a row vector)	% edX
+
+\begin{sol}
+
+\textbf{Solution no.~1.}
+
+From, for instance, the `Big Formula', we know that $\det(M)$ is a cubic polynomial in $x$. Say
+$$
+\det(M) = a x^3 + b x^2 + cx +d.
+$$
+We can calculate $d$ by setting $x=0$. Using the cofactor expansion in the last column, we get that
+$$
+d = -
+\begin{vmatrix}
+1 & -1 & 2 \\
+1 & 1 & 4 \\
+1 & -1 & 8 
+\end{vmatrix}
+= -
+\begin{vmatrix}
+1 & -1 & 2 \\
+0 & 2 & 2 \\
+0  & 0 & 6
+\end{vmatrix}
+= -12.
+$$
+
+We will determine the other coefficients of $\det(M)$ by finding three roots for it. $x$ is a root of $\det(M)$ if and only if $M(x)$ is a singular matrix. Now, notice that 
+
+\begin{center}
+\begin{tabular}{rccl}
+$(1, 1, 1)$ & = & $(x,x^2, x^3)$ &  for $x=1$ \\
+$(1, -1, 1)$ & = & $(x,x^2, x^3)$ & for $x=-1$ \\
+$(2, 4, 8 )$ & = & $(x,x^2, x^3)$ & for $x=2$. \\
+\end{tabular}
+\end{center}
+Thus $M(x)$ is singular for $x=1, -1$ and $2$; moreover, this implies that $$\det(M) = a (x-1)(x+1)(x-2).$$
+As $d = 2a$, we must have $a =-6$. Thus
+$$
+\det(M) =  -6(x-1)(x+1)(x-2) = -6 x^3 +12x^2 + 6x - 12.
+$$
+The values of $x$ for which $M(x)$ is singular are $1, -1$ and $2$.
+\newline
+
+\textbf{Solution no.~2.}
+$$
+\begin{vmatrix}
+1 & 1 & 1 & 1\\
+1 & -1 & 2 & x\\
+1 & 1 & 4 & x^{2}\\
+1 & -1 & 8 & x^{3}
+\end{vmatrix}
+=
+\begin{vmatrix}
+1& 1& 1 & 1 \\
+0 & -2 & 1 & x-1 \\
+0 & 0 & 3 & x^2 -1 \\
+0 & -2 & 7  & x^3 -1
+\end{vmatrix}
+= 
+\begin{vmatrix}
+1& 1& 1 & 1 \\
+0 & -2 & 1 & x-1 \\
+0 & 0 & 3 & x^2 -1 \\
+0 & 0 & 6 & x^3 -x
+\end{vmatrix}
+$$
+$$
+=
+\begin{vmatrix}
+ -2 & 1 & x-1 \\
+0 & 3 & x^2 -1 \\
+ 0 & 6 & x^3 - x
+\end{vmatrix}
+=
+-2
+\begin{vmatrix}
+3 & x^2 -1 \\
+ 6 & x^3 - x
+\end{vmatrix}
+= -6 x^3 +12x^2 + 6x - 12
+$$
+In the first step, subtract the first row from the second, third and fourth rows. 
+In the second step, subtract the second row from the fourth. For the third and fourth steps, use the cofactor expansion in the first column.
+\newline
+
+We factorize $\det(M)$ by guessing roots, trying small integers; we find that $1, -1$ and $2$ are all roots, which gives
+$$
+\det(M) =  -6(x-1)(x+1)(x-2).
+$$
+The values of $x$ for which $M(x)$ is singular are $1, -1$ and $2$.
+\end{sol}
+
+\end{enumerate}
+
+\end{edXproblem}
+%%%%%%%%%% 	PROBLEM 3
+
+\newpage
+
+\begin{edXproblem}{Problem 3}{30}
+
+\begin{enumerate}
+
+\item Starting from independent vectors $a_{1}$ and $a_{2},$ use
+Gram-Schmidt to find formulas for two orthonormal vectors $q_{1}$ and
+$q_{2}$ (combinations of $a_{1}$ and $a_{2}$):
+
+$q_1=$ \edXabox{type='symbolic' size='90' expect='a_1/||a_1||'} % edX
+
+$q_2=$ \edXabox{type='symbolic' size='90' expect=' \frac{ a_2 - (a_2^T q_1)q_1}{|| a_2 - (a_2^T q_1)q_1||} '} % edX - broken
+
+
+\begin{sol}
+
+\[
+q_{1}= \frac{a_1}{ ||a_1||}
+\]
+
+
+\[
+q_{2}= \frac{ a_2 - (a_2^T q_1)q_1}{|| a_2 - (a_2^T q_1)q_1||}
+= \big( a_2 - \frac{(a_2^T a_1)}{a_1^T a_1} a_1 \big)\, / \, || a_2 - \frac{(a_2^T a_1)}{a_1^T a_1} a_1 ||
+\]
+
+
+\end{sol}
+
+\item The connection between the matrices $A = [a_{1} \, \, a_{2}]$ and
+$Q= [q_{1} \, \, q_{2}]$ is often written $A=QR.$ From your answer to 
+Part (a), what are the entries in this matrix $R \, ?$
+
+$R=$ \edXabox{type='symbolic' size='90' expect='[[||a_1||,a_2^T q_1],[0,||a_2-(a_2^T q_1)*q_1]]'} % edX - broken
+
+\begin{sol}
+Re-arranging the expressions above gives
+$$
+a_1 = q_1 ||a_1||
+$$
+$$
+a_2 = (a_2^T q_1) q_1 + ||a_2 - (a_2^T q_1) q_1|| q_2
+$$
+and thus
+$$
+R = 
+\begin{bmatrix}
+a_1^T q_1 & a_2^T q_1 \\
+a_1^T q_2 & a_2^T q_2
+\end{bmatrix}
+=
+\begin{bmatrix} 
+||a_1|| & a_2^T q_1\\ 
+0 &  ||a_2 - (a_2^T q_1) q_1|| 
+\end{bmatrix}
+$$
+
+\end{sol}
+
+\newpage
+\item The least squares solution $\widehat{x}$ to the equation $Ax = b$ 
+comes from solving what equation? If $A = QR$ as above, show that $R\,\widehat{x} = Q^{T}b.$
+
+\begin{sol}
+$\widehat{x}$ comes from solving $A^T A \widehat{x} = A^T b$. 
+
+\edXabox{type='string' expect='None'} % edX - this kind of problem has to be rewritten
+ 
+Suppose we have $A = QR$. Notice that:
+\begin{itemize}
+\item $Q^T Q = I$, so $A^T A = (QR)^T QR = R^T Q^T Q R = R^T R$.
+\item As $a_1$ and $a_2$ are independent, $R$ is invertible. Thus $R^T$ is also invertible.
+\end{itemize}
+Thus we have
+$$
+\begin{matrix}
+  & A^T A \, \widehat{x} & = & A^T b \\
+\Leftrightarrow
+ & R^T R \, \widehat{x}  &  = & R^T Q^T b \\
+\Leftrightarrow  & R \, \widehat{x} &  = & Q^T b.
+\end{matrix}
+$$
+
+\end{sol}
+
+\end{enumerate}
+
+\end{edXproblem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{edXsequential}
+\end{edXsection}
+\end{edXchapter}
+\end{edXcourse}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+
+
+

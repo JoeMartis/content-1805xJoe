@@ -1,0 +1,49 @@
+<html>
+<pre>
+&lt;problem>
+
+&lt;startouttext/>
+&lt;p>A formula response problem accepts a line of text representing a mathematical expression from the student, and evaluates the input for equivalence to a mathematical expression provided by the grader. Correctness is based on numerical sampling of the symbolic expressions. &lt;/p>
+
+&lt;p>The answer is correct if both the student provided response and the grader's mathematical expression are equivalent to specified numerical tolerance, over a specified range of values for each variable.&lt;/p>
+
+&lt;p>This kind of response checking can handle symbolic expressions, but places an extra burden on the problem author to specify the allowed variables in the expression, and the
+numerical ranges over which the variables must be sampled in order to test for correctness. &lt;/p>
+&lt;endouttext/>
+
+&lt;script type="loncapa/python">
+VoVi = "(R_1*R_2)/R_3"
+&lt;/script>
+
+&lt;startouttext/>
+&lt;p>Give an equation for the relativistic energy of an object with mass m.  Explicitly indicate multiplication with a &lt;tt>*&lt;/tt> symbol.&lt;/p>
+&lt;endouttext/>
+
+&lt;formularesponse type="cs" samples="m,c@1,2:3,4#10" answer="m*c^2">
+&lt;responseparam type="tolerance" default="0.00001"/>
+&lt;text>E =&lt;/text>
+&lt;textline size="40" math="1"/>
+&lt;/formularesponse>
+
+&lt;startouttext/>
+&lt;p>The answer to this question is (R_1*R_2)/R_3. &lt;/p>
+&lt;endouttext/>
+
+&lt;formularesponse type="ci" samples="R_1,R_2,R_3@1,2,3:3,4,5#10" answer="$VoVi">
+&lt;responseparam type="tolerance" default="0.00001"/>
+&lt;textline size="40" math="1"/>
+&lt;/formularesponse>
+
+&lt;solution>
+&lt;div class="detailed-solution">
+&lt;p>Explanation&lt;/p>
+
+&lt;p>The mathematical summary of many of the theory of relativity developed by Einstein is that the amount of energy contained in a mass m is the mass time the speed of light squared.&lt;/p>
+
+&lt;p>As you can see with the formula entry, the answer is \(\frac{R_1*R_2}{R_3}\)&lt;/p>
+&lt;/div>
+&lt;/solution>
+
+&lt;/problem>
+</pre>
+</html>

@@ -1,0 +1,1 @@
+python latex2edx.py -single ../problem/example0.xml example0.tex

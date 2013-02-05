@@ -1,0 +1,8 @@
+<html>
+  <div class="script_placeholder" data-src="/static/js/load/determinant.js"/>
+  <h2>Determinant</h2>
+  <p>Some text. An equation \(x_\mathrm{0} = 2\)</p>
+  <div id="container">
+      <canvas id="daimp" width="818" height="700"></canvas>
+  </div>
+</html>

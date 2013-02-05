@@ -1,0 +1,503 @@
+\def\ptsz{12pt}
+\input{header.tex}
+
+\def\mybull{$\bullet$}
+\def\W{\Omega}
+\def\w{\omega}
+\def\mycap{\,\cap\,}
+\def\mycup{\,\cup\,}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\classnum{1}
+\def\topic{Counting and Sets}
+\def\prepost{post}
+
+\def\endtopic{\vspace*{\stretch{1}} \emph{End of class \classnum{} notes}}
+\def\parttitle{Class \classnum: \topic\\18.05, \whichterm }
+\def\mypagehead{18.05 class \classnum, \topic, \whichterm }
+\def\mytitle{\parttitle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{headings}
+\markboth{\mypagehead}{\mypagehead}
+
+\begin{document}
+\thispagestyle{plain}
+
+\begin{center}
+  \Large\bfseries \mytitle
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Learning Goals}
+\begin{enumerate}[1.]
+\item Know the definitions and notations for sets, intersections, union, complement.
+\item  Be able to visualize set operations using Venn diagrams.
+\item Understand the reason we need to find the size of sets in 18.05.
+\item Be able to use the rule of product, permutations and combinations to 
+count the elements in a set.
+\end{enumerate}
+
+\section{Counting }
+
+\subsection{Motivating questions}
+
+\numexamp 
+A coin is {\em fair} if it comes up heads or tails with equal probability. \\
+You flip a fair coin three times.  What is the probability that exactly one of the flips results in a head? 
+
+\ans With three flips, we can easily list the eight possible outcomes:
+$$\{TTT, TTH, THT, THH, HTT, HTH, HHT, HHH\}$$
+Three of these outcomes have exactly one head:
+$$\{TTH, THT, HTT\}$$
+Since all outcomes are equally likely, we have
+$$P(\text{1 head in 3 flips}) = \frac{\text{number of outcomes with 1 head}}{\text{total number of outcomes}} = \frac{3}{8}.$$ \\
+
+\medskip
+
+Would listing the outcomes be practical with 10 flips?
+
+\medskip
+
+A deck of 52 cards has 13 ranks (2, 3, $\dots$, 9, 10, J, Q, K, A) and 4 suits ($\heartsuit,  \spadesuit, \diamondsuit, \clubsuit,$). A poker hand consists of 5 cards.  
+A {\em One-pair} hand consists of two cards having one rank and the remaining three cards having three other ranks, e.g., $\{2 \heartsuit, 2 \spadesuit, 5 \heartsuit, 8 \clubsuit, \text{K} \diamondsuit\}$ 
+
+\medskip
+
+\numexamp The probability of a one-pair hand is: \\
+a) less than 5\%\\
+b) between 5\% and 10\% \\
+c) between 10\% and 20\%\\
+d) between 20\% and 40\% \\
+e) greater than 40\% \\
+
+%Did our experiment really match the question we were asking?  We should have returned the cards to the deck and shuffled between each hand.
+%CQ: Would we converge to the same probability if we had returned the cards and shuffled between hands? \\
+%a) Yes. \\
+%b) No. \\
+%When we discuss expected value, we will see that the answer is yes. \\
+
+Since every set of five cards is equally likely, we can compute the probability of a one-pair hand as
+$$P(\text{one-pair}) = \frac{\text{number of one-pair hands}}{\text{total number of hands}}$$
+To find the exact probability, we need to {\em count} the number of elements in each of these sets.  And we have to be clever about it, because there are too many elements to simply list them all. We will come back to this problem.
+
+
+\subsection{Sets and notation}
+Counting means counting the elements of a set, so 
+we start with a brief review of sets. (If this is new to you, please come to office hours). 
+
+\subsubsection{Definitions}
+A \textbf{set} $S$ is a collection of elements. We use the following notation.\\
+\textbf{Element} $x \in S$: the element $x$ is in the set $S$.\\
+{\bf Subset} $A \subset S$: the set $A$ is a subset of $S$ if all of its elements are in $S$. \\
+{\bf Complement} $A^c$ or $S - A$: The {\bf complement} of $A$ in $S$ is the set of elements of $S$ that are {\bf not} in $A$. 
+
+\medskip
+
+Suppose $A$ and $B$ are subsets of $S$. \\
+\textbf{Union} $A \cup B$: the {\em union} of $A$ and $B$ is the set of elements of $S$ in $A$ or $B$. \\
+\textbf{Intersection} $A \cap B$: the {\em intersection} of $A$ and $B$ is the set of elements of $S$ in $A$ and~$B$. \\
+\textbf{Empty set} $\emptyset$: the {\em empty set} is the set with no elements. \\
+\textbf{Disjoint: } $A$ and $B$ are {\bf disjoint} if they have no common elements. That is, if $A \cap B = \emptyset$.\\
+\textbf{Difference} $A - B$: the {\em difference} of $A$ and $B$ is the set of elements in $A$ that are not in $B$.
+%This is also called the relative complement of $B$ in $A$.
+
+\medskip
+
+\numexamp 
+Start with the set of all months:
+\[S = \{\text{Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, 
+Nov, Dec}\}.
+\]
+Consider two subsets:
+\[
+\begin{array}{lllll}
+L &= \text{ the month is long, i.e. 31 days } = 
+\{\text{Jan, Mar, May, Jul, Aug, Oct, Dec}\}\\
+R &= \text{ the letter r is the name of the month  } = 
+\{\text{Jan, Feb, Mar, Apr, Sep, Oct, Nov, Dec}\}.
+\end{array}
+\]
+Our goal here is to look at different set operations.\\
+\textbf{Intersection}: \, $L\mycap R$ means both $L$ and $R$ occurred.
+$L\mycap R = \{\text{Jan, Mar, Oct, Dec}\}$.\\
+\textbf{Union}: \, $L \mycup  R$ means at least 
+one of $L$ and $R$ occurred.\\
+$L\mycup R = \{\text{Jan, Feb, Mar, Apr, May, Jul, Aug, Sep, Nov, Oct, Dec}\}$.\\
+\textbf{Complement}: \, $L^c$ means everything that is \emph{not} in $L$.
+$L^c = \{\text{Feb, Apr, Jun, Sep, Nov}\}$.\\
+\textbf{Difference}: \, $L-R$ means everything that's in $L$ and not
+in $R$. \\
+So,
+$L-R = \{\text{May, Jul, Aug}\}$ and $P(L-R) = 3/12$.
+
+There are often many ways to get the same set,
+e.g. \, $L^c = S - L$, \, $L-R = L\mycap R^c$.
+
+\bigskip
+
+The relationship between union, intersection, and complement is given by {\bf DeMorgan's laws}:
+$$(A \cup B)^c = A^c \cap B^c$$
+$$(A \cap B)^c = A^c \cup B^c$$
+In words the first law says everything not in ($A$ or $B$) is the same
+set as everything that's (not in $A$) and (not in $B$). The second law 
+is similar.
+
+\subsubsection{Venn Diagrams}
+Most people will have seen these. They offer an easy way to visualize set 
+operations. 
+
+In all the figures the large rectangle stands for $S$, $L$ is the 
+region inside the circle on the left and $R$ is the region inside the
+circle on the right.
+The shaded region is the set indicated.
+
+\def\sc{1cm}
+\def\fillc{orange!60!white}
+\begin{tikzpicture} [x=\sc, y=\sc]
+\draw [fill=\fillc] (0,0) rectangle (4,2);
+\node at (2,0) [below] {$S$};
+\end{tikzpicture}
+\hs2
+\begin{tikzpicture} [x=\sc, y=\sc]
+\draw (0,0) rectangle (4,2);
+\draw [fill=\fillc] (1.7,1) circle (.6);
+\draw  (2.3,1) circle (.6);
+\node at (2,0) [below] {$L$};
+\end{tikzpicture}
+\hs2
+\begin{tikzpicture} [x=\sc, y=\sc]
+\draw (0,0) rectangle (4,2);
+\draw [fill=\fillc] (2.3,1) circle (.6);
+\draw (1.7,1) circle (.6);
+\node at (2,0) [below] {$R$};
+\end{tikzpicture}
+
+\begin{tikzpicture} [x=\sc, y=\sc]
+\draw (0,0) rectangle (4,2);
+\draw [fill=\fillc] (1.7,1) circle (.6) (2.3,1) circle (.6);
+\node at (2,0) [below] {$L\mycup R$};
+\end{tikzpicture}
+\hs2
+\begin{tikzpicture} [x=\sc, y=\sc]
+\draw (0,0) rectangle (4,2);
+\draw (1.7,1) circle (.6);
+\begin{scope}
+\draw [clip] (2.3,1) circle (.6);
+\draw [fill=\fillc] (1.7,1) circle (.6);
+\end{scope}
+\node at (2,0) [below] {$L\mycap R$};
+\end{tikzpicture}
+\hs2
+\begin{tikzpicture} [x=\sc, y=\sc]
+\draw [fill=\fillc] (0,0) rectangle (4,2);
+\draw [fill=white] (1.7,1) circle (.6);
+\draw (2.3,1) circle (.6);
+\node at (2,0) [below] {$L^c$};
+\end{tikzpicture}
+\hs2
+\begin{tikzpicture} [x=\sc, y=\sc]
+\draw (0,0) rectangle (4,2);
+\draw [fill=\fillc] (1.7,1) circle (.6);
+\draw [fill=white] (2.3,1) circle (.6);
+\draw (1.7,1) circle (.6);
+\node at (2,0) [below] {$L-R$};
+\end{tikzpicture}
+
+Proof of DeMorgan's Laws\nl5
+\begin{tikzpicture} [x=\sc, y=\sc]
+\draw [fill=\fillc] (0,0) rectangle (4,2);
+\draw [fill=white] (1.7,1) circle (.6);
+\draw [fill=white] (2.3,1) circle (.6);
+\draw (1.7,1) circle (.6);
+\node at (2,0) [below] {$(L\mycup R)^c$};
+\end{tikzpicture}
+\hs2
+\begin{tikzpicture} [x=\sc, y=\sc]
+\draw [fill=\fillc] (0,0) rectangle (4,2);
+\draw [fill=white] (1.7,1) circle (.6);
+\draw (2.3,1) circle (.6);
+\node at (2,0) [below] {$L^c$};
+\end{tikzpicture}
+\hs2
+\begin{tikzpicture} [x=\sc, y=\sc]
+\draw [fill=\fillc] (0,0) rectangle (4,2);
+\draw [fill=white] (2.3,1) circle (.6);
+\draw (1.7,1) circle (.6);
+\node at (2,0) [below] {$R^c$};
+\end{tikzpicture}
+\hs2
+\begin{tikzpicture} [x=\sc, y=\sc]
+\draw [fill=\fillc] (0,0) rectangle (4,2);
+\draw [fill=white] (1.7,1) circle (.6);
+\draw [fill=white] (2.3,1) circle (.6);
+\draw (1.7,1) circle (.6);
+\node at (2,0) [below] {$L^c\mycap R^c$};
+\end{tikzpicture}
+
+\begin{tikzpicture} [x=\sc, y=\sc]
+\draw [fill=\fillc] (0,0) rectangle (4,2);
+\begin{scope}
+\draw (1.7,1) circle (.6);
+\draw (2.3,1) circle (.6);
+\draw [clip] (1.7,1) circle (.6);
+\draw [fill=white] (2.3,1) circle (.6);
+\end{scope}
+\node at (2,0) [below] {$(L\mycap R)^c$};
+\end{tikzpicture}
+\hs2
+\begin{tikzpicture} [x=\sc, y=\sc]
+\draw [fill=\fillc] (0,0) rectangle (4,2);
+\draw [fill=white] (1.7,1) circle (.6);
+\draw (2.3,1) circle (.6);
+\node at (2,0) [below] {$L^c$};
+\end{tikzpicture}
+\hs2
+\begin{tikzpicture} [x=\sc, y=\sc]
+\draw [fill=\fillc] (0,0) rectangle (4,2);
+\draw [fill=white] (2.3,1) circle (.6);
+\draw (1.7,1) circle (.6);
+\node at (2,0) [below] {$R^c$};
+\end{tikzpicture}
+\hs2
+\begin{tikzpicture} [x=\sc, y=\sc]
+\draw [fill=\fillc] (0,0) rectangle (4,2);
+\begin{scope}
+\draw (1.7,1) circle (.6);
+\draw (2.3,1) circle (.6);
+\draw [clip] (1.7,1) circle (.6);
+\draw [fill=white] (2.3,1) circle (.6);
+\end{scope}
+\node at (2,0) [below] {$L^c\mycup R^c$};
+\end{tikzpicture}
+
+\numexamp  
+i) Verify DeMorgan's laws for the subsets $A = \{1,2,3\}$ and $B = \{3,4\}$ of the set $S = \{1,2,3,4,5\}$.  \\
+ii) Draw and label a Venn diagram with $A$ the set of male students and $B$ the set of sophomores.  Shade the region illustrating the first law.  Can you express the first law in this case as a non-technical English sentence?
+
+\ans For each law we just work through both sides of the equation and 
+show they are the same.\\
+1. Law $(A\mycup B)^c = A^c\mycap B^c$:\\
+Right hand side: $A\mycup B = \{1,2,3,4\} \myimply (A\mycup B)^c = \{5\}$.\\
+Left hand side: $A^c = \{4,5\}$, $B^c = \{1,2,5\}
+\myimply A^c\mycap B^c = \{5\}$. \\
+The two sides are equal. \, QED
+
+2. Law $(A\mycap B)^c = A^c\mycup B^c$:\\
+Right hand side: $A\mycap B = \{3\} \myimply (A\mycap B)^c = \{1,2,4,5\}$.\\
+Left hand side: $A^c = \{4,5\}$, $B^c = \{1,2,5\}
+\myimply A^c\mycup B^c = \{1,2,4,5\}$.\\ 
+The two sides are equal. \, QED
+
+
+\subsubsection{Products of sets}
+The product of sets $S$ and $T$ is the set of ordered pairs:
+$$S \times T = \{(s,t) \,| \, s\in S, t \in T\}.$$
+
+The following diagrams illustrate the set product for two examples.\\
+\parbox[l]{2.8in}{
+\begin{tabular}{c|c|c|c|c|}
+$\times$ & 1 & 2 & 3 & 4\\
+\hline
+1 & (1,1) & (1,2) & (1,3) & (1,4)\\
+\hline
+2 & (2,1) & (2,2) & (2,3) & (2,4)\\
+\hline
+3 & (3,1) & (3,2) & (3,3) & (3,4)\\
+\hline
+\end{tabular}\\[1.5ex]
+\mcent{ $\{1, 2, 3\} \times \{1,2,3,4\}$ }\\[3ex] %to raise the figure
+}
+\hs3
+\parbox[1]{2.8in}{
+\def\sc{.8cm}
+\def\fillc{red!60!blue}
+\begin{tikzpicture} [x=\sc, y=\sc]
+\draw (0,0) rectangle (5,4);
+\draw [line width=2, color=red] (1,0) -- (4,0); 
+\draw [line width=2, color=red] (0,1) -- (0,3); 
+\draw [fill=\fillc] (1,1) rectangle (4,3);
+%tic marks
+\draw (1,0) -- ++(0,-1ex) node [below] {1};
+\draw (4,0) -- ++(0,-1ex) node [below] {4};
+\draw (5,0) -- ++(0,-1ex) node [below] {5};
+\draw (0,1) -- ++(-1ex,0) node [left] {1};
+\draw (0,3) -- ++(-1ex,0) node [left] {3};
+\draw (0,4) -- ++(-1ex,0) node [left] {4};
+\end{tikzpicture}\nl9
+\mcent{$[1,4] \times [1,3] \subset [0,5] \times [0,4]$}
+}
+
+\medskip
+
+Note that if $A \subset S$ and $B \subset T$ then $A \times B \subset S \times T$. 
+
+
+\subsection{Counting}
+If $S$ is finite, then $|S|$ or $\#S$ denotes the number of elements.
+
+Two useful counting principles are the 
+\emph{inclusion-exclusion principle} and the \emph{rule of product}.
+
+\subsubsection{Inclusion-exclusion principle} 
+The \emph{inclusion-exclusion principal} says 
+$$|A \cup B| = |A| + |B| - |A \cap B|.$$
+We can illustrate this with a Venn diagram\\
+\mcent{
+\includegraphics{\imgdir/figc1-3.pdf}
+}
+
+In the figure, $|A|$ is the number of dots in $|A|$ and likewise for the
+other sets. The figure shows that $|A| + |B|$ \emph{double}-counts $|A\mycap B|$, which is why $|A\mycap B|$ is subtracted off in the inclusion-exclusion formula.
+
+\medskip
+
+\numexamp Suppose in a band of singers and guitarists, seven people sing, four play the guitar, and two do both.  How big is the band? \\
+
+\ans Let $S$ be the set singers and $G$ be the set guitar players. The inclusion-exclusion
+principle says
+\[ \text{size of band} = |S\mycup G| = |S| + |G| - |S\mycap G| = 
+7 + 4 - 2 = 9.
+\]
+
+\subsubsection{Rule of Product}
+The {\em Rule of Product} says:
+\begin{quotation}
+\noindent
+If there are $n$ ways to perform action 1 followed by $m$ ways to perform action 2, then there are $n \cdot m$ ways to perform action 1 followed by action~2.
+\end{quotation}
+We will also call this the \textbf{multiplication} rule.
+
+\medskip
+
+\numexamp if you have 3 shirts and 4 pants then you can make $3 \cdot 4 = 12$ outfits.  
+
+The  rule of product holds even if the ways to perform action $2$ depend on action 1, as long as the {\em number} of ways to perform action $2$ 
+is independent of action 1.  To illustrate this:
+
+%suppose we will draw a sequence of two cards from a 52-card deck.  Since the second card cannot be the same as the first card, the set of possible second cards depends on the first card chosen.  However the number of possible second cards is $51$ no matter what first card is chosen.  So the number of sequences of two cards from a deck is $52 \cdot 51$.
+
+\medskip
+
+\numexamp There are $5$ competitors in the 100m final at the Olympics.  In how many ways can the gold, silver, and bronze medals be awarded?\\
+
+\ans There are 5 ways to award the gold. Once that is awarded there are 4
+ways to award the silver and then 3 ways for the bronze: answer $5\cdot4\cdot3 = 60$ ways.
+
+Note how the choice of gold medalist affects the possibilities for the silver medalist, but not the number of possible silver medalists.
+
+\subsection{Permutations and combinations}
+
+\subsubsection{Permutations}
+A permutation of a set is a particular ordering of its elements.  For example, the set $\{a,b,c\}$ has six permutations: $abc, acb, bac, bca, cab, cba$. We could have
+found the number of permutations using  the rule of product. That is,
+there are 3 ways to pick the first element, then 2 for the second and 1 for 
+the first. This gives a total of $3\cdot2\cdot1 = 6$ permutations.
+
+In general, the rule of product tells us that the number of permutations of a set of $k$ elements is 
+$$k! = k(k-1)\cdots 3 \cdot 2 \cdot 1.$$
+
+By extension we talk about the permutations of $k$ things out of a set of 
+$n$ things. We show what this means with an example.
+
+\numexamp List all the permutations of 3 elements out of the set 
+$\{a,b,c,d\}$.
+\ans This is a long list, 
+\[ \begin{array}{llllllllllllllll}
+abc & abd & acb & acd & adb & adc \\
+bac & bad & bca & bcd & bda & bdc \\
+cab & cad & cba & cbd & cda & cdb \\
+dab & dac & dba & dbc & dca & dcb
+\end{array}
+\]
+There are 24 permutations. Note that $abc$ and $acb$ count as distinct
+permutations. That is, for permutations the \emph{order matters.}
+
+Note also, the rule or product would have told us there are 
+$4\cdot3\cdot2 = 24$ permutations without bothering to list them all.
+
+\subsubsection{Combinations}
+In contrast to permutations, in combinations order does not matter. 
+We show what
+we mean with an example
+
+\numexamp List all the combinations of 3 elements out of the set 
+$\{a,b,c,d\}$.
+
+\ans Such a combination is a collection of 3 elements without regard to order.
+So, $abc$ and $cab$ both represent the same combination. We can list all
+the combinations by listing all the subsets of exactly 3 elements.
+\[ \begin{array}{llllllll}
+\{a,b,c\} & \{a,b,d\} & \{a,c,d\} & \{b,c,d\}
+\end{array}
+\]
+There are only 4 combinations. Contrast this with the 24 permutations
+in the previous example. The factor of 6 comes because every combination
+of 3 things can be written in 6 different orders.
+
+
+\subsubsection{Formulas}
+
+We'll use the following notations.\\
+$_nP_k$ = number of permutations of $k$ distinct elements from a set of size $n$ \\
+$_nC_k = \binom{n}{k} =$ number of combinations of $k$ elements from a set of size $n$ \\
+We emphasise that by the number of combinations of $k$ elements
+we mean the number of subsets of size $k$.
+
+These are given by the formulas:
+$$_nP_k = \frac{n!}{(n-k)!} = n (n-1) \cdots (n-k+1)$$
+$$_nC_k = \frac{n!}{k!(n-k)!} = \frac{_nP_k}{k!}$$
+
+The formula for $_nP_k$ follows from the rule of product. It also implies the formula for $_nC_k$ because a subset of size $k$ can be ordered in $k!$ ways. 
+
+We can illustrate the relation between permutations and combinations
+by lining up the results of the previous two examples. (We rearrange 
+the first table to make things more clear.)
+\[ \begin{array}{llllllllllllllll}
+abc & acb & bac & bca & cab & cba & \qquad & \{a,b,c\}\\
+abd & adb & bad & bda & dab & dba & \qquad & \{a,b,d\}\\
+acd & adc & cad & cda & dac & dca & \qquad & \{a,c,d\}\\
+bcd & bdc & cbd & cdb & dbc & dcb & \qquad & \{b,c,d\}\\[.8ex]
+\multicolumn{6}{c}{\text{Permutations: }_4P_3} && 
+\text{Combinations: }_4C_3
+\end{array}
+\]
+Notice that each row in the permutations list consists of all permutations 
+of the corresponding set in the combinations list.
+
+\subsubsection{Examples}
+\numexamp Find the following counts.\\
+i) The number of ways to choose 2 out of 4 things.\\
+ii) The number of ways to list 2 out of 4 things.\\
+iii) The number of ways to choose 3 out of 10 things.
+
+\ans (i) This is asking for combinations: $\binom{4}{2} = \frac{4!}{2!\,2!} = 6$.\\
+(ii) This is asking for permuations: $_4P_2 = \frac{4!}{2!} = 12$.\\
+(iii) This is asking for combinations: 
+$\binom{10}{3} = \frac{10!}{3!\,7!} = \frac{10\cdot9\cdot8}{3\cdot2\cdot1} = 120.
+$
+
+\medskip
+
+\numexamp 
+(i) Count the number of ways to get 3 heads in a sequence of 
+10 flips of a coin.\\
+(ii) If the coin is fair, what is the probability of exactly 3 heads in 10 flips.
+
+\ans (i) This asks for the subset of all sequences of heads and tails
+that have exactly 3 heads. That is, we have to
+choose 3 out of 10 sequence entries to be heads. 
+This is the same question as in the previous
+example.
+\[
+\binom{10}{3} = \frac{10!}{3!\,7!} = \frac{10\cdot9\cdot8}{3\cdot2\cdot1} = 120.
+\]
+(ii) Since the coin is fair there are $2^{10}$ equally likely ways to 
+get a sequence of 10 heads or tails. The probability is 120/1024 = .117.
+
+
+
+
+\end{document}

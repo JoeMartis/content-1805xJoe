@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+<problem showanswer="closed" rerandomize="never" weight="30">
+  <text>
+    <ol class="enumerate">
+      <li>[(a)] </li>
+      <li>
+        <p>
+Suppose the matrix [mathjaxinline]A[/mathjaxinline] factors into [mathjaxinline]A=PLU[/mathjaxinline] with a permutation matrix [mathjaxinline]P,[/mathjaxinline] and 1's on the diagonal of [mathjaxinline]L[/mathjaxinline] (lower triangular) and pivots [mathjaxinline]d_{1} , \ldots , d_{n}[/mathjaxinline] on the diagonal of [mathjaxinline]U[/mathjaxinline] (upper triangular). </p>
+        <p>
+What is the determinant of [mathjaxinline]A \,  ?[/mathjaxinline]  EXPLAIN WHAT RULES YOU ARE USING. </p>
+        <p>
+          <stringresponse answer="None">
+            <textline/>
+          </stringresponse>
+        </p>
+        <p>
+          <solution>
+            <font color="blue">Answer: </font>
+            <font color="blue">
+              <p>
+Use </p>
+              <table id="a0000000002" class="equation" width="100%" cellspacing="0" cellpadding="7" style="table-layout:auto">
+                <tr>
+                  <td class="equation">[mathjax]\det (A) = \det (P)\cdot \det (L)\cdot \det (U)[/mathjax]</td>
+                </tr>
+              </table>
+              <p>
+ where we make two uses of the rule [mathjaxinline]\det (MN) = \det (M) \det (N)[/mathjaxinline], for any two [mathjaxinline]n \times n[/mathjaxinline] matrices [mathjaxinline]M[/mathjaxinline] and [mathjaxinline]N[/mathjaxinline]. We will compute each of the determinants on the right-hand side. </p>
+              <p>
+The determinant of a triangular matrix is the product of its diagonal entries; this is true whether the matrix is upper or lower triangular. Thus </p>
+              <table id="a0000000003" class="equation" width="100%" cellspacing="0" cellpadding="7" style="table-layout:auto">
+                <tr>
+                  <td class="equation">[mathjax]\det (L) = 1 \qquad \text {and} \qquad \det (U) = d_1 \cdot d_2 \cdot \ldots \cdot d_ n.[/mathjax]</td>
+                </tr>
+              </table>
+              <p>
+ The determinant changes sign whenever two rows are swapped. Thus [mathjax]\det \det (P) = \begin{cases}  +1 &amp;  \text {if $P$ is even (even \#  of row exchanges)} \\ -1 &amp;  \text {if $P$ is odd (odd \#  of row exchanges)} \end{cases}[/mathjax] and so </p>
+              <table id="a0000000004" class="equation" width="100%" cellspacing="0" cellpadding="7" style="table-layout:auto">
+                <tr>
+                  <td class="equation">[mathjax]\det (A) = \pm d_1 \cdot d_2 \cdot \ldots \cdot d_ n[/mathjax]</td>
+                </tr>
+              </table>
+              <p>
+ where the sign depends on the parity of [mathjaxinline]P[/mathjaxinline]. </p>
+            </font>
+          </solution>
+        </p>
+      </li>
+      <li>
+        <p>
+Suppose the first row of a new matrix [mathjaxinline]A[/mathjaxinline] consists of the numbers [mathjaxinline]1,2,3,4[/mathjaxinline]. Suppose the cofactors [mathjaxinline]C_{ij}[/mathjaxinline] of that first row are the numbers [mathjaxinline]2,2,2,2[/mathjaxinline]. </p>
+        <p>
+(Cofactors already include the [mathjaxinline]\pm[/mathjaxinline] signs.) </p>
+        <p>
+ Which entries of [mathjaxinline]A^{-1}[/mathjaxinline] does this tell you and what are those entries? </p>
+        <p>
+          <stringresponse answer="None">
+            <textline/>
+          </stringresponse>
+        </p>
+        <p>
+          <solution>
+            <font color="blue">Answer: </font>
+            <font color="blue">Using the cofactor expansion in the first row gives <table id="a0000000005" cellpadding="7" width="100%" cellspacing="0" class="eqnarray" style="table-layout:auto"><tr id="a0000000006"><td style="width:40%">&#xA0;</td><td style="vertical-align:middle;                                    text-align:right">
+	    [mathjaxinline]\displaystyle  \det (A)[/mathjaxinline]
+        </td><td style="vertical-align:middle;                                    text-align:center">
+	    [mathjaxinline]\displaystyle  =[/mathjaxinline]
+        </td><td style="vertical-align:middle;                                    text-align:left">
+	    [mathjaxinline]\displaystyle  a_{11} C_{11} + a_{12}C_{12} + a_{13}C_{13} + a_{14}C_{14}[/mathjaxinline]
+        </td><td style="width:40%">&#xA0;</td><td style="width:20%" class="eqnnum">&#xA0;</td></tr><tr id="a0000000007"><td style="width:40%">&#xA0;</td><td style="vertical-align:middle;                                    text-align:right">
+	    &#xA0;
+        </td><td style="vertical-align:middle;                                    text-align:center">
+	    [mathjaxinline]\displaystyle  =[/mathjaxinline]
+        </td><td style="vertical-align:middle;                                    text-align:left">
+	    [mathjaxinline]\displaystyle  1 \times 2 + 2 \times 2 + 3 \times 2 + 4 \times 2[/mathjaxinline]
+        </td><td style="width:40%">&#xA0;</td><td style="width:20%" class="eqnnum">&#xA0;</td></tr><tr id="a0000000008"><td style="width:40%">&#xA0;</td><td style="vertical-align:middle;                                    text-align:right">
+	    &#xA0;
+        </td><td style="vertical-align:middle;                                    text-align:center">
+	    [mathjaxinline]\displaystyle  =[/mathjaxinline]
+        </td><td style="vertical-align:middle;                                    text-align:left">
+	    [mathjaxinline]\displaystyle  20[/mathjaxinline]
+        </td><td style="width:40%">&#xA0;</td><td style="width:20%" class="eqnnum">&#xA0;</td></tr></table> As [mathjaxinline]A^{-1} = C^ T /\det (A)[/mathjaxinline], where [mathjaxinline]C[/mathjaxinline] is the cofactor matrix, this data gives us the entries of the first column of [mathjaxinline]A^{-1}[/mathjaxinline]; they are all [mathjaxinline]2 / 20 = 1/10[/mathjaxinline]. </font>
+          </solution>
+        </p>
+        <p>
+          <br/>
+        </p>
+      </li>
+      <li>
+        <p>
+What is the determinant of the matrix [mathjaxinline]M(x) \,  ?[/mathjaxinline] For which values of [mathjaxinline]x[/mathjaxinline] is the determinant equal to zero? </p>
+        <center>
+          <table id="a0000000009" class="equation" width="100%" cellspacing="0" cellpadding="7" style="table-layout:auto">
+            <tr>
+              <td class="equation">[mathjax]M(x) = \left[ \begin{array}{crcl} 1 &amp;  1 &amp;  1 &amp;  1\\ 1 &amp;  -1 &amp;  2 &amp;  x\\ 1 &amp;  1 &amp;  4 &amp;  x^{2}\\ 1 &amp;  -1 &amp;  8 &amp;  x^{3} \end{array} \right][/mathjax]</td>
+            </tr>
+          </table>
+        </center>
+        <p>
+[mathjaxinline]{\rm det}(M) =[/mathjaxinline] <symbolicresponse expect=" -6 * x**3 +12*x**2 + 6*x - 12"><textline size="90" correct_answer=" -6 * x**3 +12*x**2 + 6*x - 12" math="1"/></symbolicresponse> </p>
+        <p>
+[mathjaxinline]{\rm det}(M) = 0[/mathjaxinline] when [mathjaxinline]x=[/mathjaxinline] <symbolicresponse expect="[1,-1,2]" options="matrix"><textline correct_answer="[1,-1,2]" math="1"/></symbolicresponse> </p>
+        <p>
+(enter your answer as a row vector) </p>
+        <p>
+          <solution>
+            <font color="blue">Answer: </font>
+            <font color="blue">
+              <p>
+                <b class="bfseries">Solution no.&#xA0;1.</b>
+              </p>
+              <p>
+From, for instance, the &#x2018;Big Formula', we know that [mathjaxinline]\det (M)[/mathjaxinline] is a cubic polynomial in [mathjaxinline]x[/mathjaxinline]. Say </p>
+              <table id="a0000000010" class="equation" width="100%" cellspacing="0" cellpadding="7" style="table-layout:auto">
+                <tr>
+                  <td class="equation">[mathjax]\det (M) = a x^3 + b x^2 + cx +d.[/mathjax]</td>
+                </tr>
+              </table>
+              <p>
+ We can calculate [mathjaxinline]d[/mathjaxinline] by setting [mathjaxinline]x=0[/mathjaxinline]. Using the cofactor expansion in the last column, we get that </p>
+              <table id="a0000000011" class="equation" width="100%" cellspacing="0" cellpadding="7" style="table-layout:auto">
+                <tr>
+                  <td class="equation">[mathjax]d = - \begin{vmatrix}  1 &amp;  -1 &amp;  2 \\ 1 &amp;  1 &amp;  4 \\ 1 &amp;  -1 &amp;  8 \end{vmatrix} = - \begin{vmatrix}  1 &amp;  -1 &amp;  2 \\ 0 &amp;  2 &amp;  2 \\ 0 &amp;  0 &amp;  6 \end{vmatrix} = -12.[/mathjax]</td>
+                </tr>
+              </table>
+              <p>
+We will determine the other coefficients of [mathjaxinline]\det (M)[/mathjaxinline] by finding three roots for it. [mathjaxinline]x[/mathjaxinline] is a root of [mathjaxinline]\det (M)[/mathjaxinline] if and only if [mathjaxinline]M(x)[/mathjaxinline] is a singular matrix. Now, notice that </p>
+              <center>
+                <table cellspacing="0" class="tabular" style="table-layout:auto">
+                  <tr>
+                    <td style="text-align:right">
+                      <p>
+ [mathjaxinline](1, 1, 1)[/mathjaxinline] </p>
+                    </td>
+                    <td style="text-align:center">
+                      <p>
+ = </p>
+                    </td>
+                    <td style="text-align:center">
+                      <p>
+ [mathjaxinline](x,x^2, x^3)[/mathjaxinline] </p>
+                    </td>
+                    <td style="text-align:left">
+                      <p>
+ for [mathjaxinline]x=1[/mathjaxinline] </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:right">
+                      <p>
+[mathjaxinline](1, -1, 1)[/mathjaxinline] </p>
+                    </td>
+                    <td style="text-align:center">
+                      <p>
+ = </p>
+                    </td>
+                    <td style="text-align:center">
+                      <p>
+ [mathjaxinline](x,x^2, x^3)[/mathjaxinline] </p>
+                    </td>
+                    <td style="text-align:left">
+                      <p>
+ for [mathjaxinline]x=-1[/mathjaxinline] </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:right">
+                      <p>
+[mathjaxinline](2, 4, 8 )[/mathjaxinline] </p>
+                    </td>
+                    <td style="text-align:center">
+                      <p>
+ = </p>
+                    </td>
+                    <td style="text-align:center">
+                      <p>
+ [mathjaxinline](x,x^2, x^3)[/mathjaxinline] </p>
+                    </td>
+                    <td style="text-align:left">
+                      <p>
+ for [mathjaxinline]x=2[/mathjaxinline]. </p>
+                    </td>
+                  </tr>
+                </table>
+              </center>
+              <p>
+ Thus [mathjaxinline]M(x)[/mathjaxinline] is singular for [mathjaxinline]x=1, -1[/mathjaxinline] and [mathjaxinline]2[/mathjaxinline]; moreover, this implies that </p>
+              <table id="a0000000012" class="equation" width="100%" cellspacing="0" cellpadding="7" style="table-layout:auto">
+                <tr>
+                  <td class="equation">[mathjax]\det (M) = a (x-1)(x+1)(x-2).[/mathjax]</td>
+                </tr>
+              </table>
+              <p>
+ As [mathjaxinline]d = 2a[/mathjaxinline], we must have [mathjaxinline]a =-6[/mathjaxinline]. Thus </p>
+              <table id="a0000000013" class="equation" width="100%" cellspacing="0" cellpadding="7" style="table-layout:auto">
+                <tr>
+                  <td class="equation">[mathjax]\det (M) = -6(x-1)(x+1)(x-2) = -6 x^3 +12x^2 + 6x - 12.[/mathjax]</td>
+                </tr>
+              </table>
+              <p>
+ The values of [mathjaxinline]x[/mathjaxinline] for which [mathjaxinline]M(x)[/mathjaxinline] is singular are [mathjaxinline]1, -1[/mathjaxinline] and [mathjaxinline]2[/mathjaxinline]. <br/></p>
+              <p>
+                <b class="bfseries">Solution no.&#xA0;2.</b>
+              </p>
+              <table id="a0000000014" class="equation" width="100%" cellspacing="0" cellpadding="7" style="table-layout:auto">
+                <tr>
+                  <td class="equation">[mathjax]\begin{vmatrix}  1 &amp;  1 &amp;  1 &amp;  1\\ 1 &amp;  -1 &amp;  2 &amp;  x\\ 1 &amp;  1 &amp;  4 &amp;  x^{2}\\ 1 &amp;  -1 &amp;  8 &amp;  x^{3} \end{vmatrix} = \begin{vmatrix}  1&amp;  1&amp;  1 &amp;  1 \\ 0 &amp;  -2 &amp;  1 &amp;  x-1 \\ 0 &amp;  0 &amp;  3 &amp;  x^2 -1 \\ 0 &amp;  -2 &amp;  7 &amp;  x^3 -1 \end{vmatrix} = \begin{vmatrix}  1&amp;  1&amp;  1 &amp;  1 \\ 0 &amp;  -2 &amp;  1 &amp;  x-1 \\ 0 &amp;  0 &amp;  3 &amp;  x^2 -1 \\ 0 &amp;  0 &amp;  6 &amp;  x^3 -x \end{vmatrix}[/mathjax]</td>
+                </tr>
+              </table>
+              <table id="a0000000015" class="equation" width="100%" cellspacing="0" cellpadding="7" style="table-layout:auto">
+                <tr>
+                  <td class="equation">[mathjax]= \begin{vmatrix}  -2 &amp;  1 &amp;  x-1 \\ 0 &amp;  3 &amp;  x^2 -1 \\ 0 &amp;  6 &amp;  x^3 - x \end{vmatrix} = -2 \begin{vmatrix}  3 &amp;  x^2 -1 \\ 6 &amp;  x^3 - x \end{vmatrix} = -6 x^3 +12x^2 + 6x - 12[/mathjax]</td>
+                </tr>
+              </table>
+              <p>
+ In the first step, subtract the first row from the second, third and fourth rows. In the second step, subtract the second row from the fourth. For the third and fourth steps, use the cofactor expansion in the first column. <br/></p>
+              <p>
+We factorize [mathjaxinline]\det (M)[/mathjaxinline] by guessing roots, trying small integers; we find that [mathjaxinline]1, -1[/mathjaxinline] and [mathjaxinline]2[/mathjaxinline] are all roots, which gives </p>
+              <table id="a0000000016" class="equation" width="100%" cellspacing="0" cellpadding="7" style="table-layout:auto">
+                <tr>
+                  <td class="equation">[mathjax]\det (M) = -6(x-1)(x+1)(x-2).[/mathjax]</td>
+                </tr>
+              </table>
+              <p>
+ The values of [mathjaxinline]x[/mathjaxinline] for which [mathjaxinline]M(x)[/mathjaxinline] is singular are [mathjaxinline]1, -1[/mathjaxinline] and [mathjaxinline]2[/mathjaxinline]. </p>
+            </font>
+          </solution>
+        </p>
+      </li>
+    </ol>
+  </text>
+</problem>

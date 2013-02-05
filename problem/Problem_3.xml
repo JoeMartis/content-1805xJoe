@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<problem showanswer="closed" rerandomize="never" weight="30">
+  <text>
+    <ol class="enumerate">
+      <li>[(a)] </li>
+      <li>
+        <p>
+Starting from independent vectors [mathjaxinline]a_{1}[/mathjaxinline] and [mathjaxinline]a_{2},[/mathjaxinline] use Gram-Schmidt to find formulas for two orthonormal vectors [mathjaxinline]q_{1}[/mathjaxinline] and [mathjaxinline]q_{2}[/mathjaxinline] (combinations of [mathjaxinline]a_{1}[/mathjaxinline] and [mathjaxinline]a_{2}[/mathjaxinline]): </p>
+        <p>
+[mathjaxinline]q_1=[/mathjaxinline] <symbolicresponse expect="a_1/||a_1||"><textline size="90" correct_answer="a_1/||a_1||" math="1"/></symbolicresponse> </p>
+        <p>
+[mathjaxinline]q_2=[/mathjaxinline] <symbolicresponse expect="  "><textline size="90" correct_answer="  " math="1"/></symbolicresponse> </p>
+        <p>
+          <solution>
+            <font color="blue">Answer: </font>
+            <font color="blue">
+              <table id="a0000000022" class="equation" width="100%" cellspacing="0" cellpadding="7" style="table-layout:auto">
+                <tr>
+                  <td class="equation">[mathjax]q_{1}= \frac{a_1}{ ||a_1||}[/mathjax]</td>
+                </tr>
+              </table>
+              <table id="a0000000023" class="equation" width="100%" cellspacing="0" cellpadding="7" style="table-layout:auto">
+                <tr>
+                  <td class="equation">[mathjax]q_{2}= \frac{ a_2 - (a_2^ T q_1)q_1}{|| a_2 - (a_2^ T q_1)q_1||} = \big ( a_2 - \frac{(a_2^ T a_1)}{a_1^ T a_1} a_1 \big )\,  / \,  || a_2 - \frac{(a_2^ T a_1)}{a_1^ T a_1} a_1 ||[/mathjax]</td>
+                </tr>
+              </table>
+            </font>
+          </solution>
+        </p>
+        <p>
+The connection between the matrices [mathjaxinline]A = [a_{1} \,  \,  a_{2}][/mathjaxinline] and [mathjaxinline]Q= [q_{1} \,  \,  q_{2}][/mathjaxinline] is often written [mathjaxinline]A=QR.[/mathjaxinline] From your answer to Part (a), what are the entries in this matrix [mathjaxinline]R \,  ?[/mathjaxinline] </p>
+        <p>
+[mathjaxinline]R=[/mathjaxinline] <symbolicresponse expect="[[||a_1||,a_2^T q_1],[0,||a_2-(a_2^T q_1)*q_1]]"><textline size="90" correct_answer="[[||a_1||,a_2^T q_1],[0,||a_2-(a_2^T q_1)*q_1]]" math="1"/></symbolicresponse> </p>
+        <p>
+          <solution>
+            <font color="blue">Answer: </font>
+            <font color="blue">
+              <p>
+Re-arranging the expressions above gives </p>
+              <table id="a0000000024" class="equation" width="100%" cellspacing="0" cellpadding="7" style="table-layout:auto">
+                <tr>
+                  <td class="equation">[mathjax]a_1 = q_1 ||a_1||[/mathjax]</td>
+                </tr>
+              </table>
+              <table id="a0000000025" class="equation" width="100%" cellspacing="0" cellpadding="7" style="table-layout:auto">
+                <tr>
+                  <td class="equation">[mathjax]a_2 = (a_2^ T q_1) q_1 + ||a_2 - (a_2^ T q_1) q_1|| q_2[/mathjax]</td>
+                </tr>
+              </table>
+              <p>
+ and thus </p>
+              <table id="a0000000026" class="equation" width="100%" cellspacing="0" cellpadding="7" style="table-layout:auto">
+                <tr>
+                  <td class="equation">[mathjax]R = \begin{bmatrix}  a_1^ T q_1 &amp;  a_2^ T q_1 \\ a_1^ T q_2 &amp;  a_2^ T q_2 \end{bmatrix} = \begin{bmatrix}  ||a_1|| &amp;  a_2^ T q_1\\ 0 &amp;  ||a_2 - (a_2^ T q_1) q_1|| \end{bmatrix}[/mathjax]</td>
+                </tr>
+              </table>
+            </font>
+          </solution>
+        </p>
+        <p>
+          <br/>
+        </p>
+        <p>
+The least squares solution [mathjaxinline]\widehat{x}[/mathjaxinline] to the equation [mathjaxinline]Ax = b[/mathjaxinline] comes from solving what equation? If [mathjaxinline]A = QR[/mathjaxinline] as above, show that [mathjaxinline]R\, \widehat{x} = Q^{T}b.[/mathjaxinline] </p>
+        <p>
+          <solution>
+            <font color="blue">Answer: </font>
+            <font color="blue">
+              <p>
+[mathjaxinline]\widehat{x}[/mathjaxinline] comes from solving [mathjaxinline]A^ T A \widehat{x} = A^ T b[/mathjaxinline]. </p>
+              <p>
+                <stringresponse answer="None">
+                  <textline/>
+                </stringresponse>
+              </p>
+              <p>
+Suppose we have [mathjaxinline]A = QR[/mathjaxinline]. Notice that: </p>
+              <ul class="itemize">
+                <li>
+                  <p>
+[mathjaxinline]Q^ T Q = I[/mathjaxinline], so [mathjaxinline]A^ T A = (QR)^ T QR = R^ T Q^ T Q R = R^ T R[/mathjaxinline]. </p>
+                </li>
+                <li>
+                  <p>
+As [mathjaxinline]a_1[/mathjaxinline] and [mathjaxinline]a_2[/mathjaxinline] are independent, [mathjaxinline]R[/mathjaxinline] is invertible. Thus [mathjaxinline]R^ T[/mathjaxinline] is also invertible. </p>
+                </li>
+              </ul>
+              <p>
+ Thus we have </p>
+              <table id="a0000000027" class="equation" width="100%" cellspacing="0" cellpadding="7" style="table-layout:auto">
+                <tr>
+                  <td class="equation">[mathjax]\begin{matrix} &amp;  A^ T A \,  \widehat{x} &amp;  = &amp;  A^ T b \\ \Leftrightarrow &amp;  R^ T R \,  \widehat{x} &amp;  = &amp;  R^ T Q^ T b \\ \Leftrightarrow &amp;  R \,  \widehat{x} &amp;  = &amp;  Q^ T b. \end{matrix}[/mathjax]</td>
+                </tr>
+              </table>
+            </font>
+          </solution>
+        </p>
+      </li>
+    </ol>
+  </text>
+</problem>

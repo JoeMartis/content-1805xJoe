@@ -1,0 +1,107 @@
+\input{header.tex}
+
+\newcommand{\RR}{{\mathbb R}}
+\newcommand{\bs}[1]{\hbox{\boldmath$#1$}}
+\DeclareRobustCommand{\transp}{^{\rm T}}
+\newcommand{\lsub}[1]{{\hbox{\footnotesize$#1$}}}
+\newcommand{\lexp}[1]{{\hbox{\footnotesize$#1$}}}
+\newcommand{\blankpagemark}{\centerline{\sl This page intentionally blank.}}
+\DeclareRobustCommand{\prm}{^{\hbox{\footnotesize$\,\prime$}}}
+\DeclareRobustCommand{\pprm}{^{\hbox{\footnotesize$\,\prime\prime$}}}
+\newenvironment{m}[1]{\left[\begin{array}{@{\,}#1@{\,}}}{\end{array}\right]}
+%\newcommand{\text}{\mbox}
+\newcommand{\mat}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+
+%------------------------------------------------------------------------<
+
+\begin{document}
+\thispagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{edXproblem}{lec1Q2}{10}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Example "option" problem}
+
+Where is the earth?
+
+\edXabox{options='up','down' expect='down'}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Example "symbolic" problem}
+
+What is Einstein's equation for the energy equivalent of a mass $m$?
+
+\edXabox{type='symbolic' size='90' expect='m*c\textcaret2' }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Example "numerical" problem}
+
+Estimate the energy savings (in J/y) if all the people
+($3\times 10^8$) in the U.~S. switched from U.~S. code to low flow
+shower heads.
+
+\edXinline{Energy saved = }\edXabox{expect="0.52" type="numerical" tolerance='0.02' inline='1' } %
+\edXinline{~EJ/year}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Example "multiple choice" problem}
+
+What color is a banana?
+
+\edXabox{ type="multichoice" expect="Yellow" options="Red","Green","Yellow","Blue" }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Example "string response" problem}
+
+In what U.S. state is Detroit located?
+
+\edXabox{ type="string" expect="Michigan" options="ci" }
+
+An explanation of the answer can be provided by using the edXsolution
+macro.  Click on "Show Answer" to see the solution.
+
+\begin{edXsolution}
+Detroit is near Canada, but it is actually in the United States.
+\end{edXsolution}
+        
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Example "custom response" problem}
+
+This problem demonstrates the use of a custom python script used for
+checking the answer.
+
+\begin{edXscript}
+def sumtest(expect,ans):
+    (a1,a2) = map(float,eval(ans))
+    return (a1+a2)==10
+\end{edXscript}
+
+Enter a python list of two numbers which sum to 10, eg [9,1]:
+
+\edXabox{expect="[1,9]" type="custom" cfn="sumtest"}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Example image}
+
+Include image by using the edXxml macro:
+
+\catcode`_=11
+\edXxml{<img src="http://web.mit.edu/jorloff/www/cube-tet/cube_tet.gif"/>}
+\catcode`_=8
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Example show/hide explanation}
+
+Extra explanations can be tucked away behind a "showhide" toggle flag:
+
+\edXshowhide{sh1}{More explanation}{This is a hidden explanation.  It
+can contain equations: $\alpha = \frac{2}{\sqrt{1+\gamma}}$ }
+
+This is some text after the showhide example.
+
+\end{edXproblem}
+
+\end{document}    

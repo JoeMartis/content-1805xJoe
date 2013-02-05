@@ -1,0 +1,168 @@
+<html>
+<head>
+<title>18.05 Calendar</title>
+
+<style type="text/css">
+span.count {display:inline-block; position:relative; width:2em; }
+span.date {display:inline-block; position:relative; width:6em; }
+span.topic {display:inline-block; positition:relative; width:30em; vertical-align:top;}
+span.studio {color:magenta;}
+span.red {color:red;}
+
+.announce { position:relative; left:12px; color:green; font-size:120%;}
+.indent { position:relative; left:12px;}
+
+</style>
+
+<script type="text/javascript">
+kFridayStudio = "Friday studio";
+var kbr = "<br>";
+var khr = "<hr>";
+
+var studiocount = 1;
+var lecturecount = 1;
+
+wl = function(s) { document.write(s + "\n"); }
+whr = function() { document.write("<hr>"); }
+
+function writedayhelper(pre,cnt, date,topic,post)
+{
+  if (pre)
+    wl(pre);
+  wl("<span class='count'>" + cnt + ".</span>");
+  wl("<span class='date'>" + date + "</span>");
+  wl("<span class='topic'>" + topic + "</span>");
+  if (post)
+    wl(post);
+}
+function writelecture(pre, date, topic) 
+{
+  writedayhelper(pre, lecturecount,date, topic, "");
+  lecturecount++;   
+}
+function writestudio(pre, date, topic) 
+{
+  s = "<span class='studio'> S" + studiocount + "</span>";
+  writedayhelper(pre, s, date, topic, "");
+  studiocount++;   
+}
+
+function writeNoCountLine(pre, s)
+{
+  wl(pre);
+  wl("<span class='count'>&nbsp; </span>");
+  wl("<span class='topic'>" + s + "</span>");
+}
+
+function writepsetdue(pre, date, psn)
+{
+    writedayhelper(pre, "", date, psetduestring(psn));
+}
+
+function psetduestring(psn)
+{
+   s = "<b>pset " + psn + " due</b>";
+   return(s)
+}
+
+function writeweek(pre, weeknum)
+{
+   wl(pre);
+   wl("<b>Week " + weeknum + "</b>");
+}
+
+</script>
+
+</head>
+
+<body>
+<h2>18.05 Calendar</h2>
+
+
+<script type="text/javascript">
+
+///////////////////////////////////
+wl("<p>");
+wl("<h2>Probability</h2>");
+writeweek("",1);
+writelecture(kbr, "T 2/5", "Counting, probability, odds");
+writelecture(kbr, "R 2/7", "Continuation; terminology; introduction to Matlab and simulation");
+writestudio(kbr, "F 2/8", kFridayStudio + ": Matlab, simulation");
+writeweek(khr,2);
+writepsetdue(kbr, "M 2/11", 1); 
+writelecture(kbr, "T 2/12", "Conditional probability, independence, Bayes theorem"); 
+writelecture(kbr, "R 2/14", "Discrete random variables: Bernoulli, binomial, E(X), generating yes/no distributions from others");
+writestudio(kbr, "F 2/15", kFridayStudio + ": Simulation, use of Bayes with known, discrete priors");
+writeweek(khr,3);
+writedayhelper(kbr, "", "T 2/19", psetduestring(2) + " <b>(Monday schedule)</b>");
+writelecture(kbr, "R 2/21", "Continuous variables, normal distribution, CLT, LoLN, histograms.");
+writestudio(kbr, "F 2/22", kFridayStudio +": central limit theorem and law of large numbers simulations");
+writeweek(khr,4);
+writepsetdue(kbr, "M 2/25", 3); 
+writelecture(kbr, "T 2/26", "Joint variables: independence, variance, covariance, correlation,scatter plots");
+
+writelecture(kbr, "R 2/28", "Simple linear regression");
+writestudio(kbr, "F 3/1", kFridayStudio + ": practice with previous two classes");
+writeweek(khr,5);
+writepsetdue(kbr, "M 3/4", 4); 
+writelecture(kbr, "T 3/5", "Review");
+writelecture(kbr, "R 3/7", "<span class='red'>Exam 1</span>");
+wl("</p>");
+
+wl("<p>");
+wl("<h2>Statistics</h2>");
+
+writelecture("", "F 3/8", "Introduction to statistics, examples, likelihood, MLE <br><span class='red'>(This is a class not a studio)</span>" ); 
+
+writeweek(khr,6);
+writedayhelper(kbr, "", "M 3/11",  "<b>No pset due</b>");
+writelecture(kbr, "T 3/12", "Bayesian updating (discrete priors), posteriors and odds; interpretation");
+writelecture(kbr, "R 3/14", "Bayesian updating (continuous priors)");
+writestudio(kbr, "F 3/15", kFridayStudio + ": Bayesian updating");
+writeweek(khr,7);
+writepsetdue(kbr, "M 3/18", 5); 
+writelecture(kbr, "T 3/19", "Choosing priors, credible intervals");
+writelecture(kbr, "R 3/21", "<i>Catchup and review</i>");
+writestudio(kbr, "F 3/22", kFridayStudio + ": Bayes");
+writeNoCountLine(khr,"<b>Vacation 3/25-3/29</b>");
+writeweek(khr,8);
+writedayhelper(kbr, "", "M 4/1",  "<b>No pset due (the next one will be longer than usual)</b>");
+writelecture(kbr, "T 4/2", "Confidence intervals");
+writelecture(kbr, "R 4/4", "More confidence intervals");
+writestudio(kbr, "F 4/5", kFridayStudio + ": confidence intervals");
+writeweek(khr,9);
+writepsetdue(kbr, "M 4/8", 6); 
+writelecture(kbr, "T 4/9", "Comparison of Bayesian and Frequentist methods");
+writeNoCountLine("<br>", "<span class='red'><b>Campus preview 4/11-4/14</b></span>");
+writelecture(kbr, "R 4/11", "Bootstrapping ");
+writestudio(kbr, "F 4/12", kFridayStudio + ": bootstrapping");
+writeweek(khr,10);
+writeNoCountLine(kbr, "M 4/15, T 4/16 <b>Patriots Day</b>");
+writepsetdue(kbr, "W 4/17", 7); 
+writelecture(kbr, "R 4/18", "Review ");
+writelecture(kbr, "F 4/19", "<span class='red'>Exam 2</span>");
+writeweek(khr,11);
+writedayhelper(kbr, "", "M 4/22",  "<b>No pset due</b>");
+writelecture(kbr, "T 4/23", "NHST: rejection regions, z-test");
+writelecture(kbr, "R 4/25", "t-test, two-sample t-test, chi-square");
+writestudio(kbr, "F 4/26", kFridayStudio + ": NHST");
+writeweek(khr,12);
+writepsetdue(kbr, "M 4/29", 8); 
+writelecture(kbr, "T 4/30", "Continuation: distributions related to normal distributions");
+writelecture(kbr, "R 5/2", "Review of what NHST says and doesn't say. Comparison with Bayes");
+writestudio(kbr, "F 5/3", kFridayStudio + ": NHST and Bayes");
+writeweek(khr,13);
+writepsetdue(kbr, "M 5/6", 9); 
+writelecture(kbr, "T 5/7", "<i>TBD</i>");
+writelecture(kbr, "R 5/9", "<i>TBD</i>");
+writestudio(kbr, "F 5/10", kFridayStudio + ": <i>TBD</i>");
+writeweek(khr,14);
+writedayhelper(kbr, "", "M 5/13",  "<b>No pset due</b>");
+writelecture(kbr, "T 5/14", "REVIEW DAY");
+writelecture(kbr, "R 5/16", "REVIEW DAY");
+wl(khr)
+wl("</p>");
+</script>
+
+</body>
+</html>

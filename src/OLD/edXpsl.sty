@@ -1,0 +1,14 @@
+%
+% Notes: edXpsl does not like certain pacakages.  This includes:
+%        enumerate, paralist
+%
+
+\newenvironment{edXcourse}{}{}
+\newenvironment{edXchapter}{\begin{section}}{\end{section}}
+\newenvironment{edXsection}{\begin{subsection}}{\end{subsection}}
+\newenvironment{edXsequential}{}{}
+\newenvironment{edXproblem}{\begin{subsubsection}{\bf Problem:}}{\end{subsubsection}}
+\newenvironment{edXmath}{$$}{$$}
+\newcommand\edXsolution[1]{#1}
+\newcommand\edXabox[1]{\fbox{\verb+#1+}}
+\def\newpage{}

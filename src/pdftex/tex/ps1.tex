@@ -1,0 +1,273 @@
+\def\calread#1#2#3{\parbox[t]{12ex}{#1}\parbox[t]{5in}{#2\\Read: #3}}
+\def\prob#1#2{\textbf{Problem #1.} (#2 pts.)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\psetnum{1}
+\def\whendue{\psonedue}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\parttitle{18.05 Problem Set \psetnum, \whichterm}
+\def\mytitle{\parttitle\mysol{\ Solutions}}
+\pagestyle{headings}
+\markboth{\mytitle}{\mytitle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\thispagestyle{plain}
+
+\begin{center}
+  \Large\bfseries \mytitle  \\[1ex]
+\myquest{  \large (due \wheredue \whendue)}
+\end{center}
+
+\myquest{
+\psetblurb
+
+\medskip
+}
+
+\prob{1}{3}\myquest{ 
+
+}
+\mysol{\nl5\ans We are given $P(E\mycup F) = 3/4$. \nl5
+$E^c \mycap F^c = (E\mycup F)^c
+\myimply P(E^c \mycap F^c) = 1 - P(E\mycup F) = \boxed{1/4.}$
+}
+
+\mysol{\medskip}
+
+\prob{2}{3} Textbook page 22, 2.3
+\mysol{\nl5 $D$ is the disjoint union of $D\mycap C$ and $D\mycap C^c$.\nl5 
+So,
+$P(D\mycap C) + P(D\mycap C^c) = P(D)$\nl5
+$\myimply P(D\mycap C^c) = P(D) - P(D\mycap C)  = .4-.2 = \boxed{.2.}$
+}
+
+\mysol{\medskip}
+
+\prob{3}{4} Textbook page 22, 2.9
+\mysol{\nl5
+a) $A$ = \{HTT, THT, TTH\}.\nl5
+$B$ = \{HTT, THT, TTH, TTT\}.\nl5
+$C$ = \{HHH, HHT, HTH, HTT, TTT\} \nl5
+\hs2(There is some ambiguity here, we'll also accept 
+$C$ = \{HHH, HHT, HTH, HTT\} \,)\nl5
+$D$ = \{THH, THT, TTH, TTT\}.
+
+b) $A^c$ = \{HHH, HHT, HTH, THH, TTT\}\nl5
+$A\mycup (C\mycap D)$ = \{HTT, THT, TTH, TTT\}. (Also accept
+\{HTT, THT, TTH\}.)\nl5
+$A\mycap D^c$ = \{HTT\}.
+}
+
+\mysol{\medskip}
+
+\prob{4}{3} Textbook page 22, 2.14
+\mysol{\nl5
+a) We show the probabilities as both a table and a tree.
+In the tree the first row is the contestant's choice and the second row
+is the host's choice.
+
+\parbox[t]{2.5in}{
+\mcent{Viewed as a table}\nl5
+\begin{tabular}{cc|ccc}
+&  \multicolumn{4}{c}{\hs2Contestant} \\
+& & a & b & c \\
+\cline{2-5}
+\, & a & 0 & 0 & 0 \\
+Host & b & 1/6 & 0 & 1/3 \\
+& c & 1/6 & 1/3 & 0 \\
+\end{tabular}
+}
+\parbox[t]{3in}{
+\mcent{Viewed as a tree}\nl5
+\def\sc{1cm}
+\begin{tikzpicture}[x=\sc, y=\sc]
+\draw [fill] (5,0) coordinate (n0) circle (1.5pt);
+\draw [fill] (2,-1) coordinate (a) circle (1.5pt) node [left] {a};
+\draw [fill] (5,-1) coordinate (b) circle (1.5pt) node [right] {b};
+\draw [fill] (8,-1) coordinate (c) circle (1.5pt) node [right] {c};
+\draw [fill] (1,-2) coordinate (aa) circle (1.5pt) node [below] {a};
+\draw [fill] (2,-2) coordinate (ab) circle (1.5pt) node [below] {b};
+\draw [fill] (3,-2) coordinate (ac) circle (1.5pt) node [below] {c};
+\draw [fill] (4,-2) coordinate (ba) circle (1.5pt) node [below] {a};
+\draw [fill] (5,-2) coordinate (bb) circle (1.5pt) node [below] {b};
+\draw [fill] (6,-2) coordinate (bc) circle (1.5pt) node [below] {c};
+\draw [fill] (7,-2) coordinate (ca) circle (1.5pt) node [below] {a};
+\draw [fill] (8,-2) coordinate (cb) circle (1.5pt) node [below] {b};
+\draw [fill] (9,-2) coordinate (cc) circle (1.5pt) node [below] {c};
+\draw (n0) -- (a) node [pos=.5, left] {$\scriptstyle\frac13$} 
+      (n0) -- (b) node [pos=.5, right] {$\scriptstyle\frac13$} 
+      (n0) -- (c) node [pos=.5, right] {$\scriptstyle\frac13$};
+\draw (a) -- (aa) node [pos=.5, left] {0}
+      (a) -- (ab) node [pos=.5, left] {$\scriptstyle\frac12$}
+      (a) -- (ac) node [pos=.5, right] {$\scriptstyle \frac12$};
+\draw (b) -- (ba) node [pos=.5, left] {0}
+      (b) -- (bb) node [pos=.5, right] {0}
+      (b) -- (bc) node [pos=.5, right] {1};
+\draw (c) -- (ca) node [pos=.5, left] {0}
+      (c) -- (cb) node [pos=.5, right] {1}
+      (c) -- (cc) node [pos=.5, right] {0};
+\end{tikzpicture}
+}
+
+b) Label an outcome as contestant followed by host, e.g. $ab$ means the
+contestant chooses $a$ and the host chooses $b$.\nl5
+$W_n$ = don't switch and win = \{ab, ac\}. \, $P(W_n) = 1/3$.
+
+c) $W_s$ = switch and win = \{bc, cb\}. \, $P(W_s) = 2/3$.
+}
+
+\mysol{\cont}
+
+\prob{5}{4}
+\myquest{Suppose we have 8 teams labeled $T_1$, \ldots, $T_8$. 
+Suppose they are
+ordered by placing their names in a hat and drawing the names out one at a time.
+}
+
+a)\myquest{ 
+How many ways can it happen that all the odd numbered teams are in 
+the odd numbered slots and all the even numbered teams are in the
+even numbered slots?
+}
+\mysol{
+Slots 1, 3, 5, 7 are filled by $T_1$, $T_3$, $T_5$, $T_7$ in any order: 4! ways.\nl5
+Slots 2, 4, 6, 8 are filled by $T_2$, $T_4$, $T_6$, $T_8$ in any order: 4! ways.\nl5
+\ans $4!\cdot 4! = 576.$
+}
+
+b)\myquest{ 
+What is the probability of this happening?
+}
+\mysol{
+There are 8! ways to fill the 8 slots in any way.\nl5 
+Since each outcome is equally likely the probabilitiy is\nl5
+$\ds{\frac{4!\cdot 4!}{8!} = \frac{576}{40320} =
+0.143 = 1.43\%.}$
+}
+
+\mysol{\medskip}
+
+\prob{6}{3} Textbook page 37, 3.2
+\mysol{\nl5
+Sample space = $\W = \{(1,1),\,(1,2),\,(1,3),\, \ldots,\,(6,6)\,\}
+= \{(i,j)\, |\, i,j \, = 1,\,2,\,3,\,4,\,5,\,6\,\}.$\nl5
+(Each outcome is equally likely, with probability 1/36.)\nl5
+$A = \{(1,3),\, (2,2),\, (3,1)\}$, \nl5
+$B = \{(3,1),\,(3,2),\,(3,3),\,(3,4),\,(3,5),\,(3,6),\,
+(1,3),\,(2,3),\,(4,3),\,(5,3),\,(6,3)\,\}$\nl5
+$\ds{P(A|B) = \frac{P(A\mycap B)}{P(B)} = \frac{2/36}{11/36} = \frac{2}{11}.}$.
+
+b) $P(A) = 3/36 \ne P(A|B)$, so they are not independent.
+}
+
+\mysol{\medskip}
+
+\prob{7}{3} Textbook page 37, 3.4
+\mysol{\nl5
+We compute all the pieces needed to apply Bayes' rule.\nl5
+We're given $P(T|B) = .7 \myimply P(T^c|B) = .3$, 
+\quad $P(T|B^c) = .1 \myimply P(T^c|B^c) = .9$.\nl5
+$P(B) = 1.3\times 10^{-5} \myimply P(B^c) = 1 - P(B) = 1 - 1.3\times 10^{-5}$.
+
+We use the law of total probability to compute $P(T)$:\nl5
+$P(T) = P(T|B)\,P(B) + P(T|B^c)\,P(B^c) = .1000078.$
+
+Now we can use Bayes' rule to answer the question:\nl5
+$\ds{ P(B|T) = \frac{P(T|B)\,P(B)}{P(T)} = 9.10\times 10^{-5}}$, 
+\quad $\ds{ P(B|T^c) = \frac{P(T^c|B)\,P(B)}{P(T^c)} = 4.33\times 10^{-6}}$, 
+}
+
+\mysol{\medskip}
+
+\prob{8}{3} Textbook page 37, 3.6
+\mysol{\nl5
+a) $E$ = even numbered = \{Feb, Apr, Jun, Aug, Oct, Dec\}.\nl5
+$F$ = first half = \{Jan, Feb, Mar, Apr, May, Jun\}.\nl5
+$S$ = summer = \{Jun, Jul, Aug\}.
+
+a) $E\mycap F$ = \{Feb, Apr, Jun\} $\myimply P(E|F) = 3/6 = P(E)$. So, they
+are independent.
+
+b) $E\mycap S$ = \{Jun, Aug\} $\myimply P(E|S) = 2/3 \ne P(E)$. So, they
+are not independent.
+}
+
+\mysol{\cont}
+
+\prob{9}{3} Textbook page 37, 3.10
+\mysol{\nl5
+For a given problem
+let $C$ be the event the student gets the problem correct and 
+$K$ the event the student knows the answer.
+
+The question asks for $P(K|C)$.
+
+We'll compute this using Bayes' rule:
+$\ds{ P(K|C) = \frac{P(C|K)\,P(K)}{P(C)}}.$\nl5
+We're given: \, $P(C|K) = 1$, \, $P(K) = 0.6$.\nl5
+Law of total prob.: \nl5 
+$P(C) = P(C|K)\,P(K) \, + \, P(C|K^c)\,P(K^c)
+= 1\cdot 0.6 \, + \, 0.25\cdot 0.4 = 0.7$.\nl5
+Therefore $\ds{P(K|C) = \frac{0.6}{0.7}  = .857 = 85.7\%}$.
+}
+
+\mysol{\medskip}
+
+\prob{10}{3}\myquest{ 
+Suppose you have an urn containing 7 red and 3 blue balls. 
+You draw three balls at random. On each draw, if the ball is red you set
+it aside and if the ball is blue you put it back in the urn. What is the
+probability that the third draw is blue?\nl5
+(If you get a blue ball it counts as a draw even though you put it back 
+in the urn.)
+}
+\mysol{
+\\Here is the game tree, $R_1$ means red on the first draw etc.\nl5
+\mcent{
+\def\sc{1cm}
+\begin{tikzpicture}[x=1.5*\sc, y=\sc]
+\draw [fill]  (4.5,0) coordinate (n0) circle (1.5pt);
+\draw [fill]  (2.5,-1) coordinate (r) circle (1.5pt) node [left] {$R_1$};
+\draw [fill]  (6.5,-1) coordinate (b) circle (1.5pt) node [right] {$B_1$};
+\draw [fill]  (1.5,-2) coordinate (rr) circle (1.5pt) node [left] {$R_2$};
+\draw [fill]  (3.5,-2) coordinate (rb) circle (1.5pt) node [right] {$B_2$};
+\draw [fill]  (5.5,-2) coordinate (br) circle (1.5pt) node [left] {$R_2$};
+\draw [fill]  (7.5,-2) coordinate (bb) circle (1.5pt) node [right] {$B_2$};
+\draw [fill]  (1,-3) coordinate (rrr) circle (1.5pt) node [left] {$R_3$};
+\draw [fill]  (2,-3) coordinate (rrb) circle (1.5pt) node [right] {$B_3$};
+\draw [fill]  (3,-3) coordinate (rbr) circle (1.5pt) node [left] {$R_3$};
+\draw [fill]  (4,-3) coordinate (rbb) circle (1.5pt) node [right] {$B_3$};
+\draw [fill]  (5,-3) coordinate (brr) circle (1.5pt) node [left] {$R_3$};
+\draw [fill]  (6,-3) coordinate (brb) circle (1.5pt) node [right] {$B_3$};
+\draw [fill]  (7,-3) coordinate (bbr) circle (1.5pt) node [left] {$R_3$};
+\draw [fill]  (8,-3) coordinate (bbb) circle (1.5pt) node [right] {$B_3$};
+\draw (n0) -- (r) node [pos=.5, left] {$\scriptstyle 7/10$} 
+      (n0) -- (b) node [pos=.5, right] {$\scriptstyle 3/10$}; 
+\draw (r) -- (rr) node [pos=.5, left] {$\scriptstyle 6/9$} 
+      (r) -- (rb) node [pos=.5, right] {$\scriptstyle 3/9$}; 
+\draw (b) -- (br) node [pos=.5, left] {$\scriptstyle 7/10$} 
+      (b) -- (bb) node [pos=.5, right] {$\scriptstyle 3/10$}; 
+\draw (rr) -- (rrr) node [pos=.5, left] {$\scriptstyle 5/8$} 
+      (rr) -- (rrb) node [pos=.5, right] {$\scriptstyle 3/8$}; 
+\draw (rb) -- (rbr) node [pos=.5, left] {$\scriptstyle 6/9$} 
+      (rb) -- (rbb) node [pos=.5, right] {$\scriptstyle 3/9$}; 
+\draw (br) -- (brr) node [pos=.5, left] {$\scriptstyle 6/9$} 
+      (br) -- (brb) node [pos=.5, right] {$\scriptstyle 3/9$}; 
+\draw (bb) -- (bbr) node [pos=.5, left] {$\scriptstyle 7/10$} 
+      (bb) -- (bbb) node [pos=.5, right] {$\scriptstyle 3/10$}; 
+\end{tikzpicture}
+}
+
+Summing the probability to all the $B_3$ nodes we get\nl5
+$\ds{ P(B_3) = 
+\frac{7}{10}\cdot \frac{6}{9}\cdot \frac{3}{8} \, + \,
+\frac{7}{10}\cdot \frac{3}{9}\cdot \frac{3}{9} \, + \,
+\frac{3}{10}\cdot \frac{7}{10}\cdot \frac{3}{9} \, + \,
+\frac{3}{10}\cdot \frac{3}{10}\cdot \frac{3}{10}  = .350}.$
+}
+
+
+
+

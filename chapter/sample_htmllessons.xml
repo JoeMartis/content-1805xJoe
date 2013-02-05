@@ -1,0 +1,5 @@
+<chapter url_name="sample_htmllessons" display_name="Sample HTML Lessons">
+  <videosequence url_name="Lecture_1"/>
+  <videosequence url_name="Lecture_2"/>
+  <videosequence url_name="Lecture_3"/>
+</chapter>

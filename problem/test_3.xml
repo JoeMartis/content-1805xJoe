@@ -1,0 +1,22 @@
+<problem>
+<p>
+My first question!
+</p>
+<p> Just trying things out in a new paragraph.
+</p>
+
+<p>What is Harris's last name?</p>
+    <multiplechoiceresponse>
+     <choicegroup type="MultipleChoice">
+        <choice correct="true" name="ipad"><text>Eppsteiner</text></choice>
+        <choice correct="false" name="beatles"><text>Something else</text></choice>
+        <choice correct="false" name="ipod"><text>Smith</text></choice>
+     </choicegroup>
+    </multiplechoiceresponse>
+    <solution>
+        <div class="detailed-solution">
+            <p>Explanation</p>
+            <p>As is clear from his e-mail address, his last name is Eppsteiner. </p>
+        </div>
+    </solution>
+</problem>

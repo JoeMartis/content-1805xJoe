@@ -1,0 +1,5 @@
+<videosequence display_name="2D Tools" format="Lesson Sequence">
+        <html url_name="matrixVector"/>
+        <html url_name="determinant"/>
+        <html url_name="gaussElimination"/>
+</videosequence>

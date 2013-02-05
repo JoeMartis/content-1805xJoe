@@ -1,0 +1,11 @@
+<problem>
+<p>A stop at the Qwik-E-Mart is a ________ but not ________ condition for amusement.</p>
+    <multiplechoiceresponse>
+     <choicegroup type="MultipleChoice">
+        <choice correct="true" name="2S9E1A">necessary; sufficient</choice>
+        <choice correct="false" name="2S9E1B">sufficient; necessary</choice>
+        <choice correct="false" name="2S9E1C">suboptimal; guaranteed</choice>
+        <choice correct="false" name="2S9E1D">theoretical; observed</choice>
+     </choicegroup>
+    </multiplechoiceresponse>
+</problem>

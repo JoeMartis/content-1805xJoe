@@ -1,0 +1,53 @@
+\input{header.tex}
+%%%%%%%%%%%%%%%%%%%%%
+%Class 1 reading questions (posted with class 2)
+%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\RR}{{\mathbb R}}
+\newcommand{\bs}[1]{\hbox{\boldmath$#1$}}
+\DeclareRobustCommand{\transp}{^{\rm T}}
+\newcommand{\lsub}[1]{{\hbox{\footnotesize$#1$}}}
+\newcommand{\lexp}[1]{{\hbox{\footnotesize$#1$}}}
+\newcommand{\blankpagemark}{\centerline{\sl This page intentionally blank.}}
+\DeclareRobustCommand{\prm}{^{\hbox{\footnotesize$\,\prime$}}}
+\DeclareRobustCommand{\pprm}{^{\hbox{\footnotesize$\,\prime\prime$}}}
+\newenvironment{m}[1]{\left[\begin{array}{@{\,}#1@{\,}}}{\end{array}\right]}
+%\newcommand{\text}{\mbox}
+\newcommand{\mat}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+
+%Hacks so pdflatex and latex2edx will run
+\def\bs{\textbackslash{}}
+
+%------------------------------------------------------------------------<
+
+\begin{document}
+\thispagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXproblem}{c1-rq1}{weight=3  showanswer='attempted' display_name="Class 1 Reading Questions"}
+
+\problem1
+
+How many ways can you choose 4 kittens from a litter of 9.
+
+\edXabox{expect="126" type="numerical" tolerance='0.0001'}
+
+\problem2
+
+How many sequences of 8 nucleotides can be made using any of the 4 nucleotides 
+A, C, G, T at each place of the sequence?
+
+(You can give your answer using notation like 2*(3\mlcaret 4).)
+
+\edXabox{expect="65536" type="numerical" tolerance='0.0001'}
+
+\problem3
+Suppose a sequence of 8 nucleotides constains 2 each of A, C, G, T.
+How many such sequences are there?\\
+(Hint: first decide where the A's go.)
+\edXabox{type="multichoice" expect="2520" options="70","1120","2520","37800" }
+
+
+\end{edXproblem}
+\end{document}

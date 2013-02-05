@@ -1,0 +1,155 @@
+\def\ptsz{11pt}
+
+\def\mybull{$\bullet$}
+\def\W{\Omega}
+\def\w{\omega}
+\def\mycap{\,\cap\,}
+\def\mycup{\,\cup\,}
+
+\pagestyle{empty}
+\begin{document}
+
+\mycomment{This is just parked here. Some will become reading questions.}
+
+\subhead{Question} $P(A\mycup B\mycup C) = $\\
+1. $P(A) + P(B) + P(C)$\\
+2. $P(A) + P(B) + P(C) - P(A\mycap B) - P(A\mycap C) - P(B\mycap C)$\\
+3. $P(A) + P(B) + P(C) - P(A\mycap B) - P(A\mycap C) - P(B\mycap C) + 
+P(A\mycap B\mycap C)$\\
+4. Don't know
+\myhide{}{
+
+\ans \textbf{3.}
+
+We break $A\mycup B\mycup C$ into regions as shown. So,
+\[
+P(A\mycup B\mycup C) = P(R_1) + P(R_2) + P(R_3) + P(S_1) + P(S_2) + P(S_3) + P(T).
+\]
+\mcent{
+\includegraphics{\imgdir/figc2-4.pdf}
+}
+
+$A$, $B$, $C$ divide up as follows:\\
+\[\begin{array}{lllll}
+P(A) &=& P(R_1) + P(S_1) + P(S_3) + P(T).\\
+P(B) &=& P(R_2) + P(S_1) + P(S_2) + P(T).\\
+P(C) &=& P(R_3) + P(S_2) + P(S_3) + P(T).\\
+\end{array}
+\]
+Start with $P(A) + P(B) + P(C)$. The figure shows
+that this single counts $R_1$, $R_2$, $R_3$, 
+double counts $S_1$, $S_2$, $S_3$ and triple counts $T$.
+
+Now subtract the pairwise intersections to get
+\[ 
+P(A) + P(B) + P(C) - P(A\mycap B) - P(B\mycap C) - P(A\mycap C)
+\]
+The pairwise intersections divide up as follows:
+\[\begin{array}{lllll}
+P(A\mycap B) = P(S_1) + P(T).
+P(B\mycap C) = P(S_2) + P(T).
+P(A\mycap C) = P(S_3) + P(T).
+\end{array}
+\]
+So, subtracting the pairwise intersections from $P(A) + P(B) + P(C)$ 
+removes one of the counts of $S_j$ and all 3 of the counts of $T$. 
+This leaves
+$R_j$ and $S_j$ all single counted
+and $T$ not counted.
+
+Since $T$ is the full intersection if we add that back we get
+\[ 
+P(A) + P(B) + P(C) - P(A\mycap B) - P(B\mycap C) - P(A\mycap C) + P(A\mycap B\mycap C)
+\]
+which has all the regions single counted. This proves the formula.
+}
+
+
+
+\subsection{Sample spaces and events}
+
+%LOOK AT LECTURE 1 from last year
+
+Since you have prepared, we will quickly review the new concepts and have you work together on questions.\\
+
+An {\em experiment} is a repeatable procedure with defined outcomes.  The {\em sample spaces} $\Omega$ of an experiment is the set of potential outcomes (Omega $\Omega$ is the last letter of the Greek alphabet).  Subsets of the sample space are called {\em events}.  So we can form the intersection $A \cap B$, the union $A \cup B$, and the complement $A^c$ of events.  If $A \cap B = \emptyset$, we say the $A$ and $B$ are {\em disjoint} or {\em mutually exclusive} events.  If $A$ is a subset of $B$, we say $B$ {\em implies} $A$. \\
+
+We can define an event in words by the property (or properties) that determine which outcomes it contains.  For example, suppose our experiment is to flip a coin three times and record the resulting sequence of heads (H) and tails (T).  The sample space is $$\Omega = \{TTT, TTH, THT, THH, HTT, HTH, HHT, HHH\}.$$  
+
+CQ: Which of following equals the event ``exactly two heads''? \\
+1) $\{THH, HTH, HHT, HHH\}$ \\
+2) $\{THH, HTH, HHT\}$ \\
+3) $\{HTH, THH\}$ \\
+a) 1 \\
+b) 2 \\
+c) 3 \\
+d) 2 and 3 \\
+
+The event ``exactly two heads'' determines a {\em unique subset}, containing {\em all} outcomes that have exactly two heads.\\
+
+CQ: Which of the following describes the same event $\{THH, HTH, HHT\}$? \\
+a) ``exactly one head'' \\
+b) ``exactly one tail'' \\
+c) ``at most one tail'' \\
+d) none of the above \\
+
+Notice that the same event $E \subset \Omega$ may be described in words in multiple ways (``exactly 2 heads'' and ``exactly 1 tail'').\\
+
+CQ: The events ``exactly 2 heads" and ``exactly 2 tails" are disjoint. \\
+a) True \\
+b) False \\
+True: $\{THH, HTH, HHT\} \cap \{TTH, THT, HTT\} = \emptyset.$ \\
+
+CQ: The event ``at least 2 heads'' implies the event ``exactly two heads''. \\
+a) True \\
+b) False \\
+False.  It's the other way around: $\{THH, HTH, HHT\} \subset \{THH, HTH, HHT, HHH\}.$  \\
+
+TQ: We roll two dice and record the outcome on each die.  Consider the three events: \\
+$O$ = ``Die 1 is odd'' \\
+$E$ = ``Die 2 is even'' \\
+$P$ = ``The product of Die 1 and Die 2 is odd'' \\
+a) The projected (or printed) 6 x 6 grids represent the sample space with entries (Die 1, Die 2).  Circle the outcomes in the event. \\
+b) Use the extra grids to answer the following:\\
+i) Which events are mutually exclusive?\\
+ii) Which event implies another event?\\
+iii) Relate $P$ to $O$ and $E$ using union, intersection, and/or complement.\\
+c) Justify your answers in (b) using only the original descriptions of the events and logical reasoning. \\
+d) Assuming the dice are fair, what is the probability of each event?
+
+\subsection{Probability function}
+
+If the dice are not fair, then we need more information to calculate the probability of each event.
+
+A {\em probability function} $P$ on a finite sample space $\Omega$ assigns a probability $P(\omega)$ to each outcome $\omega$ so that the total probability is 1:
+$$\sum_{\omega\in\Omega} P(\omega) = 1.$$
+The probability $P(E)$ of an event $E$ is the sum of the probabilities of the outcomes it contains:
+$$P(E) = \sum_{\omega \in E} P(\omega).$$
+It follows that $$P(\Omega) = 1,$$ $$P(\emptyset) = 0,$$ and if $A$ and $B$ are disjoint then $$P(A \cup B) = P(A) + P(B).$$
+More generally, the {\em inclusion-exclusion principle} for probability says
+$$P(A \cup B) = P(A) + P(B) - P(A \cap B).$$
+
+CQ: In a class of 50 students, 20 are female (F) and 25 are brown-eyed (B).  What is the range of possible values for the probability $p = P(F \cup B)$ that a student is female or brown-eyed? \\
+a) $p \leq .4$ \\
+b) $.1 \leq p \leq .5$ \\
+c) $.4 \leq p \leq .9$ \\
+d) $.5 \leq p \leq .9$ \\
+e) $.5 \leq p$ \\
+
+It is sometimes easier to calculate the probability of an event indirectly by calculating the probability of the complement and using the formula
+$$P(A) = 1 - P(A^c).$$
+DRAW PICTURE. \\
+
+TQ: What is the probability that a poker hand has at least two cards of the same rank?  (52 cards = 4 suits $\times$ 13 ranks).\\
+
+Answer: $1 - \frac{52\cdot48\cdot44\cdot40\cdot36}{52\cdot51\cdot50\cdot49\cdot48}.$\\
+
+CQ: Lucky Larry will flip a bent (i.e., potentially unfair) coin twice.  You must bet that the two flips with be the same, or that they will be different.  Which should you choose? \\
+a) Same.  \\
+b) Different. \\
+c) Both are equally likely. \\
+
+TQ:  Lucky Larry will flip a bent coin twice.  Let $p$ be the probability of heads.  You must bet that the two flips with be the same (event S), or that they will be different (event D).  Determine the experiment, the sample space $\Omega$, the probability function $P$ (in terms of $p$), the subsets of $\Omega$ corresponding to the events, and the probabilities of the events (in terms of $p$).  Which event is more likely?  Does it depend on $p$?
+
+
+\end{document}

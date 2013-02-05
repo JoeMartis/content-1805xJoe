@@ -1,0 +1,19 @@
+<problem>
+
+<script type="loncapa/python">
+VoVi = "(R_1*R_2)/R_3"
+</script>
+
+	<startouttext/>
+	<p>The answer to this question is (R_1*R_2)/R_3. </p>
+	<endouttext/>
+
+
+
+<formularesponse type="ci" samples="R_1,R_2,R_3@1,2,3:3,4,5#10" answer="$VoVi">
+    <responseparam type="tolerance" default="0.00001"/> 
+    <textline size="40" math="1" />    
+</formularesponse>
+
+<solution></solution>
+</problem>

@@ -1,0 +1,1036 @@
+{
+    "course/2013_Spring": {
+        "graceperiod": "1 day 12 hours 59 minutes 59 seconds",
+        "start": "2013-02-18T00:00",
+        "announcement": "2013-01-22T00:00",
+        "showanswer":"attempted",
+        "display_name": "Electricity and Magnetism",
+        "show_calculator": "Yes",
+        "tabs": [ {"type": "courseware"},
+                  {"name": "Course Info", "type": "course_info"},
+                  {"name": "Progress", "type": "progress"},
+                  {"name": "Syllabus", "type": "static_tab", "url_slug": "calendar" }
+                ]
+    },
+    "chapter/Intro": {
+        "start": "2013-02-18T00:00"
+    },
+    "chapter/Week_1": {
+        "start": "2013-02-18T00:00"
+    },
+    "sequential/sequence_1_1": {
+        "due": "February 27, 2013",
+        "graded": true,
+        "showanswer":"never",
+        "format": "Lecture"
+    },
+    "problem/lec1_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec1_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec1_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec1_Q4": {
+        "attempts":"1"        
+    },
+    "problem/lec1_Q5": {
+        "attempts":"1"        
+    },
+    "problem/lec1_Q6": {
+        "attempts":"1"        
+    },
+    "sequential/sequence_1_2": {
+        "due": "February 27, 2013",
+        "showanswer":"never",
+        "graded": true,
+        "format": "Lecture"
+    },
+    "problem/lec2_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec2_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec2_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec2_Q4": {
+        "attempts":"1"        
+    },
+    "sequential/sequence_1_3": {
+        "due": "February 27, 2013",
+        "showanswer":"never",
+        "graded": true,
+        "format": "Lecture"
+    },
+    "problem/lec3_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec3_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec3_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec3_Q4": {
+        "attempts":"1"        
+    },
+    "problem/lec3_Q5": {
+        "attempts":"1"        
+    },
+    "problem/lec3_Q6": {
+        "attempts":"1"        
+    },
+    "sequential/hw_1": {
+        "due": "February 27 2013",
+        "showanswer":"closed",
+        "graded": true,
+        "format": "Homework"
+    },
+    "sequential/tealsim_pcharges": {
+        "due" : "February 27, 2013",
+        "showanswer":"closed",
+        "graded": true,
+        "format": "TEALsim"
+    },
+    "sequential/tealsim_gauss": {
+        "due" : "February 27, 2013",
+        "showanswer":"closed",
+        "graded": true,
+        "format": "TEALsim"
+    },
+    "chapter/Week_2": {
+        "start": "February 25, 2013"
+    },
+    "sequential/sequence_2_1": {
+        "due" : "March 6, 2013",
+        "showanswer":"never",
+        "graded": true,
+        "format": "Lecture"
+    },
+    "problem/lec4_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec4_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec4_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec4_Q4": {
+        "attempts":"1"        
+    },
+    "problem/lec4_Q5": {
+        "attempts":"1"        
+    },
+    "sequential/sequence_2_2": {
+        "due" : "March 6, 2013",
+        "showanswer":"never",
+        "graded": true,
+        "format": "Lecture"
+    },
+    "problem/lec5_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec5_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec5_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec5_Q4": {
+        "attempts":"1"        
+    },
+    "problem/lec5_Q5": {
+        "attempts":"1"        
+    },
+    "problem/lec5_Q6": {
+        "attempts":"1"        
+    },
+    "problem/lec5_Q7": {
+        "attempts":"1"        
+    },
+    "problem/lec5_Q8": {
+        "attempts":"1"        
+    },
+    "problem/lec5_Q9": {
+        "attempts":"1"        
+    },
+    "sequential/sequence_2_3": {
+        "due" : "March 6, 2013",
+        "showanswer":"never",
+        "graded": true,
+        "format": "Lecture"
+    },
+    "problem/lec6_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec6_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec6_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec6_Q4": {
+        "attempts":"1"        
+    },
+    "sequential/hw_2": {
+        "due": "March 6, 2013",
+        "showanswer":"closed",
+        "graded": true,
+        "format": "Homework"
+    },
+    "chapter/Week_3": {
+        "start": "March 4, 2013"
+    },
+    "sequential/sequence_3_1": {
+        "due" : "March 13, 2013",
+        "showanswer":"never",
+        "graded": true,
+        "format": "Lecture"
+    },
+    "problem/lec7_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec7_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec7_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec7_Q4": {
+        "attempts":"1"        
+    },
+    "problem/lec7_Q5": {
+        "attempts":"1"        
+    },
+    "problem/lec7_Q6": {
+        "attempts":"1"        
+    },
+    "sequential/sequence_3_2": {
+        "due" : "March 13, 2013",
+        "showanswer":"never",
+        "graded": true,
+        "format": "Lecture"
+    },
+    "problem/lec8_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec8_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec8_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec8_Q4": {
+        "attempts":"1"        
+    },
+    "problem/lec8_Q5": {
+        "attempts":"1"        
+    },
+    "problem/lec8_Q6": {
+        "attempts":"1"        
+    },
+    "problem/lec8_Q7": {
+        "attempts":"1"        
+    },
+    "problem/lec8_Q8": {
+        "attempts":"1"        
+    },
+    "problem/lec8_Q9": {
+        "attempts":"1"        
+    },
+    "problem/lec8_Q10": {
+        "attempts":"1"        
+    },
+    "sequential/sequence_3_3": {
+        "due" : "March 13, 2013",
+        "showanswer":"never",
+        "graded": true,
+        "format": "Lecture"
+    },
+    "problem/lec9_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec9_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec9_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec9_Q4": {
+        "attempts":"1"        
+    },
+    "problem/lec9_Q5": {
+        "attempts":"1"        
+    },
+    "problem/lec9_Q6": {
+        "attempts":"1"        
+    },
+    "problem/lec9_Q7": {
+        "attempts":"1"        
+    },
+    "problem/lec9_Q8": {
+        "attempts":"1"        
+    },
+    "problem/lec9_Q9": {
+        "attempts":"1"        
+    },
+    "problem/lec9_Q10": {
+        "attempts":"1"        
+    },
+    "problem/lec9_Q11": {
+        "attempts":"1"        
+    },
+    "sequential/hw_3": {
+        "due": "March 13, 2013",
+         "showanswer":"closed",
+        "graded": true,
+        "format": "Homework"
+    },
+    "sequential/tealsim_induction": {
+        "due" : "March 13, 2013",
+        "showanswer":"closed",
+        "graded": true,
+        "format": "TEALsim"
+    },
+    "chapter/Week_4": {
+        "start": "March 11, 2013"
+    },
+    "problem/lec10_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec10_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec10_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec10_Q4": {
+        "attempts":"1"        
+    },
+    "problem/lec10_Q5": {
+        "attempts":"1"        
+    },
+    "problem/lec10_Q6": {
+        "attempts":"1"        
+    },
+    "problem/lec10_Q7": {
+        "attempts":"1"        
+    },
+    "problem/lec11_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec11_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec11_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec11_Q4": {
+        "attempts":"1"        
+    },
+    "problem/lec11_Q5": {
+        "attempts":"1"        
+    },
+    "problem/lec11_Q6": {
+        "attempts":"1"        
+    },
+    "problem/lec11_Q7": {
+        "attempts":"1"        
+    },
+    "problem/lec11_Q8": {
+        "attempts":"1"        
+    },
+    "problem/lec12_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec12_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec12_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec12_Q4": {
+        "attempts":"1"        
+    },
+    "problem/lec12_Q5": {
+        "attempts":"1"        
+    },
+    "problem/lec12_Q6": {
+        "attempts":"1"        
+    },
+    "problem/lec12_Q7": {
+        "attempts":"1"        
+    },
+    "problem/lec12_Q8": {
+        "attempts":"1"        
+    },
+    "problem/lec12_Q9": {
+        "attempts":"1"        
+    },
+    "problem/lec12_Q10": {
+        "attempts":"1"        
+    },
+    "chapter/Midterm1": {
+        "due": "March 25, 2013",
+        "showanswer":"never",
+        "graded": true,
+        "format": "Midterm Exam"
+    },
+    "chapter/Week_5": {
+        "start": "March 25, 2013"
+    },
+    "sequential/sequence_5_1": {
+        "due" : "April 1, 2013",
+         "showanswer":"never",
+        "graded": true,
+        "format": "Lecture"
+    },
+    "problem/lec13_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec13_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec13_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec13_Q4": {
+        "attempts":"1"        
+    },
+    "problem/lec13_Q5": {
+        "attempts":"1"        
+    },
+    "sequential/sequence_5_2": {
+        "due" : "April 1, 2013",
+         "showanswer":"never",
+        "graded": true,
+        "format": "Lecture"
+    },
+    "problem/lec14_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec14_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec14_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec14_Q4": {
+        "attempts":"1"        
+    },
+    "sequential/sequence_5_3": {
+        "due" : "April 1, 2013",
+         "showanswer":"never",
+        "graded": true,
+        "format": "Lecture"
+    },
+    "problem/lec15_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec15_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec15_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec15_Q4": {
+        "attempts":"1"        
+    },
+    "sequential/hw_4": {
+        "due" : "April 1, 2013",
+        "showanswer":"closed",
+        "graded": true,
+        "format": "Homework"
+    },
+    "sequential/tealsim_ampere": {
+        "due" : "April 1, 2013",
+        "showanswer":"closed",
+        "graded": true,
+        "format": "TEALsim"
+    },
+    "chapter/Week_6": {
+        "start": "April 1, 2013"
+    },
+    "sequential/sequence_6_1": {
+        "due" : "April 8, 2013",
+         "showanswer":"never",
+        "graded": true,
+        "format": "Lecture"
+    },
+    "problem/lec16_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec16_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec16_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec16_Q4": {
+        "attempts":"1"        
+    },
+    "problem/lec16_Q5": {
+        "attempts":"1"        
+    },
+    "problem/lec16_Q6": {
+        "attempts":"1"        
+    },
+    "sequential/sequence_6_2": {
+        "due" : "April 8, 2013",
+         "showanswer":"never",
+        "graded": true,
+        "format": "Lecture"
+    },
+    "problem/lec17_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec17_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec17_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec17_Q4": {
+        "attempts":"1"        
+    },
+    "problem/lec17_Q5": {
+        "attempts":"1"        
+    },
+    "problem/lec17_Q6": {
+        "attempts":"1"        
+    },
+    "problem/lec17_Q7": {
+        "attempts":"1"        
+    },
+    "sequential/sequence_6_3": {
+        "due" : "April 8, 2013",
+         "showanswer":"never",
+        "graded": true,
+        "format": "Lecture"
+    },
+    "problem/lec18_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec18_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec18_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec18_Q4": {
+        "attempts":"1"        
+    },
+    "problem/lec18_Q5": {
+        "attempts":"1"        
+    },
+    "problem/lec18_Q6": {
+        "attempts":"1"        
+    },
+    "problem/lec18_Q7": {
+        "attempts":"1"        
+    },
+    "problem/lec18_Q8": {
+        "attempts":"1"        
+    },
+    "problem/lec18_Q9": {
+        "attempts":"1"        
+    },
+    "problem/lec18_Q10": {
+        "attempts":"1"        
+    },
+    "sequential/hw_5": {
+        "due" : "April 8, 2013",
+        "showanswer":"closed",
+        "graded": true,
+        "format": "Homework"
+    },
+    "sequential/tealsim_faraday": {
+        "due" : "April 8, 2013",
+        "showanswer":"closed",
+        "graded": true,
+        "format": "TEALsim"
+    },
+    "chapter/Week_7": {
+        "start": "April 8, 2013"
+    },
+    "sequential/sequence_7_1": {
+        "due" : "April 15, 2013",
+         "showanswer":"never",
+        "graded": true,
+        "format": "Lecture"
+    },
+    "problem/lec19_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec19_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec19_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec19_Q4": {
+        "attempts":"1"        
+    },
+    "problem/lec19_Q5": {
+        "attempts":"1"        
+    },
+    "problem/lec19_Q6": {
+        "attempts":"1"        
+    },
+    "sequential/sequence_7_2": {
+        "due" : "April 15, 2013",
+         "showanswer":"never",
+        "graded": true,
+        "format": "Lecture"
+    },
+    "problem/lec21_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec21_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec21_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec21_Q4": {
+        "attempts":"1"        
+    },
+    "sequential/sequence_7_3": {
+        "due" : "April 15, 2013",
+         "showanswer":"never",
+        "graded": true,
+        "format": "Lecture"
+    },
+    "problem/lec20_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec20_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec20_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec20_Q4": {
+        "attempts":"1"        
+    },
+    "problem/lec20_Q5": {
+        "attempts":"1"        
+    },
+    "problem/lec20_Q6": {
+        "attempts":"1"        
+    },
+    "problem/lec20_Q7": {
+        "attempts":"1"        
+    },
+    "problem/lec20_Q8": {
+        "attempts":"1"        
+    },
+    "problem/lec20_Q9": {
+        "attempts":"1"        
+    },
+    "problem/lec20_10": {
+        "attempts":"1"        
+    },
+    "problem/lec21_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec21_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec21_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec21_Q4": {
+        "attempts":"1"        
+    },
+    "sequential/hw_6": {
+        "due" : "April 15, 2013",
+        "showanswer":"closed",
+        "graded": true,
+        "format": "Homework"
+    },
+    "sequential/tealsim_floatingcoil": {
+        "due" : "April 15, 2013",
+        "showanswer":"closed",
+        "graded": true,
+        "format": "TEALsim"
+    },
+    "chapter/Week_8": {
+        "start": "April 15, 2013"
+    },
+    "problem/lec22_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec22_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec22_3": {
+        "attempts":"1"        
+    },
+    "problem/lec22_Q4": {
+        "attempts":"1"        
+    },
+    "problem/lec22_Q5": {
+        "attempts":"1"               
+    },
+    "problem/lec23_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec23_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec23_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec23_Q4": {
+        "attempts":"1"        
+    },
+    "problem/lec23_Q5": {
+        "attempts":"1"               
+    },
+    "problem/lec23_Q6": {
+        "attempts":"1"        
+    },
+    "problem/lec23_Q7": {
+        "attempts":"1"        
+    },
+    "problem/lec23_Q8": {
+        "attempts":"1"               
+    },
+    "problem/lec23_Q9": {
+        "attempts":"1"        
+    },
+    "problem/lec23_Q10": {
+        "attempts":"1"               
+    },
+    "problem/lec23_Q11": {
+        "attempts":"1"               
+    },
+    "chapter/Midterm2": {
+        "due": "April 29, 2013",
+        "showanswer":"never",
+        "graded": true,
+        "format": "Midterm Exam"
+    },
+    "chapter/Week_9": {
+        "start": "April 29, 2013"
+    },
+    "sequential/sequence_9_1": {
+        "due" : "May 6, 2013",
+         "showanswer":"never",
+        "graded": true,
+        "format": "Lecture"
+    },
+    "problem/lec24_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec24_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec24_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec24_Q4": {
+        "attempts":"1"        
+    },
+    "problem/lec24_Q5": {
+        "attempts":"1"               
+    },
+    "problem/lec24_Q6": {
+        "attempts":"1"        
+    },
+    "problem/lec24_Q7": {
+        "attempts":"1"        
+    },
+    "problem/lec24_Q8": {
+        "attempts":"1"               
+    },
+    "sequential/sequence_9_2": {
+        "due" : "May 6, 2013",
+         "showanswer":"never",
+        "graded": true,
+        "format": "Lecture"
+    },
+    "problem/lec25_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec25_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec25_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec25_Q4": {
+        "attempts":"1"        
+    },
+    "problem/lec25_Q5": {
+        "attempts":"1"               
+    },
+    "problem/lec25_Q6": {
+        "attempts":"1"        
+    },
+    "sequential/sequence_9_3": {
+        "due" : "May 6, 2013",
+         "showanswer":"never",
+        "graded": true,
+        "format": "Lecture"
+    },
+    "problem/lec26_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec26_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec26_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec26_Q4": {
+        "attempts":"1"        
+    },
+    "problem/lec26_Q5": {
+        "attempts":"1"               
+    },
+    "problem/lec26_Q6": {
+        "attempts":"1"        
+    },
+    "sequential/hw_7": {
+        "due" : "May 6, 2013",
+        "showanswer":"closed",
+        "graded": true,
+        "format": "Homework"
+    },
+    "sequential/tealsim_planewave": {
+        "due" : "May 6, 2013",
+        "showanswer":"closed",
+        "graded": true,
+        "format": "TEALsim"
+    },
+    "chapter/Week_10": {
+        "start": "May 6, 2013"
+    },
+    "problem/lec27_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec27_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec27_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec27_Q4": {
+        "attempts":"1"        
+    },
+    "sequential/sequence_10_1": {
+        "due" : "May 13, 2013",
+         "showanswer":"never",
+        "graded": true,
+        "format": "Lecture"
+    },
+    "problem/lec28_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec28_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec28_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec28_Q4": {
+        "attempts":"1"             
+    },
+    "sequential/sequence_10_2": {
+        "due" : "May 13, 2013",
+         "showanswer":"never",
+        "graded": true,
+        "format": "Lecture"
+    },
+    "problem/lec29_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec29_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec29_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec29_Q4": {
+        "attempts":"1"        
+    },
+    "problem/lec29_Q5": {
+        "attempts":"1"               
+    },
+    "sequential/sequence_10_3": {
+        "due" : "May 13, 2013",
+         "showanswer":"never",
+        "graded": true,
+        "format": "Lecture"
+    },
+    "problem/lec31_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec31_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec32_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec32_Q4": {
+        "attempts":"1"        
+    },
+    "sequential/hw_8": {
+        "due": "May 13, 2013",
+        "showanswer":"closed",
+        "graded": true,
+        "format": "Homework"
+    },
+    "chapter/Week_11": {
+        "start": "May 13, 2013"
+    },
+    "problem/lec30_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec30_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec30_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec30_Q4": {
+        "attempts":"1"        
+    },
+    "problem/lec30_Q5": {
+        "attempts":"1"               
+    },
+    "problem/lec30_Q6": {
+        "attempts":"1"               
+    },
+    "chapter/Midterm3": {
+        "due": "May 27, 2013",
+        "showanswer":"never",
+        "graded": true,
+        "format": "Midterm Exam"
+    },
+    "chapter/Week_12": {
+        "start": "May 27, 2013"
+    },
+    "problem/lec32_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec32_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec32_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec32_Q4": {
+        "attempts":"1"        
+    },
+    "problem/lec32_Q5": {
+        "attempts":"1"        
+    },
+    "problem/lec32_Q6": {
+        "attempts":"1"        
+    },
+    "problem/lec32_Q7": {
+        "attempts":"1"        
+    },
+    "sequential/sequence_12_1": {
+        "due" : "June 3, 2013",
+         "showanswer":"never",
+        "graded": true,
+        "format": "Lecture"
+    },
+    "problem/lec33_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec33_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec33_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec33_Q4": {
+        "attempts":"1"        
+    },
+    "problem/lec33_Q5": {
+        "attempts":"1"        
+    },
+    "problem/lec33_Q6": {
+        "attempts":"1"        
+    },
+    "problem/lec33_Q7": {
+        "attempts":"1"        
+    },
+    "problem/lec33_Q8": {
+        "attempts":"1"        
+    },
+    "sequential/sequence_12_2": {
+        "due" : "June 3, 2013",
+         "showanswer":"never",
+        "graded": true,
+        "format": "Lecture"
+    },
+    "problem/lec34_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec34_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec34_Q3": {
+        "attempts":"1"        
+    },
+    "problem/lec34_Q4": {
+        "attempts":"1"        
+    },
+    "problem/lec34_Q5": {
+        "attempts":"1"        
+    },
+    "problem/lec34_Q6": {
+        "attempts":"1"        
+    },
+    "problem/lec34_Q7": {
+        "attempts":"1"        
+    },
+    "problem/lec34_Q8": {
+        "attempts":"1"        
+    },
+    "sequential/sequence_12_3": {
+        "due" : "June 3, 2013",
+         "showanswer":"never",
+        "graded": true,
+        "format": "Lecture"
+    },
+    "sequential/hw_9": {
+        "due": "June 3, 2013",
+        "showanswer":"closed",
+        "graded": true,
+        "format": "Homework"
+    },
+    "chapter/Week_13": {
+        "start": "June 3, 2013"
+    },
+    "problem/lec36_Q1": {
+        "attempts":"1"        
+    },
+    "problem/lec36_Q2": {
+        "attempts":"1"        
+    },
+    "problem/lec36_Q3": {
+        "attempts":"1"        
+    },
+    "chapter/FinalExam": {
+        "due": "June 17, 2013",
+        "showanswer":"never",
+        "graded": true,
+        "format": "Final Exam"
+
+    }
+}
+
+
+

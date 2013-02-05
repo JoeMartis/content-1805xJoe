@@ -1,0 +1,28 @@
+<html>
+<pre>
+&lt;problem>
+
+&lt;startouttext/>
+&lt;script type="loncapa/python">
+def test_add_to_ten(expect,ans):
+a1=float(ans[0])
+a2=float(ans[1])
+return (a1+a2)==10
+&lt;/script>
+
+&lt;p>Enter two integers which sum to 10: &lt;/p>
+&lt;endouttext/>
+
+&lt;customresponse cfn="test_add_to_ten">
+&lt;textline size="40"/>
+&lt;br/>
+&lt;textline size="40"/>
+&lt;/customresponse>
+
+&lt;solution>
+
+&lt;/solution>
+
+&lt;/problem>
+</pre>
+</html>

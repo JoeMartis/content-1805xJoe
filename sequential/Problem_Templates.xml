@@ -1,0 +1,61 @@
+<sequential display_name="Problem Types">
+
+
+
+
+
+<html url_name="problem_overview"/>
+
+<vertical>
+	<problem url_name="generic_optionresponse"/>
+	<html url_name="display_genericoptionresponse"/>
+	<problem url_name="blank_optionresponse"/>
+	<html url_name="display_optionresponse"/>
+</vertical>
+
+<vertical>
+	<problem url_name="generic_multiplechoice"/>
+	<html url_name="display_genericmultiplechoice"/>
+	<problem url_name="blank_multiplechoice"/>
+	<html url_name="display_multiplechoice"/>
+
+</vertical>
+
+<vertical>
+	<problem url_name="generic_stringresponse"/>
+	<html url_name="display_genericstringresponse"/>
+	<problem url_name="blank_stringresponse"/>
+	<html url_name="display_stringresponse"/>
+</vertical>
+	
+<vertical>
+	<problem url_name="generic_numericalresponse"/>
+	<html url_name="display_genericnumericalresponse"/>
+	<problem url_name="blank_numericalresponse"/>
+	<html url_name="display_numericalresponse"/>
+</vertical>
+
+<vertical>
+	<problem url_name="generic_formularesponse"/>
+	<html url_name="display_genericformularesponse"/>
+	<problem url_name="blank_formularesponse"/>
+	<html url_name="display_formularesponse"/>
+</vertical>
+
+<vertical>
+	<problem url_name="generic_imageresponse"/>
+	<html url_name="display_genericimageresponse"/>
+	<problem url_name="blank_imageresponse"/>
+	<html url_name="display_imageresponse"/>
+</vertical>
+
+<vertical>
+	<problem url_name="generic_customresponse"/>
+	<html url_name="display_genericcustomresponse"/>
+	<problem url_name="blank_customresponse"/>
+	<html url_name="display_customresponse"/>
+</vertical>
+<!--
+	<problem url_name="generic_schematicresponse"/>
+-->
+</sequential>

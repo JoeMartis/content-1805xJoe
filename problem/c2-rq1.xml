@@ -1,0 +1,250 @@
+<?xml version="1.0"?>
+<problem showanswer="'attempted'" rerandomize="never" weight="5" display_name="Class 2 Reading Questions">
+  <text>
+    <p><b class="bfseries">1.</b> Which of the following represents a valid probability table </p>
+    <table cellspacing="0" class="tabular" style="table-layout:auto">
+      <tr>
+        <td style="text-align:left">
+          <p>
+ i) </p>
+        </td>
+        <td style="text-align:left; border-right:1px solid black">
+          <p>
+ outcomes </p>
+        </td>
+        <td style="text-align:left">
+          <p>
+ 1 </p>
+        </td>
+        <td style="text-align:left">
+          <p>
+2 </p>
+        </td>
+        <td style="text-align:left">
+          <p>
+3 </p>
+        </td>
+        <td style="text-align:left">
+          <p>
+4 </p>
+        </td>
+        <td style="text-align:left">
+          <p>
+5 </p>
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align:left">&#xA0;</td>
+        <td style="border-top-style:solid; text-align:left; border-top-color:black; border-top-width:1px; border-right:1px solid black">
+          <p>
+probability </p>
+        </td>
+        <td style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:left">
+          <p>
+1/5 </p>
+        </td>
+        <td style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:left">
+          <p>
+1/5 </p>
+        </td>
+        <td style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:left">
+          <p>
+1/5 </p>
+        </td>
+        <td style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:left">
+          <p>
+1/5 </p>
+        </td>
+        <td style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:left">
+          <p>
+1/5 </p>
+        </td>
+      </tr>
+    </table>
+    <table cellspacing="0" class="tabular" style="table-layout:auto">
+      <tr>
+        <td style="text-align:left">
+          <p>
+ ii) </p>
+        </td>
+        <td style="text-align:left; border-right:1px solid black">
+          <p>
+ outcomes </p>
+        </td>
+        <td style="text-align:left">
+          <p>
+ 1 </p>
+        </td>
+        <td style="text-align:left">
+          <p>
+2 </p>
+        </td>
+        <td style="text-align:left">
+          <p>
+3 </p>
+        </td>
+        <td style="text-align:left">
+          <p>
+4 </p>
+        </td>
+        <td style="text-align:left">
+          <p>
+5 </p>
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align:left">&#xA0;</td>
+        <td style="border-top-style:solid; text-align:left; border-top-color:black; border-top-width:1px; border-right:1px solid black">
+          <p>
+probability </p>
+        </td>
+        <td style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:left">
+          <p>
+1/2 </p>
+        </td>
+        <td style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:left">
+          <p>
+1/5 </p>
+        </td>
+        <td style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:left">
+          <p>
+1/10 </p>
+        </td>
+        <td style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:left">
+          <p>
+1/10 </p>
+        </td>
+        <td style="border-top-style:solid; border-top-color:black; border-top-width:1px; text-align:left">
+          <p>
+1/10 </p>
+        </td>
+      </tr>
+    </table>
+    <p>
+      <multiplechoiceresponse>
+        <choicegroup direction="vertical">
+          <choice correct="false" name="1">
+            <text> i</text>
+          </choice>
+          <choice correct="false" name="2">
+            <text> ii</text>
+          </choice>
+          <choice correct="true" name="3">
+            <text> i and ii</text>
+          </choice>
+          <choice correct="false" name="4">
+            <text> not enough information</text>
+          </choice>
+        </choicegroup>
+      </multiplechoiceresponse>
+    </p>
+    <p><b class="bfseries">2.</b> A sample space has exactly two outcomes. The first has probability [mathjaxinline]p[/mathjaxinline] and the second has probability [mathjaxinline]3p[/mathjaxinline]. What is the value of [mathjaxinline]p[/mathjaxinline]? </p>
+    <p>
+      <numericalresponse answer=".25">
+        <textline>
+          <responseparam type="tolerance" default="0.0001"/>
+        </textline>
+      </numericalresponse>
+    </p>
+    <p><b class="bfseries">3.</b> Let [mathjaxinline]A[/mathjaxinline] and [mathjaxinline]B[/mathjaxinline] be two events with [mathjaxinline]P(A) = 0.4[/mathjaxinline], [mathjaxinline]P(B) = 0.5[/mathjaxinline] and [mathjaxinline]P(A\cap B) = 0.3[/mathjaxinline]. What is [mathjaxinline]P(A \cup B)[/mathjaxinline]? (Hint: visualize with Venn diagrams.) </p>
+    <p>
+      <multiplechoiceresponse>
+        <choicegroup direction="vertical">
+          <choice correct="false" name="1">
+            <text> 0.5</text>
+          </choice>
+          <choice correct="true" name="2">
+            <text> 0.6</text>
+          </choice>
+          <choice correct="false" name="3">
+            <text> 0.7</text>
+          </choice>
+          <choice correct="false" name="4">
+            <text> 0.8</text>
+          </choice>
+          <choice correct="false" name="5">
+            <text> 0.9</text>
+          </choice>
+        </choicegroup>
+      </multiplechoiceresponse>
+    </p>
+    <p><b class="bfseries">4.</b> Our experiment consists of tossing a coin 3 times. Take the sample space to be all sequences of 3 heads or tails. </p>
+    <table id="a0000000002" class="equation" width="100%" cellspacing="0" cellpadding="7" style="table-layout:auto">
+      <tr>
+        <td class="equation">[mathjax]\Omega = \{ HHH,\, HHT,\, HTH,\, HTT,\, THH,\, THT,\, TTH,\, TTT\}[/mathjax]</td>
+      </tr>
+    </table>
+    <p>
+ For each of the following give the size of the event. </p>
+    <p>
+i) The event 'there are more heads than tails'. </p>
+    <p>
+      <multiplechoiceresponse>
+        <choicegroup direction="vertical">
+          <choice correct="false" name="1">
+            <text> 0</text>
+          </choice>
+          <choice correct="false" name="2">
+            <text> 1</text>
+          </choice>
+          <choice correct="false" name="3">
+            <text> 2</text>
+          </choice>
+          <choice correct="false" name="4">
+            <text> 3</text>
+          </choice>
+          <choice correct="true" name="5">
+            <text> 4</text>
+          </choice>
+          <choice correct="false" name="6">
+            <text> 5</text>
+          </choice>
+          <choice correct="false" name="7">
+            <text> 6</text>
+          </choice>
+          <choice correct="false" name="8">
+            <text> 7</text>
+          </choice>
+          <choice correct="false" name="9">
+            <text> 8</text>
+          </choice>
+        </choicegroup>
+      </multiplechoiceresponse>
+    </p>
+    <p>
+ii) The event 'the first heads occurs after the first tails.' </p>
+    <p>
+      <multiplechoiceresponse>
+        <choicegroup direction="vertical">
+          <choice correct="false" name="1">
+            <text> 0</text>
+          </choice>
+          <choice correct="false" name="2">
+            <text> 1</text>
+          </choice>
+          <choice correct="false" name="3">
+            <text> 2</text>
+          </choice>
+          <choice correct="true" name="4">
+            <text> 3</text>
+          </choice>
+          <choice correct="false" name="5">
+            <text> 4</text>
+          </choice>
+          <choice correct="false" name="6">
+            <text> 5</text>
+          </choice>
+          <choice correct="false" name="7">
+            <text> 6</text>
+          </choice>
+          <choice correct="false" name="8">
+            <text> 7</text>
+          </choice>
+          <choice correct="false" name="9">
+            <text> 8</text>
+          </choice>
+        </choicegroup>
+      </multiplechoiceresponse>
+    </p>
+  </text>
+</problem>

@@ -1,0 +1,470 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath, amsthm, amsfonts, url}
+
+\begin{document}
+
+reading
+
+reading questions
+
+lecture slides with concept and table questions
+
+matlab
+
+applets
+
+videos
+
+friday questions
+
+papers
+
+\setcounter{section}{-1}
+
+\section{Introduction}
+
+Enforce seating so most tables have multiple of 3.
+
+Working definition of probability and statistics (applied probability). \\
+
+It's hard to overstate the importance of statistics in the modern world.  Data and uncertainty are everywhere (academic research (5 sigma), industry, public policy, elections, sports).  \\
+
+Course goals: \\
+1) Understand basics of probability theory (Unit 1) \\
+%Understand the basic principals of statistical inference
+2) Build a basic statistical toolbox (how, why, when): hammer, screwdriver, level...no router (Unit 2, Unit 3) \\
+3) Use software to do statistics (Matlab) \\
+4) Interpret and assess statistics of others (research papers) \\
+
+Broader goals: \\
+1) Provide foundation for further coursework or for self-study when needed in one's real work.\\
+2) Become a more informed consumer of statistical information! \\
+
+Consuming statistical information may be tricky.  What does ``statistically significant'' really mean?  When is one justified in accepting or rejecting an hypothesis based on the data? (Such questions are still debated by the experts, as will be apparent when we compare frequentist and Bayesian statistics). \\
+
+%DQ: What impression is this commercial for 5-Hour Energy meant to convey? Is this impression well-supported by the evidence presented? \\
+%\url{http://vimeo.com/45972423} \\
+
+%We are all familiar with intentional manipulation.  For example, political ads which selectively cite polls.  And of course, advertisements more generally:\\
+
+%DQ: Steve: Librarian or Farmer? (representative bias, base rate fallacy, Bayes' rule) \\
+
+We are susceptible to manipulation in part because our statistical intuition may be unreliable. \\
+
+%DQ: Jelly beans on XKCD (data mining, confidence intervals, hypothesis testing) \\
+%\url{http://xkcd.com/882/} \\
+
+Biases (publication bias) and unintentional misuse.\\
+
+So let's get started!  First we need to learn to count.  Form groups of 3.
+
+%Value of abstraction, these toy models are real models with wide applicability.  An election (or any binary choice) is an unfair coin.
+
+\section{Counting}
+\subsection{Motivating questions}
+A coin is {\em fair} if it comes up heads or tails with equal probability. \\
+CQ: You flip a fair coin three times.  What is the probability that exactly one of the flips results in a head? \\
+a) 1/4 \\
+b) 1/3 \\
+c) 3/8 \\
+d) 1/2 \\
+e) 5/8 \\
+
+With three flips, we can easily list the eight possible outcomes:
+$$\{TTT, TTH, THT, THH, HTT, HTH, HHT, HHH\}$$
+Three of these outcomes have exactly one head:
+$$\{TTH, THT, HTT\}$$
+Since all outcomes are equally, we have
+$$P(\text{1 head in 3 flips}) = \frac{\text{number of outcomes with 1 head}}{\text{total number of outcomes}} = \frac{3}{8}.$$ \\
+
+Would listing the outcomes be practical with 10 flips?
+
+---
+
+Poker: Pass out 10 decks of cards to familiarize themselves.
+
+A deck of 52 cards has 13 ranks (2, 3, $\dots$, 9, 10, J, Q, K, A) and 4 suits ($\heartsuit,  \spadesuit, \diamondsuit, \clubsuit,$). A poker hand consists of 5 cards.  A one-pair hand is:\\
+{\em One-pair}: Two cards have one rank and the remaining three cards have three other ranks. $\{2 \heartsuit, 2 \spadesuit, 5 \heartsuit, 8 \clubsuit, \text{K} \diamondsuit\}$ \\
+
+CQ: The probability of a one-pair hand is: \\
+a) less than 5\% \\
+b) between 5\% and 10\% \\
+c) between 10\% and 20\%\\
+d) between 20\% and 40\% \\
+e) greater than 40\% \\
+
+Simulation: Each table deals out ten hands from the top 50 cards of the deck and counts the proportion of one-pair hands.  We ask again: \\
+
+CQ: The probability of a one-pair hand is: \\
+a) less than 5\% \\
+b) between 5\% and 10\% \\
+c) between 10\% and 20\%\\
+d) between 20\% and 40\% \\
+e) greater than 40\% \\
+
+We next collect and add up the data from all the tables and ask again: \\
+
+CQ: The probability of a one-pair hand is: \\
+a) less than 5\% \\
+b) between 5\% and 10\% \\
+c) between 10\% and 20\%\\
+d) between 20\% and 40\% \\
+e) greater than 40\% \\
+
+%Did our experiment really match the question we were asking?  We should have returned the cards to the deck and shuffled between each hand.
+%CQ: Would we converge to the same probability if we had returned the cards and shuffled between hands? \\
+%a) Yes. \\
+%b) No. \\
+%When we discuss expected value, we will see that the answer is yes. \\
+
+Since all poker hands are equally likely, we can compute the probability of a one-pair hand as
+$$P(\text{one-pair}) = \frac{\text{number of one-pair hands}}{\text{total number of hands}}$$
+To find the exact probability, we need to {\em count} the number of elements in each of these sets.  And we have to be clever about it, because there are too many elements to simply list them all.
+
+\subsection{Sets and notation}
+We start with a brief review of sets (if this is new to you, refer to the book or come to office hours). \\
+
+A set $S$ is a collection of elements. \\
+$x \in S$: The element $x$ is in the set $S$.\\
+$A \subset S$: The set $A$ is a {\em subset} of $S$ if all of its elements are in $S$. \\
+$A^c$: The {\em complement} of $A$ in $S$ is the set of elements of $S$ that are {\em not} in $A$. \\
+
+Suppose $A$ and $B$ are subsets of $S$. \\
+$A \cup B$: The {\em union} of $A$ and $B$ is the set of elements of $S$ in $A$ or $B$. \\
+$A \cap B$: The {\em intersection} of $A$ and $B$ is the set of elements of $S$ in $A$ and $B$. \\
+$\emptyset$: The {\em empty set} is the set with no elements. \\
+$A \cap B = \emptyset$: $A$ and $B$ are {\em disjoint} if they have no common elements. \\
+$A \backslash B$: The difference of $A$ and $B$ is the set of elements in $A$ that are not in $B$.
+%This is also called the relative complement of $B$ in $A$.
+
+SHOW VENN DIAGRAMS TO ILLUSTRATE\\
+
+The relationship between union, intersection, and complement is given by {\em DeMorgan's laws}:
+$$(A \cup B)^c = A^c \cap B^c$$
+$$(A \cap B)^c = A^c \cup B^c$$
+
+TQ:  Verify DeMorgan's laws for the subsets $A = \{1,2,3\}$ and $B = \{3,4\}$ of the set $S = \{1,2,3,4,5\}$.  Draw and label a Venn diagram with $A$ the set of male students and $B$ the set of sophomores.  Shade the region illustrating the first law.  Can you express the first law in this case as a non-technical English sentence?\\
+
+%SHOW VENN DIAGRAMS OF DEMORGAN'S LAWS \\
+
+The product of sets $S$ and $T$ is the set of ordered pairs:
+$$S \times T = \{(s,t) \,| \, s\in S, t \in T\}.$$
+Explain the notation.  SHOW DIAGRAMS OF $\{1, 2, 3\} \times \{1,2,3,4\}$ AND $[1,2] \times [1,3] \subset [0,4] \times [0,5]$.  Note that if $A \subset S$ and $B \subset T$ then $A \times B \subset S \times T$. \\
+
+
+\subsection{Counting}
+If $S$ is finite, then $|S|$ or $\#S$ denotes the number of elements.
+
+Two useful counting principles are the inclusion-exclusion principle and the rule of combinations.
+The {\em inclusion-exclusion principle} says $$|A \cup B| = |A| + |B| - |A \cap B|.$$
+SHOW VENN DIAGRAM
+
+CQ: Suppose in a band of singers and guitarists, seven people sing, four play the guitar, and two do both.  How big is the band? \\
+a) 5 \\
+b) 7 \\
+c) 9 \\
+d) 11 \\
+e) 13 \\
+
+The {\em combination rule} says:
+\begin{quotation}
+If there are $n$ ways to perform action 1 and $m$ ways to perform action 2, then there are $n \cdot m$ ways to perform both actions.
+\end{quotation}
+For example, if you have 3 shirts and 4 pants then you can make $3 \cdot 4 = 12$ outfits.  The combination rule holds even if the ways to perform action $B$ depend on action A, as long as the {\em number} of ways to perform action $B$ is independent.  To illustrate this:
+
+%suppose we will draw a sequence of two cards from a 52-card deck.  Since the second card cannot be the same as the first card, the set of possible second cards depends on the first card chosen.  However the number of possible second cards is $51$ no matter what first card is chosen.  So the number of sequences of two cards from a deck is $52 \cdot 51$.
+
+CQ: There are $5$ competitors in the 100m final at the Olympics.  In how many ways can the gold, silver, and bronze medals be awarded?\\
+a) 10 \\
+b) 20 \\
+c) 30 \\
+d) 60 \\
+e) 120 \\
+
+Note how the choice of gold medalist affects the possibilities for the silver medalist, but not the number of possible silver medalists.
+
+%Or table question?
+
+\subsection{Permutations and combinations}
+
+A permutation of a set is an ordering of its elements.  For example, the set $\{a,b,c\}$ has six permutations: $abc, acb, bac, bca, cab, cba$. The combination rule tells us that the number of permutations of a set of $k$ elements is $$k! = k(k-1)\cdots 3 \cdot 2 \cdot 1.$$
+
+There are two related ways of choosing elements from a set.  For permutations, order matters.  For combinations, order does not matter:  \\ \\
+$_nP_k$ = number of sequences of $k$ distinct elements from a set of size $n$ \\
+$_nC_k = \binom{n}{k} =$ number of subsets of $k$ elements from a set of size $n$ \\
+
+These are given by the formulas:
+$$_nP_k = \frac{n!}{(n-k)!} = n (n-1) \cdots (n-k+1)$$
+$$_nC_k = \frac{n!}{k!(n-k)!} = \frac{_nP_k}{k!}$$
+
+The formula for $_nP_k$ follows from the rule of combinations and implies the formula for $_nC_k$ because a subset of size $k$ can be ordered in $k!$ ways. \\
+
+ILLUSTRATE WITH SLIDE COMPARING $_4P_3$ and $_4C_3$. \\
+
+%TQ: There are $n$ competitors in the 100m final at the Olympics.  In how many ways can the gold, silver, and bronze medals be awarded? How many distinct groups of athletes can win medals?  How are these counts related?\\
+
+%TQ: Justify the formula! %How to ask this?
+
+TQ: Compute the probability of (exactly) 3 heads in 10 flips of a fair coin?\\
+%How to balance concrete numbers with abstract variables in problems?
+
+TQ: In poker, the number of one-pair hands is
+$$\binom{13}{1}\binom{4}{2}\binom{12}{3}\binom{4}{1}^3.$$
+Carefully justify this count using the combination rule.  Use this to express the probability of a one-pair hand. \\
+
+Answer: The total number of hands is $\binom{52}{5}$.  The probability of 1-pair is therefore the ratio: .423, or 42.4\%. \\
+
+\newpage
+
+\section{Outcomes, events, and probability}
+
+\subsection{Understanding and active learning}
+
+After doing poorly on a test, the surprised student says ``I understand the concepts, I just have trouble applying them.''  Note that the math tools here don't go beyond functions and calculus, and only a few new concepts arise in each lecture.  We consider being able to apply the concepts as part of the definition of understanding them.  And that will come more efficiently from reading, asking questions, and problem-solving.  We assume you have done the background reading and engaged with the reading questions before class.  Lecturing will be confined to highlighting the new concepts, answering your questions from the reading, and post-discussing the concept and table questions.  We will go through examples on the website (videos) rather than take up class time.\\
+
+For example, Chapter 2 discusses discrete versus continuous sample spaces and product of sample spaces.  You should understand these concepts even though we will not go through them in class.
+
+%Notice that the experiments above involve repeating a simpler experiment (flip one coin, roll one die).  In this case, the sample space takes the form of a product of sets.  Recall that the {\em product} of $\Omega_1$ and $\Omega_2$ is the set of ordered pairs $$\Omega = \Omega_1 \times \Omega_2 = \{(\omega_1, \omega_2) \, | \, \omega_1 \in \Omega_1, \omega_2 \in \Omega_2\}.$$  Since the repititions are independent of one another, if $\omega_1$ has probability $p_1$ and $\omega_2$ has probability $p_2$, then $$P((\omega_1, \omega_2)) = p_1 p_2.$$
+
+%More generally, if a new experiment consists of $n$ repetitions of the original experiment, then the corresponding new sample space is $$\Omega = \Omega_1 \times \Omega_2 \times \cdots \times \Omega_n$$ where each $\Omega_i$ is a copy of the sample space of the original experiment and
+%$$P((\omega_1, \omega_2, \dots, \omega_n)) = p_1 p_2 \cdots p_n.$$
+
+Reading: Chapters 1 and 2.\\
+
+Reading questions:
+
+\subsection{Sample spaces and events}
+
+%LOOK AT LECTURE 1 from last year
+
+Since you have prepared, we will quickly review the new concepts and have you work together on questions.\\
+
+An {\em experiment} is a repeatable procedure with defined outcomes.  The {\em sample spaces} $\Omega$ of an experiment is the set of potential outcomes (Omega $\Omega$ is the last letter of the Greek alphabet).  Subsets of the sample space are called {\em events}.  So we can form the intersection $A \cap B$, the union $A \cup B$, and the complement $A^c$ of events.  If $A \cap B = \emptyset$, we say the $A$ and $B$ are {\em disjoint} or {\em mutually exclusive} events.  If $A$ is a subset of $B$, we say $B$ {\em implies} $A$. \\
+
+We can define an event in words by the property (or properties) that determine which outcomes it contains.  For example, suppose our experiment is to flip a coin three times and record the resulting sequence of heads (H) and tails (T).  The sample space is $$\Omega = \{TTT, TTH, THT, THH, HTT, HTH, HHT, HHH\}.$$  
+
+CQ: Which of following equals the event ``exactly two heads''? \\
+1) $\{THH, HTH, HHT, HHH\}$ \\
+2) $\{THH, HTH, HHT\}$ \\
+3) $\{HTH, THH\}$ \\
+a) 1 \\
+b) 2 \\
+c) 3 \\
+d) 2 and 3 \\
+
+The event ``exactly two heads'' determines a {\em unique subset}, containing {\em all} outcomes that have exactly two heads.\\
+
+CQ: Which of the following describes the same event $\{THH, HTH, HHT\}$? \\
+a) ``exactly one head'' \\
+b) ``exactly one tail'' \\
+c) ``at most one tail'' \\
+d) none of the above \\
+
+Notice that the same event $E \subset \Omega$ may be described in words in multiple ways (``exactly 2 heads'' and ``exactly 1 tail'').\\
+
+CQ: The events ``exactly 2 heads" and ``exactly 2 tails" are disjoint. \\
+a) True \\
+b) False \\
+True: $\{THH, HTH, HHT\} \cap \{TTH, THT, HTT\} = \emptyset.$ \\
+
+CQ: The event ``at least 2 heads'' implies the event ``exactly two heads''. \\
+a) True \\
+b) False \\
+False.  It's the other way around: $\{THH, HTH, HHT\} \subset \{THH, HTH, HHT, HHH\}.$  \\
+
+TQ: We roll two dice and record the outcome on each die.  Consider the three events: \\
+$O$ = ``Die 1 is odd'' \\
+$E$ = ``Die 2 is even'' \\
+$P$ = ``The product of Die 1 and Die 2 is odd'' \\
+a) The projected (or printed) 6 x 6 grids represent the sample space with entries (Die 1, Die 2).  Circle the outcomes in the event. \\
+b) Use the extra grids to answer the following:\\
+i) Which events are mutually exclusive?\\
+ii) Which event implies another event?\\
+iii) Relate $P$ to $O$ and $E$ using union, intersection, and/or complement.\\
+c) Justify your answers in (b) using only the original descriptions of the events and logical reasoning. \\
+d) Assuming the dice are fair, what is the probability of each event?
+
+\subsection{Probability function}
+
+If the dice are not fair, then we need more information to calculate the probability of each event.
+
+A {\em probability function} $P$ on a finite sample space $\Omega$ assigns a probability $P(\omega)$ to each outcome $\omega$ so that the total probability is 1:
+$$\sum_{\omega\in\Omega} P(\omega) = 1.$$
+The probability $P(E)$ of an event $E$ is the sum of the probabilities of the outcomes it contains:
+$$P(E) = \sum_{\omega \in E} P(\omega).$$
+It follows that $$P(\Omega) = 1,$$ $$P(\emptyset) = 0,$$ and if $A$ and $B$ are disjoint then $$P(A \cup B) = P(A) + P(B).$$
+More generally, the {\em inclusion-exclusion principle} for probability says
+$$P(A \cup B) = P(A) + P(B) - P(A \cap B).$$
+
+CQ: In a class of 50 students, 20 are female (F) and 25 are brown-eyed (B).  What is the range of possible values for the probability $p = P(F \cup B)$ that a student is female or brown-eyed? \\
+a) $p \leq .4$ \\
+b) $.1 \leq p \leq .5$ \\
+c) $.4 \leq p \leq .9$ \\
+d) $.5 \leq p \leq .9$ \\
+e) $.5 \leq p$ \\
+
+It is sometimes easier to calculate the probability of an event indirectly by calculating the probability of the complement and using the formula
+$$P(A) = 1 - P(A^c).$$
+DRAW PICTURE. \\
+
+TQ: What is the probability that a poker hand has at least two cards of the same rank?  (52 cards = 4 suits $\times$ 13 ranks).\\
+
+Answer: $1 - \frac{52\cdot48\cdot44\cdot40\cdot36}{52\cdot51\cdot50\cdot49\cdot48}.$\\
+
+CQ: Lucky Larry will flip a bent (i.e., potentially unfair) coin twice.  You must bet that the two flips with be the same, or that they will be different.  Which should you choose? \\
+a) Same.  \\
+b) Different. \\
+c) Both are equally likely. \\
+
+TQ:  Lucky Larry will flip a bent coin twice.  Let $p$ be the probability of heads.  You must bet that the two flips with be the same (event S), or that they will be different (event D).  Determine the experiment, the sample space $\Omega$, the probability function $P$ (in terms of $p$), the subsets of $\Omega$ corresponding to the events, and the probabilities of the events (in terms of $p$).  Which event is more likely?  Does it depend on $p$?
+
+\newpage
+
+\section{Friday}
+
+\subsection{Birthdays}
+We will consider variations on the classic {\em Birthday Problem}. Let's first get a sense of your intuition. \\
+
+CQ: How big must a party be so that it is more likely than not that two people share a birthday? Pick the first true statement:\\
+a) 25 people is sufficient \\
+b) 50 people is sufficient \\
+c) 100 people is sufficient \\
+d) 200 people is sufficient \\
+e) 400 people is sufficient \\
+
+CQ: How big must a party be so that it is more likely than not that three people share a birthday? Pick the first true statement:\\
+a) 25 people is sufficient \\
+b) 50 people is sufficient \\
+c) 100 people is sufficient \\
+d) 200 people is sufficient \\
+e) 400 people is sufficient \\
+
+CQ: How many guests must attend your party so that it is more likely than not that someone shares your birthday? Pick the first true statement:\\
+a) 25 people is sufficient \\
+b) 50 people is sufficient \\
+c) 100 people is sufficient \\
+d) 200 people is sufficient \\
+e) 400 people is sufficient \\
+
+DQ: How does this compare to probability of a pair?  To 365 / 2?  Why? \\
+
+SEE WHAT IS TRUE FOR THE CLASS? \\
+
+TQ: To simplify matters, we will ignore leap days so that a birthday is an integer between 1 and 365.  Consider a group of $n$ people, of which you are not a member.  Find the probability of each of the following events: \\
+A: ``someone shares {\em your} birthday'' \\
+B: ``some two people share a birthday'' \\
+C: ``some three people share a birthday'' \\
+
+\subsection{Matlab}
+
+MATLAB Tutorial.
+
+Simulate B to see that $n=23$ suffices.
+
+Show graph comparing simulations on different $n$ with the function $P(B)$.
+
+\newpage
+
+\section{PS1}
+
+1. After one-pair, the next most common hands are two-pair and three-of-a-kind.  Calculate their probabilities.  Which is more likely? \\
+{\em Two-pair}: Two cards have one rank, two cards have another rank, and the remaining card has a third rank. e.g. $\{2 \heartsuit, 2 \spadesuit, 5 \heartsuit, 5 \clubsuit, \text{K} \diamondsuit\}$\\
+{\em Three-of-a-kind}: Three cards have one rank and the remaining two cards have two other ranks. e.g. $\{2 \heartsuit, 2 \spadesuit, 2 \clubsuit, 5 \clubsuit, \text{K} \diamondsuit\}$\\ \\
+2. Exercise 2.6 \\ \\
+3. Exercise 2.14 (Monty Hall) \\ \\
+4. Exercise 2.15 \\ \\
+5. Exercise 2.19 \\ \\
+6. Ignoring leap days, a birthday can be thought of as an integer between 1 and 365.  Consider a group of $n$ people, of which you are not a member.  We are interested in the events: \\
+A: ``someone shares {\em your} birthday'' \\
+B: ``some two people share a birthday'' \\
+C: ``some three people share a birthday'' \\
+{\bf a)} Define a sample space $\Omega$ and probability function $P$, and describe the subset of $\Omega$ that corresponds to each event. \\
+{\bf b)} Find $P(A)$.  What is the smallest $n$ such that $P(A) > .5$?  Justify why the answer is greater than $\frac{365}{2}$ without doing any computation?\\
+{\bf c)} Find $P(B)$.  Use {\em Matlab} to estimate the smallest $n$ such that $P(B) > .9$. \\
+{\bf d)} Use {\em Matlab} to estimate the smallest $n$ such that $P(C) > .5$. \\
+{\bf e)} How would you expect $P(B)$ and $P(C)$ to change if some birthdays are more likely than others?  Hint: Lucky Larry. \\ \\
+7. Recall that the {\bf definition} of $\binom{n}{k}$ is the number of $k$-element subsets of an $n$-element set.  This can be computed by the {\bf formula} $$\binom{n}{k} = \frac{n!}{k!(n-k)!}.$$
+{\bf a)} First justify the identity $\binom{n}{k} = \binom{n}{n-k}$ using only the formula.  Then justify it using only the definition. \\
+{\bf b)} First justify the identity $\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}$ using only the formula.  Then justify it using only the definition. (Hint: With formula, make a common denominator.  With definition, designate a special element $x$ and divide the set of $k$-element subsets into those that contain $x$ and those that do not contain $x$). \\
+{\bf c)} Verify the identify
+$$\binom{n}{0} + \binom{n}{1} + \binom{n}{2} + \dots + \binom{n}{n} = 2^n$$
+for $n = 0,1,2,3,4$.  Using the combination rule, determine the number of subsets of the set $\{1,2,\cdots,n\}$.  Use this to justify the identity using only the definition. \\
+{\bf d)} Pascal's triangle consists of rows of numbers.  The $0^\text{th}$ row is a single $1$.  Each successive row starts and ends with a 1, and each number in between is the sum of the two numbers to either side of it in the row above.  The $n+1$ positions in row $n$ are indexed from $0$ to $n$ from left to right.  For example, the number with (row, position) = (4,2) is 6. \\
+\begin{center}
+$\begin{array}{cccccccccccc}
+\text{Row } 0: \quad & & &  &  & & 1 &  &  &  &  & \\
+\text{Row } 1: \quad & & &  & & 1 &  & 1 &  &  & &\\ 
+\text{Row } 2: \quad & & & & 1 & & 2 & & 1 & & &\\
+\text{Row } 3: \quad & & & 1 & & 3 & & 3 & & 1 & & \\
+\text{Row } 4: \quad & & 1 & & 4 & & 6 & & 4 & & 1 &\\
+\text{Row } 5: \quad & 1 & & 5 & & 10 & & 10 & & 5 & & 1\\
+\vdots \quad  \quad &&&&&&\vdots &&&&& \\
+\end{array}$
+\end{center}
+What is row 6?  Find the relationship between combinations and Pascal's triangle, and justify it using part (b).  What is the sum of the numbers in row $n$? \\ \\
+%{\bf b)} A path from $(0,0)$ in Pascal's triangle moves down-left or down-right one step at a time.  For example, there are six paths from $(0,0)$ to $(4,2)$, one of which is $(0,0) \rightarrow (1,0) \rightarrow (2,0) \rightarrow (3,1) \rightarrow (4,2)$.  How many paths are there from $(0, 0)$ to $(n, k)$?  Carefully justify your answer.  Hint: Think of the above path as the sequence of choices left-left-right-right (LLRR).\\
+%{\bf c)} A path on a chessboard moves right one square or down one square at each step.  How many paths are there from the top-left square to the bottom-right square? (A chessboard is a grid of 64 squares in 8 rows and 8 columns).\\
+%{\bf d)} If all paths are equally likely, what is the probability that a random path from the top-left square to the bottom-right square goes through the square in the third row and third column? \\ \\
+
+\newpage
+
+\section{Surplus}
+
+3. Partitions. \\
+a) There are four kinds of US coins (penny, nickel, dime, quarter).  You have three coins in your pocket.  How many possibilities are there for the collection of coins?  (For example, you might have three pennies.  Or two pennies and a nickel. Or...)
+
+b) Explain why (a) is equivalent to: How many solutions are there to $P + N + D + Q = 3$ with each variable a non-negative integer?
+
+c) What about $P+N+D+Q=2$? $P + N + D  = 3$?  $P + N = 5$?  In each case, express your answer in the form $\binom{a}{b}$.
+
+d) More generally, find and justify a formula of the form $\binom{a}{b}$ for the number of partitions of $n$ objects into $k$ or fewer sets.  That is, find the number of solutions to $$x_1 + x_2 + \dots + x_k = n$$ with each integer $x_i \geq 0$.
+
+e) You have 6 coins in your pocket.  Assuming (unrealistically) that all collections are equally likely, what is the probability you have exactly two pennies?
+
+f) Consider a four-sided (tetrahedral) die with faces labeled by P, N, D, and Q.  What is the probability of rolling exactly two Ps in six rolls?  Is your answer the same as in (e)?  Why or why not?
+
+g) Find and justify a formula of the form $\binom{a}{b}$ for the number of partitions of $n$ or fewer objects into $k$ or fewer sets.  That is, find the number of solutions to $$x_1 + x_2 + \dots + x_k \leq n$$ with each $x_i \geq 0$.
+
+h) Come up with a story in which (g) is used to calculate a probability. \\
+
+4. You flip over cards one by one from the top of a shuffled deck.  What is the probability that you flip over the Ace of Spades before flipping over a third king? \\
+Answer: 3/5, as the Ace of Spades is equally likely to be before the first king, between the first and second,...,after the last king.
+
+
+\subsection{Matlab: Birthdays}
+
+1. What is the probability that in a group of $n$ people, at least two share a birthday?  (Assume none were born on leap days).  How many people are needed before the odds are better than 50-50?
+
+Explain approximation.
+
+Explain Matlab code for investigating frequency of existence of a pair.
+
+Have students write code for investigating the number of pairs.  Can they find a best fit curve?
+
+Have students write code for investigating the frequency of triples (give them an outline of approach).
+
+CQ: How is probability affected by non-uniform distribution of birthdays?
+
+---
+
+From Wikipedia: As people enter a room one at a time, which one is most likely to be the first to have the same birthday as someone already in the room?  Using Matlab, this is finding the largest difference $p(n) - p(n-1)$.
+
+---
+
+CQ: In a room of $n$ other people, is the probability that at least one person has the same birthday as you more or less than 365/2? (Concept question)
+
+---
+
+\subsection{Ramsey theory}
+In a group of $6$ people, what is the probability that there are three mutual friends or three mutual strangers?  In a group of 18 people, 4 or 4?  100\%
+
+\subsection{Matlab: Dice}
+
+Experiment (dice provided): In 60 seconds, roll two dice as many times as possible, recording the outcome of each trial.  Now calculate the proportion of trials such that the sum of the dice is a prime number.
+
+Find the probability that the sum of two dice is a prime number.  What is the relationship between your answer and the experimental proportion?
+
+Matlab demonstration: Computer simulation can run trials very efficiently and is often used in real-world applications when counting is difficult or expensive (foreshadow law of large numbers).
+
+\end{document}

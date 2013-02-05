@@ -1,0 +1,15 @@
+<problem>
+
+<startouttext/>
+	<p></p>
+    <endouttext/>
+
+<optionresponse>
+      <optioninput options="('option1','option2','option3')" correct="option1"></optioninput>
+</optionresponse>
+
+    <solution>
+        <div class="detailed-solution">
+        </div>
+    </solution>
+</problem>

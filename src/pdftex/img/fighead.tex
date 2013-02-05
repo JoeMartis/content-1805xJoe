@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage{amssymb,amsmath}
+\usepackage[pdftex,active,tightpage]{preview}
+\setlength\PreviewBorder{1mm} % use to add a border around the image --can be 0mm
+% NEED BOTH OF THE FOLLOWING FOR CIRCUITTIKZ
+\usepackage[free-standing-units]{siunitx}
+\usepackage[americancurrents, americanvoltages, americanresistors, cuteinductors, americanports, nosiunitx, noarrowmos]{circuitikz}
+\usepackage{tikz}
+\usepgflibrary{arrows}
+\usetikzlibrary{calc,through,backgrounds} %****no spaces after commas***
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{positioning} %for below=of xxx syntax in nodes
+\usetikzlibrary{backgrounds,fit} %for background layers example
+
+\usepackage[all,arc]{xy} %load this one last
+
+%% tikz
+\tikzset{
+addarrow/.style={postaction={decorate},
+        decoration={markings,mark=at position #1 with {\arrow{>}}}}
+}
+
+\begin{document}
+\begin{preview}

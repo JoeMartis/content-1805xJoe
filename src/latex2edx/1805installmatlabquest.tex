@@ -1,0 +1,75 @@
+\input{header.tex}
+
+\newcommand{\RR}{{\mathbb R}}
+\newcommand{\bs}[1]{\hbox{\boldmath$#1$}}
+\DeclareRobustCommand{\transp}{^{\rm T}}
+\newcommand{\lsub}[1]{{\hbox{\footnotesize$#1$}}}
+\newcommand{\lexp}[1]{{\hbox{\footnotesize$#1$}}}
+\newcommand{\blankpagemark}{\centerline{\sl This page intentionally blank.}}
+\DeclareRobustCommand{\prm}{^{\hbox{\footnotesize$\,\prime$}}}
+\DeclareRobustCommand{\pprm}{^{\hbox{\footnotesize$\,\prime\prime$}}}
+\newenvironment{m}[1]{\left[\begin{array}{@{\,}#1@{\,}}}{\end{array}\right]}
+%\newcommand{\text}{\mbox}
+\newcommand{\mat}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+
+%------------------------------------------------------------------------<
+
+\begin{document}
+\thispagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{edXproblem}{1805installmatlabquest}{weight=4 display_name="Matlab Practice"}
+
+The first thing to do with Matlab is to make sure you can start it and then
+we'll do some simple calculations. 
+
+Go ahead and start Matlab. You should see a window with a 
+\textbf{command prompt} (the \mlprompt{} on the left side of the window). 
+
+\problem1 At the command prompt type the command\\
+\mlcmdna{2 + 3}
+Hit return and enter the result here.\\
+\edXabox{expect="5" type="numerical" tolerance='0.0001'}
+
+\problem2 Do the following computations using Matlab. 
+(Enter your answers in the boxes.)\\
+\mlcmdna{2*3}
+\edXabox{expect="6" type="numerical" tolerance='0.0001'}
+
+\mlcmdna{2\mlcaret 3}
+\edXabox{expect="8" type="numerical" tolerance='0.0001'}
+
+\mlcmdna{3.14\mlcaret 3.14}
+\edXabox{expect="36.338" type="numerical" tolerance='0.01'}
+
+\problem3 Use Matlab to do the following computation.
+(Enter your answer in the box.)\\
+\mlcmdna{100*mean(sin(30:87))}
+\edXabox{expect='-2.2' type='numerical' tolerance='.1'}
+
+\problem4 Now we'll do our first random simulation. Don't worry if you
+don't fully understand the commands. We will explain them in 
+the first tutorial. 
+
+In order to simulate counting the number of heads in 1000 tosses of  a fair coin give the following sequence of commands (hit return after each one).
+
+(In the first command the semicolon at the end 
+will keep a long list of numbers from being
+written to the screen. If you leave it off, you'll need to use the space bar to
+page through all the numbers.)\\
+\mlcmdna{x = binornd(1,.5, 1000,1);}
+\mlcmdna{total = sum(x)}
+
+You can use the up arrow to go back and run the commands again. You should get
+a different total.
+
+Give the value of the total number of heads for one of your simulations.
+\edXabox{expect="500" type="numerical" tolerance='60'}
+
+\end{edXproblem}
+
+\end{document}
+
+
+
+

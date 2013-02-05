@@ -1,0 +1,319 @@
+%
+% File:   example-template-class.tex
+% Date:   17-Jul-12
+% Author: I. Chuang <ichuang@mit.edu>
+%
+% Updated 23-Jan-13
+%
+% Example latex source file for an edX course.
+% This file can be compiled using
+%
+%   python latex2edx -prefix ATEST example-template-class.tex
+%
+% to generate all the content files for an example edX course named
+% "1.00x".  The files are saved in a subdirectory named "1.00x", and
+% include, for example
+%
+%     1.00x/course.xml               - main table of contents for course
+%     1.00x/problem/Problem_1.xml   - problem 1 (symbolic response example)
+%     1.00x/problem/Problem_2.xml   - problem 2 (option response example)
+
+\documentclass[12pt]{article}
+
+\usepackage{edXpsl}	% edX
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% Arguments to edXcourse are: course number, course semester ``url-name''
+% the ``url-name'' should match the directory name in the ``policies''
+% directory.  Policies are not currently set by parameters in this file.
+
+\begin{edXcourse}{6.341x}{2013_Fall}
+
+% A chapter is like a week of a course, or a conceptual unit of a course.
+% Chapters are listed as headings in the left-hand navigation bar.
+
+\begin{edXchapter}{Unit 1}
+
+% A section is like a day of a week, or a conceptual subunit of a chapter.
+% Sections are subheadings in the left-hand navigation bar
+% A section may contain multiple pieces of content, eg video, problem, html
+% Each piece of content within a section is listed as one element
+% in the sequential navigation bar going from left to right, across the top
+% of the problem window.
+
+\begin{edXsection}{Introduction}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% edXtext = html page
+% The argument for edX text specifies the ``display name'' for the page
+
+\begin{edXtext}{Introductory Text}
+
+\section{Course Highlights}
+
+This course features a complete set of lecture notes and assignments
+which tie directly into the required textbook: Oppenheim and Schafer
+with Buck, Discrete-Time Signal Processing, 2nd ed, Upper Saddle
+River, NJ: Prentice-Hall, 1999, ISBN: 0137549202.
+
+\section{Course Description}
+
+This class addresses the representation, analysis, and design of
+discrete time signals and systems. The major concepts covered include:
+Discrete-time processing of continuous-time signals; decimation,
+interpolation, and sampling rate conversion; flowgraph structures for
+DT systems; time-and frequency-domain design techniques for recursive
+(IIR) and non-recursive (FIR) filters; linear prediction; discrete
+Fourier transform, FFT algorithm; short-time Fourier analysis and
+filter banks; multirate techniques; Hilbert transforms; Cepstral
+analysis and various applications.
+
+\end{edXtext}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% An edXproblem = problem
+% The arguments are {display name}{keyword values}
+%
+% keyword values which can be set are any metadata settings, like npoints (number of points)
+% if ``keyword values'' is just a number, that is taken to be the problem's number of points.
+%
+% The key macro is ``edXabox'', which specifies an ``answer box'' for a problem.
+% Each problem may have one or more answer boxes.
+%
+\begin{edXproblem}{Example symbolic response}{npoints=40}
+
+This is a sample problem, which is worth 40 points.  What is the number made famous by
+Hitchhiker's guide to the galaxy?
+
+\edXabox{type='symbolic' size='90' expect='42' }
+
+\end{edXproblem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXproblem}{Example option response}{10}
+
+This is a sample problem, which is worth 10 points.
+
+Give the correct python {\tt type} for the following expressions.  Select {\tt noneType} if the expression is illegal.
+
+\begin{itemize}
+\item {\tt 3}   \edXabox{expect="int" options="noneType","int","float"}
+\item {\tt 5.2} \edXabox{expect="float" options="noneType","int","float"}
+\item {\tt 3/2} \edXabox{expect="int" options="noneType","int","float"}
+\item {\tt 1+[]} \edXabox{expect="noneType" options="noneType","int","float"}
+\end{itemize}
+
+\end{edXproblem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXproblem}{Example string response}{10}
+
+What state is Detroit in?
+
+\edXabox{expect="Michigan" type="string"}
+
+\end{edXproblem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% A ``vertical'' is a set of multiple problems stacked above each other, eg
+% multiple problems for one day.
+
+\begin{edXvertical}{A sample vertical - multiple problems in one day}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXproblem}{Example numerical response}{10}
+
+What is the numerical value of $pi$?
+
+\edXabox{expect="3.14159" type="numerical" tolerance='0.01' }
+
+\end{edXproblem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXproblem}{Example of a custom response}{10}
+
+This problem demonstrates the use of a custom python script used for
+checking the answer.
+
+\begin{edXscript}
+def sumtest(expect,ans):
+    (a1,a2) = map(float,eval(ans))
+    return (a1+a2)==10
+\end{edXscript}
+
+Enter a python list of two numbers which sum to 10:
+
+\edXabox{expect="[1,9]" type="custom" cfn="sumtest"}
+
+\end{edXproblem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{edXvertical}
+
+\end{edXsection} % end of introduction
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{edXsection}{Day 2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXproblem}{Example inline textinput answer box}{40}
+
+\section{Inline Answer Box Test}  
+
+\begin{edXscript}
+
+def dumtest(expect,ans):
+    return True
+
+\end{edXscript}
+
+Clifford gates and measurements are not the only components of quantum
+circuits. In fact, if they were, quantum computers not be more
+powerful than classical ones! Here we consider some unitary and
+non-unitary operations that take quantum states to other valid states.
+
+\subsection{Rotations}
+
+Recall the Bloch vector $[a,b,c]$ for a single qubit state $\rho$ is defined so that 
+\begin{equation}
+\rho = \frac12(I+aX+bY+cZ)
+\end{equation}
+where $I$ is the $2\times2$ identity matrix and $X,Y,$ and $Z$ are the
+Pauli matrices. The purity of state $\tau$ for $n$-qubits is the trace
+of $\tau^2$, a quantity which is always between $1/2^n$ and $1$, with
+$1$ being pure and $1/2^n$ being completely mixed. What is the
+condition on $a,b,$ and $c$ such that $\rho$ is a pure state? Enter
+you answer as a single expression that will be 0 if (and only if)
+$\rho$ is pure. For example, $(4-a+b+c^4)$ is syntactically correct
+but $(4-a+b+c^4)=0$ is not.
+
+
+\edXinline{$\rho$ is pure iff $0=$ } \edXabox{inline='1' type="custom" cfn='dumtest' expect="a^2 + b^2 + c^2 - 1"}
+
+All single qubit unitary operations can be expressed, up to a global
+phase, as a rotation about an axis in Bloch sphere space. If the axis
+is $\hat n=[n_x,n_y,n_z]$ (a unit vector) and the rotation angle is
+$\theta$, then the rotation may be written in terms of the Pauli
+matrices as
+\begin{equation}
+U=e^{i\theta\left(n_x X+n_y Y+n_z Z\right)}.
+\end{equation}
+
+\end{edXproblem}
+
+
+\end{edXsection}
+\end{edXchapter}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% note that an empty line must preceed the \begin{edXchapter} and the \begin{edXsection}
+
+\begin{edXchapter}{Unit 2}
+
+\begin{edXsection}{A new day}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\edXvideo{display_name="Signals and Systems Part II" youtube= '1.0:jGk3w1b7UXQ'}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{edXsection}
+\end{edXchapter}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% note that an empty line must preceed the \begin{edXchapter} and the \begin{edXsection}
+
+\begin{edXchapter}{Unit 3}
+
+\begin{edXsection}{Complex symbolic math checking}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXproblem}{Custom response with multiple answer boxes}{npoints=40}
+
+\begin{edXscript}
+def test_add(expect,ans):
+  a1=float(ans[0])
+  a2=float(ans[1])
+  return (a1+a2)== float(expect)
+\end{edXscript}
+
+Enter two integers which sum to 20:
+
+\edXabox{expect="20" answers="11","9" type="custom" prompts="Integer 1:","Integer 2:" cfn="test_add" inline='1'}
+
+\edXsolution{An acceptable answer would be the two numbers 11 and 9.}
+
+\end{edXproblem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXproblem}{Complex symbolic response}{npoints=40}
+
+\begin{edXscript}
+from formula import *
+
+def test_trace(expect, given):
+    # ans should be a symmath matrix expression, like [[1,2],[2,3]]
+    msg = ''
+    try:
+        xgiven = my_sympify(given, matrix=True)
+        xt = xgiven.trace()
+    except Exception, err:
+        return {'ok': False, 'msg': 'Error %s<br/> in evaluating your expression "%s"' % (err, given)}
+    return xt==1
+
+\end{edXscript}
+
+Enter a matrix with trace equal to $1$:
+
+\edXabox{expect="1" type="custom" cfn="test_trace" math="1"}
+
+\end{edXproblem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{edXproblem}{Symbolic response with multiple input boxes}{npoints=40}
+
+\begin{edXscript}
+from formula import *
+from sympy import *
+
+def test_mprod(expect, given):
+    msg = ''
+    try:
+        xgiven1 = my_sympify(given[0], matrix=True)
+        xgiven2 = my_sympify(given[1], matrix=True)
+        xp = xgiven1 * xgiven2
+    except Exception, err:
+        return {'ok': False, 'msg': 'Error %s<br/> in evaluating your expression "%s"' % (err, given)}
+    return xp==eye(2)
+
+\end{edXscript}
+
+Enter two $2\times 2$ matrices whose product is the identity:
+
+\edXabox{expect="20" answers=".","." type="custom" prompts="Matrix 1:","Matrix 2:" cfn="test_mprod" inline='1' math='1'}
+
+\edXsolution{An acceptable answer would be the two matrices input as ${\tt [[0,1],[1,0]}$ and ${\tt [[0,1],[1,0]}$.}
+
+\end{edXproblem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{edXsection}
+\end{edXchapter}
+\end{edXcourse}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

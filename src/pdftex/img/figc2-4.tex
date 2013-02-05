@@ -1,0 +1,18 @@
+\def\sc{2cm}
+\begin{tikzpicture} [x=\sc, y=\sc]
+\draw [fill=orange, opacity=.6] (0,0) coordinate (c3) circle (.8);
+\draw [fill=blue, opacity=.5] (.5,.866) coordinate (c2) circle (.8);
+\draw [fill=red, opacity=.5] (-.5,.866) coordinate (c1) circle (.8);
+\draw (c3) circle (.8);
+\draw (c2) circle (.8);
+\node at ($(c1)+(-2ex, 2ex)$) {$R_1$};
+\node at ($(c2)+(2ex, 2ex)$) {$R_2$};
+\node at ($(c3)+(0ex, -2ex)$) {$R_3$};
+\node at (0,1.1) {$S_1$};
+\node at (.45,.4) {$S_2$};
+\node at (-.45,.4) {$S_3$};
+\node at (0,.55) {$T$};
+\node at (-1.35,1.4) {$A$};
+\node at (1.35,1.4) {$B$};
+\node at (0,-.95) {$C$};
+\end{tikzpicture}

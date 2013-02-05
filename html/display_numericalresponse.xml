@@ -1,0 +1,21 @@
+<html>
+<pre>
+&lt;problem>
+
+&lt;startouttext/>
+&lt;p>NOTE: Answer not implemented! (Answer is 0)&lt;/p>
+&lt;endouttext/>
+
+&lt;numericalresponse answer="0">
+&lt;responseparam type="tolerance" default="5%" name="tol" description="Numerical Tolerance"/>
+&lt;textline math="1"/>
+&lt;/numericalresponse>
+
+&lt;solution>
+
+&lt;/solution>
+
+&lt;/problem>
+
+</pre>
+</html>

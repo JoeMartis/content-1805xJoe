@@ -1,0 +1,44 @@
+{
+  "GRADER" : [
+    {
+      "min_count" : 36,
+      "type" : "Lecture",
+      "drop_count" : 0,
+      "short_label" : "LQ",
+      "weight" : 0.05
+    },
+    {
+      "min_count" : 7,
+      "type" : "TEALsim",
+      "drop_count" : 0,
+      "short_label" : "TS",
+      "weight" : 0.02
+    },
+    {
+      "min_count" : 8,
+      "type" : "Homework",
+      "drop_count" : 1,
+      "short_label" : "HW",
+      "weight" : 0.18
+    },
+    {
+      "min_count" : 3,
+      "type" : "Midterm Exam",
+      "drop_count" : 0,
+      "short_label" : "Midterm",
+      "weight" : 0.45
+    },
+    {
+      "type" : "Final",
+      "name" : "Final Exam",
+      "short_label" : "Final",
+      "weight" : 0.30
+    }
+  ],
+  "GRADE_CUTOFFS" : {
+    "A"  : 0.87,
+    "B"  : 0.70,
+    "C"  : 0.60
+  }
+}
+

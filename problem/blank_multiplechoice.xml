@@ -1,0 +1,21 @@
+<problem>
+<startouttext/>
+<endouttext/>
+
+
+    <multiplechoiceresponse>
+     <choicegroup type="MultipleChoice">
+        <choice correct="false" name="1"><text></text></choice>
+        <choice correct="false" name="2"><text></text></choice>
+        <choice correct="false" name="3"><text></text></choice>
+        <choice correct="false" name="4"><text></text></choice>
+        <choice correct="false" name="5"><text></text></choice>
+     </choicegroup>
+    </multiplechoiceresponse>
+
+    <solution>
+        <div class="detailed-solution">
+        </div>
+    </solution>
+
+</problem>

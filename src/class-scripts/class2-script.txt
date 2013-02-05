@@ -1,0 +1,70 @@
+Class 2
+
+--------
+Check for clickers
+
+---------
+TQ: Poker hands        **slide
+Give time
+Show complete solution
+
+--------
+Cast of characters  **slide
+
+Define prob function
+0<= P(w) <= 1
+sum P(w) = 1
+
+--------
+Set operations on events **slide
+
+events as words and subsets
+
+Series of 4 CQ on sets and words 
+page 8 in 1-counting
+
+probability function
+Review definition and rules
+
+CQ inclusion-exclusion
+50 students bottom of page 9
+
+Complement
+P(A) = 1 - P(A^c)
+
+TQ probability what's the probabilty that at least two of us share a birthday
+(assume there are 55 people in the room)
+TA's push people to a solution
+
+CQ lucky larry
+
+TQ lucky larry
+(If you don't see the symbolic algebra immediately try p = .2, p=.5)
+Give solution
+
+TQ Non-transitive die  R > W > G > R
+RED die = 3 3 3 3 3 6
+GREEN die = 1 4 4 4 4 4
+WHITE die = 2 2 2 5 5 5 
+
+Make the die.
+Do battle --take data
+R vs. W  
+
+GET DATA WITH CLICKER
+
+The data seems to show that R  beats W more often than not, let's compute the exact probability.
+
+1) For R and W die make the prob table
+2) Make a prob. table for the product sample space of R and W
+3) What is the probability that R beats W?
+
+TIMED 
+We'll give complete answer
+
+We saw R > W. We'll tell you that W > G
+CQ Does R > G?
+
+FOR HW  you may be surprised.
+
+

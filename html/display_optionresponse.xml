@@ -1,0 +1,18 @@
+<html>
+<pre>
+&lt;problem>
+
+&lt;startouttext/>
+&lt;p>&lt;/p>
+&lt;endouttext/>
+
+&lt;optionresponse>
+&lt;optioninput options="('option1','option2','option3')" correct="option1">&lt;/optioninput>
+&lt;/optionresponse>
+
+&lt;solution>
+&lt;div class="detailed-solution">&lt;/div>
+&lt;/solution>
+&lt;/problem>
+</pre>
+</html>

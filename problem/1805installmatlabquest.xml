@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<problem showanswer="closed" rerandomize="never" weight="4" display_name="Matlab Practice">
+  <text>
+    <p>
+The first thing to do with Matlab is to make sure you can start it and then we'll do some simple calculations. </p>
+    <p>
+Go ahead and start Matlab. You should see a window with a <b class="bfseries">command prompt</b> (the &gt; on the left side of the window). </p>
+    <p><b class="bfseries">1.</b> At the command prompt type the command<br/>&gt; <tt class="ttfamily">2 + 3</tt><br/>Hit return and enter the result here.<br/><numericalresponse answer="5"><textline><responseparam type="tolerance" default="0.0001"/></textline></numericalresponse> </p>
+    <p><b class="bfseries">2.</b> Do the following computations using Matlab. (Enter your answers in the boxes.)<br/>&gt; <tt class="ttfamily">2*3</tt><br/><numericalresponse answer="6"><textline><responseparam type="tolerance" default="0.0001"/></textline></numericalresponse> </p>
+    <p>
+&gt; <tt class="ttfamily">2^3</tt><br/><numericalresponse answer="8"><textline><responseparam type="tolerance" default="0.0001"/></textline></numericalresponse> </p>
+    <p>
+&gt; <tt class="ttfamily">3.14^3.14</tt><br/><numericalresponse answer="36.338"><textline><responseparam type="tolerance" default="0.01"/></textline></numericalresponse> </p>
+    <p><b class="bfseries">3.</b> Use Matlab to do the following computation. (Enter your answer in the box.)<br/>&gt; <tt class="ttfamily">100*mean(sin(30:87))</tt><br/><numericalresponse answer="-2.2"><textline><responseparam type="tolerance" default=".1"/></textline></numericalresponse> </p>
+    <p><b class="bfseries">4.</b> Now we'll do our first random simulation. Don't worry if you don't fully understand the commands. We will explain them in the first tutorial. </p>
+    <p>
+In order to simulate counting the number of heads in 1000 tosses of a fair coin give the following sequence of commands (hit return after each one). </p>
+    <p>
+(In the first command the semicolon at the end will keep a long list of numbers from being written to the screen. If you leave it off, you'll need to use the space bar to page through all the numbers.)<br/>&gt; <tt class="ttfamily">x = binornd(1,.5, 1000,1);</tt><br/>&gt; <tt class="ttfamily">total = sum(x)</tt><br/></p>
+    <p>
+You can use the up arrow to go back and run the commands again. You should get a different total. </p>
+    <p>
+Give the value of the total number of heads for one of your simulations. <numericalresponse answer="500"><textline><responseparam type="tolerance" default="60"/></textline></numericalresponse> </p>
+  </text>
+</problem>

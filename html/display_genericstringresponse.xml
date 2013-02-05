@@ -1,0 +1,26 @@
+<html>
+<pre>
+&lt;problem>
+
+&lt;startouttext/>
+&lt;p>A string response problem accepts a line of text input from the student, and evaluates the input for correctness based on an expected answer within each input box.&lt;/p>
+ 
+&lt;p>The answer is correct if it matches every character of the expected answer. This can be a problem with international spelling, dates, or anything where the format of the answer is not clear. &lt;/p>
+
+&lt;p>Which US state has Lansing as its capital? &lt;/p>
+&lt;endouttext/>
+
+&lt;stringresponse answer="Michigan" type="ci">
+&lt;textline size="20"/>
+&lt;/stringresponse>
+
+&lt;solution>
+&lt;div class="detailed-solution">
+&lt;p>Explanation&lt;/p>
+&lt;p>Lansing is the capital of Michigan, although it is not Michgan's largest city, or even the seat of the county in which it resides.&lt;/p>
+&lt;/div>
+&lt;/solution>
+
+&lt;/problem>
+</pre>
+</html>

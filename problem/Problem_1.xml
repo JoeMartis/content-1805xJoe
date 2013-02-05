@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<problem showanswer="closed" rerandomize="never" weight="40">
+  <text>
+    <ol class="enumerate">
+      <li>[(a)] </li>
+      <li>
+        <p>
+Find the projection [mathjaxinline]p[/mathjaxinline] of the vector [mathjaxinline]b[/mathjaxinline] onto the plane of [mathjaxinline]a_{1}[/mathjaxinline] and [mathjaxinline]a_{2},[/mathjaxinline] when </p>
+        <table id="a0000000002" class="equation" width="100%" cellspacing="0" cellpadding="7" style="table-layout:auto">
+          <tr>
+            <td class="equation">[mathjax]b = \left[ \begin{array}{c} 1\\ 0\\ 0\\ 1 \end{array} \right], \,  \,  \,  \,  \,  \,  \,  \,  a_{1} = \left[ \begin{array}{c} 1\\ 7\\ 1\\ 7 \end{array} \right], \,  \,  \,  \,  \,  \,  \,  \,  a_{2} = \left[ \begin{array}{r} -1\\ 7\\ 1\\ -7 \end{array} \right] .[/mathjax]</td>
+          </tr>
+        </table>
+        <p>
+Please enter your answer as a row matrix, eg <tt class="tt">[1,2,3,4]</tt>: </p>
+        <p>
+          <symbolicresponse expect="[4/25, 0, 0, 28/25]">
+            <textline size="90" correct_answer="[4/25, 0, 0, 28/25]" math="1"/>
+          </symbolicresponse>
+        </p>
+        <p>
+          <solution>
+            <font color="blue">Answer: </font>
+            <font color="blue">Observe that [mathjaxinline]a_1^ T a_2 = 0[/mathjaxinline]. Thus <table id="a0000000003" cellpadding="7" width="100%" cellspacing="0" class="eqnarray" style="table-layout:auto"><tr id="a0000000004"><td style="width:40%">&#xA0;</td><td style="vertical-align:middle;                                    text-align:right">
+	    [mathjaxinline]\displaystyle  p = \frac{a_1^ T b}{a_1^ T a_1} a_1 + \frac{a_2^ T b}{a_2^ T a_2} a_2 = \frac{8}{100}a_1 - \frac{8}{100} a_2 = \begin{bmatrix}  4/25 \\ 0 \\ 0 \\ 28/25 \end{bmatrix}.[/mathjaxinline]
+        </td><td style="width:40%">&#xA0;</td><td style="width:20%" class="eqnnum">&#xA0;</td></tr></table> </font>
+          </solution>
+        </p>
+        <p>
+What projection matrix [mathjaxinline]P[/mathjaxinline] will produce the projection [mathjaxinline]p=Pb[/mathjaxinline] for every vector [mathjaxinline]b[/mathjaxinline] in [mathjaxinline]\mathbb {R}^{4}\,  ?[/mathjaxinline] </p>
+        <p>
+          <symbolicresponse expect="[[2/100,0,0,14/100],[0,98/100,14/100,0],[0,14/100,2/100,0],[14/100,0,0,98/100]]" options="matrix">
+            <textline size="90" correct_answer="[[2/100,0,0,14/100],[0,98/100,14/100,0],[0,14/100,2/100,0],[14/100,0,0,98/100]]" math="1"/>
+          </symbolicresponse>
+        </p>
+        <p>
+          <solution>
+            <font color="blue">Answer: </font>
+            <font color="blue">
+              <p>
+Let [mathjaxinline]A[/mathjaxinline] be the [mathjaxinline]4 \times 2[/mathjaxinline] matrix with columns [mathjaxinline]a_1[/mathjaxinline], [mathjaxinline]a_2[/mathjaxinline]. [mathjaxinline]P[/mathjaxinline] is given by [mathjaxinline]P = A(A^ TA)^{-1}A^ T[/mathjaxinline]. Notice that </p>
+              <table id="a0000000005" class="equation" width="100%" cellspacing="0" cellpadding="7" style="table-layout:auto">
+                <tr>
+                  <td class="equation">[mathjax]A^ T A = \begin{bmatrix}  100 &amp;  0 \\ 0 &amp;  100 \end{bmatrix}.[/mathjax]</td>
+                </tr>
+              </table>
+              <p>
+ ([mathjaxinline]a_1[/mathjaxinline] and [mathjaxinline]a_2[/mathjaxinline] are orthogonal and of same length.) </p>
+              <p>
+Thus </p>
+              <table id="a0000000006" class="equation" width="100%" cellspacing="0" cellpadding="7" style="table-layout:auto">
+                <tr>
+                  <td class="equation">[mathjax]P = \frac{1}{100} AA^ T = \frac{1}{100} \begin{bmatrix}  2 &amp;  0 &amp;  0 &amp;  14 \\ 0 &amp;  98 &amp;  14 &amp;  0 \\ 0 &amp;  14 &amp;  2 &amp;  0 \\ 14 &amp;  0 &amp;  0 &amp;  98 \end{bmatrix}.[/mathjax]</td>
+                </tr>
+              </table>
+            </font>
+          </solution>
+        </p>
+        <p>
+          <br/>
+        </p>
+        <p>
+What is the determinant of [mathjaxinline]I - P \,  ?[/mathjaxinline] Explain your answer. </p>
+        <p>
+          <stringresponse answer="None">
+            <textline/>
+          </stringresponse>
+        </p>
+        <p>
+          <solution>
+            <font color="blue">Answer: </font>
+            <font color="blue">[mathjaxinline]I-P[/mathjaxinline] is the matrix of the projection to the orthgonal complement of [mathjaxinline]C(A)[/mathjaxinline], i.e.&#xA0;[mathjaxinline]N(A^ T)[/mathjaxinline]. In particular, [mathjaxinline]I-P[/mathjaxinline] has rank the dimension of [mathjaxinline]N(A^ T)[/mathjaxinline], which is 3. Thus [mathjaxinline]I-P[/mathjaxinline] is singular, and [mathjaxinline]\det (I-P) = 0[/mathjaxinline]. </font>
+          </solution>
+        </p>
+        <p>
+What are all nonzero eigenvectors of [mathjaxinline]P[/mathjaxinline] with eigenvalue [mathjaxinline]\lambda = 1 \,  ?[/mathjaxinline] </p>
+        <p>
+How is the number of independent eigenvectors with [mathjaxinline]\lambda = 0[/mathjaxinline] of a square matrix [mathjaxinline]A[/mathjaxinline] connected to the rank of [mathjaxinline]A \,  ?[/mathjaxinline]  </p>
+        <p>
+          <stringresponse answer="None">
+            <textline/>
+          </stringresponse>
+        </p>
+        <p>
+(You could answer (c) and (d) even if you don't answer (b).) </p>
+        <p>
+          <solution>
+            <font color="blue">Answer: </font>
+            <font color="blue">
+              <p>
+The non-zero eigenvectors with eigenvalue [mathjaxinline]\lambda = 1[/mathjaxinline] are all the non-zero linear combinations of [mathjaxinline]a_1[/mathjaxinline] and [mathjaxinline]a_2[/mathjaxinline], i.e.&#xA0;all the non-zero vectors in the plane spanned by [mathjaxinline]a_1[/mathjaxinline] and [mathjaxinline]a_2[/mathjaxinline]. </p>
+              <p>
+Suppose [mathjaxinline]A[/mathjaxinline] is a [mathjaxinline]n \times n[/mathjaxinline] matrix, with rank [mathjaxinline]r[/mathjaxinline]. </p>
+              <center>
+                <p>
+ # independent zero-eigenvectors of [mathjaxinline]A[/mathjaxinline] = # independent vectors in [mathjaxinline]N(A)[/mathjaxinline] </p>
+                <p>
+= dimension of [mathjaxinline]N(A)[/mathjaxinline] = [mathjaxinline]n-r[/mathjaxinline] </p>
+              </center>
+            </font>
+          </solution>
+        </p>
+      </li>
+    </ol>
+  </text>
+</problem>

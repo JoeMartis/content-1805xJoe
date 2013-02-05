@@ -1,0 +1,9 @@
+<videosequence display_name="Example video sequence" format="Lesson Sequence">
+<vertical><video display_name="Introducing Evolution" youtube= '1.0:faRlFsYmkeY' /></vertical>
+
+<vertical><problem url_name="example_vertical1"/></vertical>
+
+<problem url_name="example_problem2"/>
+
+<vertical><video display_name="Homer and an iphone" youtube= '1.0:zocGL7AFzaY'/></vertical>
+</videosequence>
